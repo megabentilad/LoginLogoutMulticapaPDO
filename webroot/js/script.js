@@ -1,0 +1,3 @@
+$(function(){
+    //Aquí van cosas
+});

@@ -22,7 +22,7 @@ if (isset($_POST['enviar'])) { //Si se ha pulsado enviar
         $objetoUsuario = Usuario::validarUsuario($codUsuario, $password); //Comprobar que el usuario existe en la base de datos
 
         if (!is_null($objetoUsuario)) { //Si el objeto contiene algo, lo meto en la sesión
-            $_SESSION = $objetoUsuario;
+            $_SESSION['DAW215LoginLogoutPOO'] = $objetoUsuario;
             header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión
             exit;
         } else { //Si el objeto está vacío, creamos un error y recargamos la página
@@ -31,4 +31,5 @@ if (isset($_POST['enviar'])) { //Si se ha pulsado enviar
     }
 }
 $vista = $vistas["login"]; //guarda la variable para que el layout sepa que mostrar
+$tituloPagina = "Página principal"; //Sirve para la cabecera
 require_once $vistas["layout"]; //muesto el layout con el login cómo base
