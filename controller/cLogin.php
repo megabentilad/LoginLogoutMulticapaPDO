@@ -19,7 +19,7 @@ if (isset($_POST['enviar'])) { //Si se ha pulsado enviar
     if ($entradaOK) {
         $codUsuario = $_POST['name'];
         $password = hash('sha256', $_POST['name'] . $_POST['pass']); //Guardar la contraseña ya resumida
-        $objetoUsuario = Usuario::validarUsuario($codUsuario, $password); //Comprobar que el usuario existe en la base de datos
+        $objetoUsuario = UsuarioPDO::validarUsuario($codUsuario, $password); //Comprobar que el usuario existe en la base de datos
 
         if (!is_null($objetoUsuario)) { //Si el objeto contiene algo, lo meto en la sesión
             $_SESSION['DAW215LoginLogoutPOO'] = $objetoUsuario;

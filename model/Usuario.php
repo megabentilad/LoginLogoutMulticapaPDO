@@ -21,7 +21,6 @@
  * se escribian cada vez que querías mostrarlos ahora ya los devuelve cada función a la que se ha llamado sin tener que escribir nada.
  * 
  */
-require_once 'UsuarioPDO.php';
 
 class Usuario{
     private $codUsuario;

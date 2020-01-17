@@ -22,24 +22,20 @@
  * 
  */
 require_once 'BDPDO.php';
+require_once 'Usuario.php';
 
 class UsuarioPDO{
     //Copiado de David
     
     public static function validarUsuario($codUsuario, $password){
         $consulta = "select * from T01_Usuario where T01_CodUsuario=? and T01_Password=?;";
-        $arrayDatosUsuario = [];
+        $objetoUsuario = null;
         $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$codUsuario, $password]);
         if($resultadoConsulta->rowCount() == 1){
             $resultadoFormateado = $resultadoConsulta->fetchObject();
-            $arrayDatosUsuario["T01_CodUsuario"] = $resultadoFormateado->T01_CodUsuario;
-            $arrayDatosUsuario["T01_Password"] = $resultadoFormateado->T01_Password;
-            $arrayDatosUsuario["T01_DescUsuario"] = $resultadoFormateado->T01_DescUsuario;
-            $arrayDatosUsuario["T01_NumAccesos"] = $resultadoFormateado->T01_NumAccesos;
-            $arrayDatosUsuario["T01_FechaHoraUltimaConexion"] = $resultadoFormateado->T01_FechaHoraUltimaConexion;
-            $arrayDatosUsuario["T01_Perfil"] = $resultadoFormateado->T01_Perfil;
+            $objetoUsuario = new Usuario($codUsuario, $password, $resultadoFormateado->T01_DescUsuario, $resultadoFormateado->T01_NumAccesos, $resultadoFormateado->T01_FechaHoraUltimaConexion, $resultadoFormateado->T01_Perfil);
         }
-        return $arrayDatosUsuario;
+        return $objetoUsuario;
     }
 
 }

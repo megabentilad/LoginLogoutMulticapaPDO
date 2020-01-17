@@ -21,7 +21,7 @@
         <a href="#"><button disabled="">Editar perfil</button></a>
         <a href="index.php?cerrar=true"><button>Cerrar sesión</button></a>
         <div class="contenedorBanderas">
-            <a href="programa.php?idioma=espanol"><img src="webroot/img/espana.png" class="bandera" title="Español" alt="Idioma español"></a>
-            <a href="programa.php?idioma=ingles"><img src="webroot/img/inglaterra.png" class="bandera" title="English" alt="English language"></a>
-            <a href="programa.php?idioma=aleman"><img src="webroot/img/alemania.png" class="bandera" title="Deutsch" alt="Deutsche sprache"></a>
+            <a href="?idioma=espanol"><img src="webroot/img/espana.png" class="bandera" title="Español" alt="Idioma español"></a>
+            <a href="?idioma=ingles"><img src="webroot/img/inglaterra.png" class="bandera" title="English" alt="English language"></a>
+            <a href="?idioma=aleman"><img src="webroot/img/alemania.png" class="bandera" title="Deutsch" alt="Deutsche sprache"></a>
         </div>
