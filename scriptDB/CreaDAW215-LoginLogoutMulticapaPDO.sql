@@ -23,6 +23,6 @@
 -- Crear del usuario --
     CREATE USER IF NOT EXISTS 'usuarioDAW215LoginLogoutPDO'@'%' identified BY 'paso'; 
 -- Dar permisos al usuario --
-    GRANT ALL PRIVILEGES ON DAW215DBProyectoTema5.* TO 'usuarioDAW215LoginLogoutPDO'@'%'; 
+    GRANT ALL PRIVILEGES ON DAW215LoginLogoutMulticapaPDO.* TO 'usuarioDAW215LoginLogoutPDO'@'%'; 
 -- Hacer el flush privileges, por si acaso --
     FLUSH PRIVILEGES;

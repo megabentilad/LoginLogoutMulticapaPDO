@@ -27,7 +27,7 @@ class UsuarioPDO{
     //Copiado de David
     
     public static function validarUsuario($codUsuario, $password){
-        $consulta = "select * from T01_Usuario where T01_CodUsuario=? and T01_Password=?";
+        $consulta = "select * from T01_Usuario where T01_CodUsuario=? and T01_Password=?;";
         $arrayDatosUsuario = [];
         $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$codUsuario, $password]);
         if($resultadoConsulta->rowCount() == 1){
