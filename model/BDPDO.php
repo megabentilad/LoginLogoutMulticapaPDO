@@ -32,6 +32,7 @@ class BDPDO{
             $resultado = $miDB->prepare($consulta);
             $resultado->execute($parametros);
         } catch (Exception $ex) {
+            echo $ex->getMessage();
             $resultado = null;
         }
         return $resultado;

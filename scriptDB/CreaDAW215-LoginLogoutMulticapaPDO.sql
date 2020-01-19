@@ -17,7 +17,7 @@
         T01_Password varchar(64) NOT null,
         T01_DescUsuario varchar(250) NOT null,
         T01_NumAccesos int default 0,
-        T01_FechaHoraUltimaConexion timestamp NULL,
+        T01_FechaHoraUltimaConexion int default 0, -- Es un entero porque timestamp es una porquería no util para lo que quiero hacer
         T01_Perfil enum('administrador', 'usuario') default 'usuario' -- Valor por defecto usuario
     );
 -- Crear del usuario --

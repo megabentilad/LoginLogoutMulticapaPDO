@@ -9,11 +9,13 @@ include_once 'model/UsuarioPDO.php';
 //Hacemnos estos arrays para facilitar la comprensión del código
 $controladores = [
     "inicio" => "controller/cInicio.php",
-    "login" => "controller/cLogin.php"
+    "login" => "controller/cLogin.php",
+    "registro" => "controller/cRegistro.php"
 ];
 
 $vistas = [
     "layout" => "view/Layout.php",
     "inicio" => "view/vInicio.php",
     "login" => "view/vLogin.php",
+    "registro" => "view/vRegistro.php"
 ];

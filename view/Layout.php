@@ -7,6 +7,8 @@
         <link rel="stylesheet" type="text/css" href="webroot/css/styles.css" media="screen">
         <?php
         if($vista == "view/vLogin.php"){echo '<link rel="stylesheet" type="text/css" href="webroot/css/stylesLogin.css" media="screen">';}?>
+        <?php
+        if($vista == "view/vRegistro.php"){echo '<link rel="stylesheet" type="text/css" href="webroot/css/stylesRegistro.css" media="screen">';}?>
         <link rel="icon" type="image/png" href="webroot/img/mifavicon.png">
         <script src="webroot/js/jquery.js"></script>
         <script src="webroot/js/script.js"></script>
@@ -18,7 +20,8 @@
                     Login Logout MVC
                 </h1>
                 <h2>
-                    <?phpecho $tituloPagina?>
+                    <?php
+                    echo $_SESSION['DAW215LLPOOtituloPagina']?>
                 </h2>
             </div>
         </header>

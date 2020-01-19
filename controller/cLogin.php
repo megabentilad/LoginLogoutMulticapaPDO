@@ -23,13 +23,14 @@ if (isset($_POST['enviar'])) { //Si se ha pulsado enviar
 
         if (!is_null($objetoUsuario)) { //Si el objeto contiene algo, lo meto en la sesión
             $_SESSION['DAW215LoginLogoutPOO'] = $objetoUsuario;
+            UsuarioPDO::actualizarUsuario($codUsuario);
             header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión
             exit;
         } else { //Si el objeto está vacío, creamos un error y recargamos la página
-            $aErrores['name'] = "El usuario o la contraseña no son correctos";
+            $aErrores['name'] = "El usuario o la contraseña son incorrectos";
         }
     }
 }
 $vista = $vistas["login"]; //guarda la variable para que el layout sepa que mostrar
-$tituloPagina = "Página principal"; //Sirve para la cabecera
+$_SESSION['DAW215LLPOOtituloPagina'] = "Login"; //Sirve para la cabecera
 require_once $vistas["layout"]; //muesto el layout con el login cómo base

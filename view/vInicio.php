@@ -17,7 +17,6 @@
         }
         ?>
         <br/>
-        <a href="#"><button disabled="">Ir al detalle</button></a>
         <a href="#"><button disabled="">Editar perfil</button></a>
         <a href="index.php?cerrar=true"><button>Cerrar sesión</button></a>
         <div class="contenedorBanderas">

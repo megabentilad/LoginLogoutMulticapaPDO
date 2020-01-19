@@ -100,27 +100,6 @@ class Usuario{
     function setPerfil($perfil) {
         $this->perfil = $perfil;
     }
-        
-    /**
-     * @function validarUsuario();
-     * @author Adrián Cando Oviedo
-     * @version 1.0 He eliminado todos los if innecesrios que había simplificandolo a llamar a las funciones internas de errores que devuelven un error si le hay
-     * concatenando esos errores en una cadena. Y comprobando que está vacío siempre que sea obligatorio. He añadido algunos comentarios explicando los nuevos cambios.
-     * @since 2018-10-23
-     * @param $cadena Cadena que se va a comprobar.
-     * @param $maxTamanio Tamaño máximo de la cádena.
-     * @param $minTamanio Tamaño mínimo de la cadena.
-     * @param $obligatorio Valor booleano indicado mediante 1, si es obligatorio o 0 si no lo es.
-     * @return null -> Si la variable errores es null o en su defecto contiene tan sólo espacios en blanco
-     * $mensajeError -> Que contiene una cadena con los errores que han surgido concatenados.
-     **/
-    public static function validarUsuario ($codUsuario, $password){
-        $usuario = null;
-        $usuarioEnBD = UsuarioPDO::validarUsuario($codUsuario, $password);
-        if(!empty($usuarioEnBD)){
-            $usuario = new Usuario($codUsuario, $password, $usuarioEnBD["T01_DescUsuario"], $usuarioEnBD["T01_NumAccesos"], $usuarioEnBD["T01_FechaHoraUltimaConexion"], $usuarioEnBD["T01_Perfil"]);
-        }
-        return $usuario;
-    }
+
     
 }

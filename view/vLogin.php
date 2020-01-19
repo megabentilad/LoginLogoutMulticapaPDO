@@ -1,20 +1,29 @@
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+<form action="<?php $_SESSION['DAW215LLPagina']=$controladores['login']; echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <fieldset>
                     <div class="obligatorio">
                         <label for="name">Nombre de usuario: </label>
-                        <input type="text" id="name" name="name" placeholder="Usuario" width="10" height="20" value="<?php if($aErrores['name'] == NULL && isset($_POST['name'])){ echo $_POST['name'];} ?>"><br>
+                        <input type="text" id="name" name="name" placeholder="Usuario" width="10" height="20" value="<?php if(isset($_POST['name'])){ echo $_POST['name'];} ?>"><br>
                               
                     </div>
                     <br/>
                     <div class="obligatorio">
                         <label for="pass">Contraseña: </label> 
-                        <input type="password" id="pass" name="pass" placeholder="Contraseña" value="<?php if($aErrores['pass'] == NULL && isset($_POST['pass'])){ echo $_POST['pass'];} ?>"><br>
+                        <input type="password" id="pass" name="pass" placeholder="Contraseña"><br>
                                
                     </div>
+                    <div class="recordar">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                            <span class="trecordar">Recuérdame</span>
+                        </label>
+                    </div>
+                    <br/>
+                    <br/>
                     <br/>
                     <div>
                         <input type="submit" name="enviar" value="Iniciar sesión">
-                        <a href="registro.php"><input type="button" name="registro" value="Registrarse"></a>
+                        <a href="<?php echo $_SERVER['PHP_SELF']; ?>"><input type="button" name="registro" value="Registrarse"></a>
                     </div>
                 </fieldset>
             </form>
