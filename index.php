@@ -4,6 +4,7 @@
 include_once 'config/ConfAplicación.php';
 include_once 'config/ConfDB.php';
 setlocale(LC_ALL,"es_ES.UTF-8"); //Pongo el idioma en español
+session_destroy();
 session_start();
 foreach ($GLOBALS as $todo => $variable) {
                 if (is_array($variable)) {
@@ -21,8 +22,11 @@ foreach ($GLOBALS as $todo => $variable) {
             }
             
             
-            
- if (!isset($_SESSION['DAW215LoginLogoutPOO'])) {  //Si el usuario no está definido, entras al login y, si está definido, al inicio
+if(isset($_REQUEST['pagina'])){
+    $_SESSION['DAW215LLPagina'] = $_REQUEST['pagina'];
+    
+}     
+if (!isset($_SESSION['DAW215LoginLogoutPOO'])) {  //Si el usuario no está definido, entras al login y, si está definido, al inicio
      if(!isset($_SESSION['DAW215LLPagina'])){
          include_once $controladores['login'];
      }else{

@@ -23,7 +23,7 @@
                     <br/>
                     <div>
                         <input type="submit" name="enviar" value="Iniciar sesión">
-                        <a href="<?php echo $_SERVER['PHP_SELF']; ?>"><input type="button" name="registro" value="Registrarse"></a>
+                        <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=" . $controladores['registro']; ?>"><input type="button" name="registro" value="Registrarse"></a>
                     </div>
                 </fieldset>
             </form>
