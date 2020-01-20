@@ -7,12 +7,6 @@
         'pass' => null,
         'pass2' => null
     ];
-    if(isset($_REQUEST['pagina'])){
-        $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
-        $_SESSION['DAW215LLPagina'] = $_REQUEST['pagina'];
-        header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión
-        exit;
-    }
     if (isset($_POST['enviar'])) { //Si se ha pulsado enviar
         //La posición del array de errores recibe el mensaje de error si hubiera
         $aErrores['name'] = validacionFormularios::comprobarAlfaNumerico($_POST['name'], 15, 1, 1);  //maximo, mínimo y opcionalidad
@@ -40,5 +34,5 @@
     }
 $vista = $vistas["registro"]; //guarda la variable para que el layout sepa que mostrar
 $_SESSION['DAW215LLPOOtituloPagina'] = "Registro"; //Sirve para la cabecera
-$_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
+//$_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
 require_once $vistas["layout"]; //muesto el layout con el login cómo base

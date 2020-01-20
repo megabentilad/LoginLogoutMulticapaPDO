@@ -60,5 +60,10 @@ class UsuarioPDO{
         BDPDO::ejecutarConsulta($consulta, [$codUsuario, $descUsuario, $password]);
         return self::validarUsuario($codUsuario, $password);
     }
-
+    
+    public static function modificarUsuario($codUsuario, $nuevaDescUsuario){
+        $consulta = "UPDATE T01_Usuario SET T01_DescUsuario = ? WHERE CodUsuario = ?;";
+        BDPDO::ejecutarConsulta($consulta, [$nuevaDescUsuario, $codUsuario]);
+        return true;
+    }
 }

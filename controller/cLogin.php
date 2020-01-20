@@ -4,7 +4,6 @@ $aErrores = [
     'name' => null,
     'pass' => null
 ];
-$_SESSION['DAW215LLPagina'] = $controladores['login'];
 if(isset($_REQUEST['pagina'])){
     $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
     $_SESSION['DAW215LLPagina'] = $_REQUEST['pagina'];
