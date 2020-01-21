@@ -15,7 +15,7 @@
                         <label class="switch">
                             <input type="checkbox">
                             <span class="slider"></span>
-                            <span class="trecordar">Recuérdame</span>
+                            <span class="trecordar">Recordar</span>
                         </label>
                     </div>
                     <br/>

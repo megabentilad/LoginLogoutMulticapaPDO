@@ -1,5 +1,11 @@
 <?php
-
+if(isset($_REQUEST['pagina'])){
+    $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
+    $_SESSION['DAW215LLPagina'] = $_REQUEST['pagina'];
+    header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión
+    exit;
+}
+setlocale(LC_ALL,"es_ES.UTF-8"); //Pongo el idioma en español
 if (isset($_GET["cerrar"])) {
     session_destroy();
     header("location: index.php");
@@ -26,7 +32,7 @@ if (isset($_GET["cerrar"])) {
         exit;
     }
 
-    $vista = $vistas['inicio']; //le digo al controlador la vista de inicio
-    $_SESSION['DAW215LLPOOtituloPagina'] = "Página de usuario registrado"; //Sirve para la cabecera
+    $vista = $vistas[$_SESSION['DAW215LLPagina']]; //le digo al controlador la vista de inicio
+    $_SESSION['DAW215LLPOOtituloPagina'] = ucfirst($_SESSION['DAW215LLPagina']); //Sirve para la cabecera
     require_once $vistas['layout']; //cargo la página que contiene inicio
 }
