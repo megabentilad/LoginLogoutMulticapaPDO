@@ -1,4 +1,4 @@
-<h3><?php echo $mensajeDeBienvenida; ?>.</h3>
+<h3><?php echo $mensajeDeBienvenida; ?></h3>
         <br/>
         <?php
         //Cambia el texto según la cookie del idioma

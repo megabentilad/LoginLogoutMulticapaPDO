@@ -34,8 +34,8 @@ if(isset($_REQUEST['pagina'])){
                 $aErrores['name'] = "El usuario ya existe";
             }else{
                 $objetoUsuario = UsuarioPDO::crearUsuario($codUsuario, $descUsuario, $password); //Comprobar que el usuario existe en la base de datos
-
                 $_SESSION['DAW215LoginLogoutPOO'] = $objetoUsuario;
+                UsuarioPDO::actualizarUsuario($codUsuario);
                 $_SESSION['DAW215LLPagina'] = 'inicio';
                 $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
                 header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión

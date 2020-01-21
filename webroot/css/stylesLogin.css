@@ -40,6 +40,15 @@ input{
     width: 80px;
 }
 
+.diagramaDeClases{
+    position: absolute;
+    top: 20px;
+    left: -80px;
+}
+.imagenDiagramaDeClases{
+    width: 75%;
+}
+
 /*Slider de recordar*/
 .recordar{
     position: relative;

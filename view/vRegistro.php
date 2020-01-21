@@ -1,24 +1,22 @@
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
     <fieldset>
         <div class="obligatorio">
             <label for="name">Nombre del usuario: </label>
-            <input type="text" id="name" name="name" placeholder="Usuario" width="10" height="20" value="<?php if ($aErrores['name'] == NULL && isset($_POST['name'])) {
+            <input type="text" id="name" name="name" placeholder="Usuario" width="10" height="20" value="<?php if (isset($_POST['name'])) {
     echo $_POST['name'];
 } ?>"><br>   
         </div>
         <br/>
         <div class="obligatorio">
             <label for="desc">Descripción del usuario: </label>
-            <input type="text" id="desc" name="desc" placeholder="Descripción" width="10" height="20" value="<?php if ($aErrores['desc'] == NULL && isset($_POST['desc'])) {
+            <input type="text" id="desc" name="desc" placeholder="Descripción" width="10" height="20" value="<?php if (isset($_POST['desc'])) {
     echo $_POST['desc'];
 } ?>"><br>   
         </div>
         <br/>
         <div class="obligatorio">
             <label for="pass">Contraseña: </label> 
-            <input type="password" id="pass" name="pass" placeholder="Contraseña" value="<?php if ($aErrores['pass'] == NULL && isset($_POST['pass'])) {
-    echo $_POST['pass'];
-} ?>"><br>      
+            <input type="password" id="pass" name="pass" placeholder="Contraseña"><br>      
         </div>
         <br/>
         <div class="obligatorio">

@@ -16,7 +16,7 @@ if (!isset($_SESSION['DAW215LoginLogoutPOO'])) {  //Si el usuario no está defin
      }
 }else{
     if(isset($_SESSION['DAW215LLPagina'])){ //Si no se especifica a la página a la que ir, vas a inicio
-        $controladores[$_SESSION['DAW215LLPagina']];
+        include_once $controladores[$_SESSION['DAW215LLPagina']];
     }else{
         include_once $controladores['inicio'];
     }

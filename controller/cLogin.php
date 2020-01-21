@@ -32,9 +32,9 @@ if (isset($_POST['enviar'])) { //Si se ha pulsado enviar
         $objetoUsuario = UsuarioPDO::validarUsuario($codUsuario, $password); //Comprobar que el usuario existe en la base de datos
 
         if (!is_null($objetoUsuario)) { //Si el objeto contiene algo, lo meto en la sesión
-            UsuarioPDO::actualizarUsuario($codUsuario);
             $_SESSION['DAW215LoginLogoutPOO'] = $objetoUsuario;
-            $_SESSION['DAW215LLPagina'] = $_SESSION['DAW215LLPagina'];
+            UsuarioPDO::actualizarUsuario($codUsuario);
+            $_SESSION['DAW215LLPagina'] = 'inicio';
             header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión
             exit;
         } else { //Si el objeto está vacío, creamos un error y recargamos la página
