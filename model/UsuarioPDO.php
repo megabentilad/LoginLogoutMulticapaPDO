@@ -62,8 +62,11 @@ class UsuarioPDO{
     }
     
     public static function modificarUsuario($codUsuario, $nuevaDescUsuario){
-        $consulta = "UPDATE T01_Usuario SET T01_DescUsuario = ? WHERE CodUsuario = ?;";
+        $consulta = "UPDATE T01_Usuario SET T01_DescUsuario = ? WHERE T01_CodUsuario = ?;";
         BDPDO::ejecutarConsulta($consulta, [$nuevaDescUsuario, $codUsuario]);
-        return true;
+        
+        $objetoUsuario = new Usuario($codUsuario, $_SESSION['DAW215LoginLogoutPOO']->getPassword(), $nuevaDescUsuario, $_SESSION['DAW215LoginLogoutPOO']->getNumAccesos(), $_SESSION['DAW215LoginLogoutPOO']->getFechaHoraUltimaConexion(), $_SESSION['DAW215LoginLogoutPOO']->getPerfil());
+
+        return $objetoUsuario;
     }
 }

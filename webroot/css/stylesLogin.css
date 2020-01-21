@@ -43,10 +43,10 @@ input{
 .diagramaDeClases{
     position: absolute;
     top: 20px;
-    left: -80px;
+    left: 20px;
 }
 .imagenDiagramaDeClases{
-    width: 75%;
+    width: 30vw;
 }
 
 /*Slider de recordar*/

@@ -1,0 +1,37 @@
+label{
+    float: left;
+    height: 40px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+input{
+    font-size: 20px;
+}
+input[type="text"]{
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    float: right;
+}
+.obligatorio{
+    height: 50px;
+}
+.error{
+    background-color: #ff708c;
+    width: 15%;
+    padding: 0.5%;
+    border-radius: 10px;
+    display: inline-block;
+    position: absolute;
+}
+#edesc{
+    top: 230px;
+}
+.volver{
+    position: absolute;
+    top: 20px;
+}
+.icono{
+    width: 80px;
+}

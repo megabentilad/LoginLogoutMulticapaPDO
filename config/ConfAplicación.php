@@ -10,12 +10,14 @@ include_once 'model/UsuarioPDO.php';
 $controladores = [
     "inicio" => "controller/cInicio.php",
     "login" => "controller/cLogin.php",
-    "registro" => "controller/cRegistro.php"
+    "registro" => "controller/cRegistro.php",
+    "miCuenta" => "controller/cMiCuenta.php"
 ];
 
 $vistas = [
     "layout" => "view/Layout.php",
     "inicio" => "view/vInicio.php",
     "login" => "view/vLogin.php",
-    "registro" => "view/vRegistro.php"
+    "registro" => "view/vRegistro.php",
+    "miCuenta" => "view/vMiCuenta.php"
 ];

@@ -9,6 +9,8 @@
         if($vista == "view/vLogin.php"){echo '<link rel="stylesheet" type="text/css" href="webroot/css/stylesLogin.css" media="screen">';}?>
         <?php
         if($vista == "view/vRegistro.php"){echo '<link rel="stylesheet" type="text/css" href="webroot/css/stylesRegistro.css" media="screen">';}?>
+        <?php
+        if($vista == "view/vMiCuenta.php"){echo '<link rel="stylesheet" type="text/css" href="webroot/css/stylesMiCuenta.css" media="screen">';}?>
         <link rel="icon" type="image/png" href="webroot/img/mifavicon.png">
         <script src="webroot/js/jquery.js"></script>
         <script src="webroot/js/script.js"></script>

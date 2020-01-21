@@ -17,7 +17,7 @@
         }
         ?>
         <br/>
-        <a href="#"><button disabled="">Editar perfil</button></a>
+        <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=" . 'miCuenta'; ?>"><button>Editar perfil</button></a>
         <a href="index.php?cerrar=true"><button>Cerrar sesión</button></a>
         <div class="contenedorBanderas">
             <a href="?idioma=espanol"><img src="webroot/img/espana.png" class="bandera" title="Español" alt="Idioma español"></a>
