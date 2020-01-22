@@ -11,7 +11,9 @@ $controladores = [
     "inicio" => "controller/cInicio.php",
     "login" => "controller/cLogin.php",
     "registro" => "controller/cRegistro.php",
-    "miCuenta" => "controller/cMiCuenta.php"
+    "miCuenta" => "controller/cMiCuenta.php",
+    "mtoDepartamentos" => "controller/cMtoDepartamentos.php",
+    "mtoUsuarios" => "controller/cMtoUsuarios.php"
 ];
 
 $vistas = [
@@ -19,5 +21,7 @@ $vistas = [
     "inicio" => "view/vInicio.php",
     "login" => "view/vLogin.php",
     "registro" => "view/vRegistro.php",
-    "miCuenta" => "view/vMiCuenta.php"
+    "miCuenta" => "view/vMiCuenta.php",
+    "mtoDepartamentos" => "view/vMtoDepartamentos.php",
+    "mtoUsuarios" => "view/vMtoUsuarios.php"
 ];

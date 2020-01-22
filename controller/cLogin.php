@@ -33,7 +33,6 @@ if (isset($_POST['enviar'])) { //Si se ha pulsado enviar
 
         if (!is_null($objetoUsuario)) { //Si el objeto contiene algo, lo meto en la sesión
             $_SESSION['DAW215LoginLogoutPOOUsuario'] = $objetoUsuario;
-            UsuarioPDO::actualizarUsuario($codUsuario);
             $_SESSION['DAW215LLPagina'] = 'inicio';
             header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión
             exit;

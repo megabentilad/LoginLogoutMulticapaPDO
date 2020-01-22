@@ -40,4 +40,4 @@
     <?php echo $aErrores['pass']; //Mensaje de error que tiene el array aErrores    ?>
     </div>   
 <?php } ?>    
-<a href="webroot/img/DiagramaDeClases.PNG" target="_blank"><div class="diagramaDeClases"><img src="webroot/img/DiagramaDeClases.PNG" title="Diagrama de clases" alt="Diagrama de clases" class="imagenDiagramaDeClases"></div></a>
+<div class="diagramaDeClases"><img src="webroot/img/DiagramaDeClases.png" title="Diagrama de clases" alt="Diagrama de clases" class="imagenDiagramaDeClases"></div>

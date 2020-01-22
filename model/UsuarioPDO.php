@@ -34,18 +34,19 @@ class UsuarioPDO{
         if($resultadoConsulta->rowCount() == 1){
             $resultadoFormateado = $resultadoConsulta->fetchObject();
             $objetoUsuario = new Usuario($codUsuario, $password, $resultadoFormateado->T01_DescUsuario, $resultadoFormateado->T01_NumAccesos, $resultadoFormateado->T01_FechaHoraUltimaConexion, $resultadoFormateado->T01_Perfil);
+        
+            //actualizar usuario
+            $consulta1 = "UPDATE T01_Usuario SET T01_FechaHoraUltimaConexion = " . time() . " WHERE T01_CodUsuario=?;";
+            BDPDO::ejecutarConsulta($consulta1, [$codUsuario]);
+            $consulta2 = "UPDATE T01_Usuario SET T01_NumAccesos = " . (intval($resultadoFormateado->T01_NumAccesos) + 1) . " WHERE T01_CodUsuario=?;";
+            BDPDO::ejecutarConsulta($consulta2, [$codUsuario]);
+            
         }
+        
+        
         return $objetoUsuario;
     }
-    
-    public static function actualizarUsuario($codUsuario){
-        $consulta1 = "UPDATE T01_Usuario SET T01_FechaHoraUltimaConexion = " . time() . " WHERE T01_CodUsuario=?;";
-        BDPDO::ejecutarConsulta($consulta1, [$codUsuario]);
-        $consulta2 = "UPDATE T01_Usuario SET T01_NumAccesos = " . (intval($_SESSION['DAW215LoginLogoutPOOUsuario']->getNumAccesos()) + 1) . " WHERE T01_CodUsuario=?;";
-        BDPDO::ejecutarConsulta($consulta2, [$codUsuario]);
-        return true;
-    }
-    
+
     public static function existeUsuario($codUsuario){
         $consulta = "SELECT T01_CodUsuario FROM T01_Usuario WHERE T01_CodUsuario=?;";
         $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$codUsuario]);
