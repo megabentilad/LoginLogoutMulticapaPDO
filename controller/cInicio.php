@@ -11,13 +11,13 @@ if (isset($_GET["cerrar"])) {
     header("location: index.php");
     exit;
 } else {
-    if ($_SESSION["DAW215LoginLogoutPOO"]->getNumAccesos() == 0) {
-        $mensajeDeBienvenida = "Wolas, es la primera vez que te conectas, " . ucfirst($_SESSION["DAW215LoginLogoutPOO"]->getDescUsuario()) . ".";
+    if ($_SESSION["DAW215LoginLogoutPOOUsuario"]->getNumAccesos() == 0) {
+        $mensajeDeBienvenida = "Wolas, es la primera vez que te conectas, " . ucfirst($_SESSION["DAW215LoginLogoutPOOUsuario"]->getDescUsuario()) . ".";
     } else{
         $fechaUltimaConexion = new DateTime();
         $fechaUltimaConexion->setTimezone(new DateTimeZone('Europe/Madrid'));
-        $fechaUltimaConexion->setTimestamp($_SESSION['DAW215LoginLogoutPOO']->getFechaHoraUltimaConexion());
-        $mensajeDeBienvenida = "Es un placer verte de nuevo, " .  ucfirst($_SESSION["DAW215LoginLogoutPOO"]->getDescUsuario()) .". <br/><br/>Esta es la " . (intval($_SESSION["DAW215LoginLogoutPOO"]->getNumAccesos()) + 1) . "ª vez que me visitas. <br/><br/>La ultima vez que te conectaste fue el " . $fechaUltimaConexion->format("d") . " de " . $fechaUltimaConexion->format("F") . " del " . $fechaUltimaConexion->format("Y \a \l\a\s H:i:s");
+        $fechaUltimaConexion->setTimestamp($_SESSION['DAW215LoginLogoutPOOUsuario']->getFechaHoraUltimaConexion());
+        $mensajeDeBienvenida = "Es un placer verte de nuevo, " .  ucfirst($_SESSION["DAW215LoginLogoutPOOUsuario"]->getDescUsuario()) .". <br/><br/>Esta es la " . (intval($_SESSION["DAW215LoginLogoutPOOUsuario"]->getNumAccesos()) + 1) . "ª vez que me visitas. <br/><br/>La ultima vez que te conectaste fue el " . $fechaUltimaConexion->format("d") . " de " . $fechaUltimaConexion->format("F") . " del " . $fechaUltimaConexion->format("Y \a \l\a\s H:i:s");
     }
     //Cosas del idioma
     if(!isset($_COOKIE['idiomaDAW215'])){  //Por si acaso la cookie expira durante la conexión

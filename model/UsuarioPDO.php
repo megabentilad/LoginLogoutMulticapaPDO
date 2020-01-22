@@ -41,7 +41,7 @@ class UsuarioPDO{
     public static function actualizarUsuario($codUsuario){
         $consulta1 = "UPDATE T01_Usuario SET T01_FechaHoraUltimaConexion = " . time() . " WHERE T01_CodUsuario=?;";
         BDPDO::ejecutarConsulta($consulta1, [$codUsuario]);
-        $consulta2 = "UPDATE T01_Usuario SET T01_NumAccesos = " . (intval($_SESSION['DAW215LoginLogoutPOO']->getNumAccesos()) + 1) . " WHERE T01_CodUsuario=?;";
+        $consulta2 = "UPDATE T01_Usuario SET T01_NumAccesos = " . (intval($_SESSION['DAW215LoginLogoutPOOUsuario']->getNumAccesos()) + 1) . " WHERE T01_CodUsuario=?;";
         BDPDO::ejecutarConsulta($consulta2, [$codUsuario]);
         return true;
     }
@@ -65,7 +65,7 @@ class UsuarioPDO{
         $consulta = "UPDATE T01_Usuario SET T01_DescUsuario = ? WHERE T01_CodUsuario = ?;";
         BDPDO::ejecutarConsulta($consulta, [$nuevaDescUsuario, $codUsuario]);
         
-        $objetoUsuario = new Usuario($codUsuario, $_SESSION['DAW215LoginLogoutPOO']->getPassword(), $nuevaDescUsuario, $_SESSION['DAW215LoginLogoutPOO']->getNumAccesos(), $_SESSION['DAW215LoginLogoutPOO']->getFechaHoraUltimaConexion(), $_SESSION['DAW215LoginLogoutPOO']->getPerfil());
+        $objetoUsuario = new Usuario($codUsuario, $_SESSION['DAW215LoginLogoutPOOUsuario']->getPassword(), $nuevaDescUsuario, $_SESSION['DAW215LoginLogoutPOOUsuario']->getNumAccesos(), $_SESSION['DAW215LoginLogoutPOOUsuario']->getFechaHoraUltimaConexion(), $_SESSION['DAW215LoginLogoutPOOUsuario']->getPerfil());
 
         return $objetoUsuario;
     }

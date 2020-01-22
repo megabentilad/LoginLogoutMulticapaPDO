@@ -2,27 +2,27 @@
                 <fieldset>
                     <div class="obligatorio">
                         <label for="name">Nombre del usuario: </label>
-                        <input type="text" id="name" name="name" width="10" height="20" value="<?php echo $datos['codigo'] ?>" disabled><br>   
+                        <input type="text" id="name" name="name" width="10" height="20" value="<?php echo $_SESSION['DAW215LoginLogoutPOOUsuario']->getCodUsuario(); ?>" disabled><br>   
                     </div>
                     <br/>
                     <div class="obligatorio">
                         <label for="desc">Descripción del usuario: </label>
-                        <input type="text" id="desc" name="desc" placeholder="Descripción" value="<?php echo $datos['descripcion']; ?>" width="10" height="20"><br>   
+                        <input type="text" id="desc" name="desc" placeholder="Descripción" value="<?php echo $_SESSION['DAW215LoginLogoutPOOUsuario']->getDescUsuario(); ?>" width="10" height="20"><br>   
                     </div>
                     <br/>
                     <div class="obligatorio">
                         <label for="tipo">Tipo de usuario: </label> 
-                        <input type="text" id="tipo" name="tipo" value="<?php echo $datos['tipo'] ?>" disabled><br>      
+                        <input type="text" id="tipo" name="tipo" value="<?php echo $_SESSION['DAW215LoginLogoutPOOUsuario']->getPerfil(); ?>" disabled><br>      
                     </div>
                     <br/>
                     <div class="obligatorio">
                         <label for="conexiones">Número de accesos: </label> 
-                        <input type="text" id="conexiones" name="conexiones" value="<?php echo $datos['accesos'] ?>" disabled><br>        
+                        <input type="text" id="conexiones" name="conexiones" value="<?php echo $_SESSION['DAW215LoginLogoutPOOUsuario']->getNumAccesos() + 1; ?>" disabled><br>        
                     </div>
                     <br/>
                     <div class="obligatorio">
                         <label for="fecha">Fecha de la última conexión: </label> 
-                        <input type="text" id="fecha" name="fecha" value="<?php echo date('d/m/Y - H:i:s',$datos['fecha']) ?>" disabled><br>        
+                        <input type="text" id="fecha" name="fecha" value="<?php echo date('d/m/Y - H:i:s',$_SESSION['DAW215LoginLogoutPOOUsuario']->getFechaHoraUltimaConexion()); ?>" disabled><br>        
                     </div>
                     <br/>
                     <div>

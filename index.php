@@ -8,7 +8,7 @@ session_start();
 
 
  
-if (!isset($_SESSION['DAW215LoginLogoutPOO'])) {  //Si el usuario no está definido, entras al login y, si está definido, al inicio
+if (!isset($_SESSION['DAW215LoginLogoutPOOUsuario'])) {  //Si el usuario no está definido, entras al login y, si está definido, al inicio
      if(!isset($_SESSION['DAW215LLPagina'])){
          include_once $controladores['login'];
      }else{
