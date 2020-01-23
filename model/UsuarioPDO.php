@@ -70,4 +70,13 @@ class UsuarioPDO{
 
         return $objetoUsuario;
     }
+    
+    public static function borrarUsuario($codUsuario){
+        $consulta = "DELETE FROM T01_Usuario WHERE T01_CodUsuario = ?;";
+        BDPDO::ejecutarConsulta($consulta, [$codUsuario]);
+        
+        $objetoUsuario = null;
+
+        return $objetoUsuario;
+    }
 }

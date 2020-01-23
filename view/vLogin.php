@@ -40,4 +40,16 @@
     <?php echo $aErrores['pass']; //Mensaje de error que tiene el array aErrores    ?>
     </div>   
 <?php } ?>    
+<div id="marco">
+    <div id="aguja"></div>
+    <div id="centro"></div>
+    <div id="minutero"></div>
+    <div id="horero"></div>
+    <div id="doce">12</div>
+    <div id="tres">3</div>
+    <div id="seis">6</div>
+    <div id="nueve">9</div>
+</div>   
 <div class="diagramaDeClases"><img src="webroot/img/DiagramaDeClases.png" title="Diagrama de clases" alt="Diagrama de clases" class="imagenDiagramaDeClases"></div>
+<div class="estructuraDeAlmacenamiento"><img src="webroot/img/estructuraDeAlmacenamiento.png" title="Estructura de almacenamiento" alt="Estructura de almacenamiento" class="imagenEstructuraDeAlmacenamiento"></div>
+<a href="doc/200113CatalogoDeRequisitos.pdf" target="_blank"><div class="catalogoDeRequisitos"><img src="webroot/img/catalogoDeRequisitos.PNG" title="Catalogo de requisitos" alt="Catalogo de requisitos" class="imagencatalogoDeRequisitos"></div></a>

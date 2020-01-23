@@ -31,7 +31,8 @@
                     </div>
                 </fieldset>
                 <br/>
-                <a href="cambiarPassword.php"><input type="button" name="volver" value="Cambiar contraseña" disabled></a>
+                <a href="#"><input type="button" name="volver" value="Cambiar contraseña" disabled></a>
+                <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=" . 'borrarCuenta'; ?>"><input type="button" name="Eliminar cuenta" value="Eliminar cuenta"></a>
             </form>
   
 <?php 

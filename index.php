@@ -12,7 +12,7 @@ if (!isset($_SESSION['DAW215LoginLogoutPOOUsuario'])) {  //Si el usuario no est�
      if(!isset($_SESSION['DAW215LLPagina'])){
          include_once $controladores['login'];
      }else{
-        include_once $controladores[$_SESSION['DAW215LLPagina']];
+        include_once $controladores[$_SESSION['DAW215LLPagina']]; //Si le digo que entre a registro, el programa, por algún motivo, explota al iniciar sesion
      }
 }else{
     if(isset($_SESSION['DAW215LLPagina'])){ //Si no se especifica a la página a la que ir, vas a inicio

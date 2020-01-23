@@ -13,7 +13,8 @@ $controladores = [
     "registro" => "controller/cRegistro.php",
     "miCuenta" => "controller/cMiCuenta.php",
     "mtoDepartamentos" => "controller/cMtoDepartamentos.php",
-    "mtoUsuarios" => "controller/cMtoUsuarios.php"
+    "mtoUsuarios" => "controller/cMtoUsuarios.php",
+    "borrarCuenta" => "controller/cBorrarCuenta.php"
 ];
 
 $vistas = [
@@ -23,5 +24,6 @@ $vistas = [
     "registro" => "view/vRegistro.php",
     "miCuenta" => "view/vMiCuenta.php",
     "mtoDepartamentos" => "view/vMtoDepartamentos.php",
-    "mtoUsuarios" => "view/vMtoUsuarios.php"
+    "mtoUsuarios" => "view/vMtoUsuarios.php",
+    "borrarCuenta" => "view/vBorrarCuenta.php"
 ];

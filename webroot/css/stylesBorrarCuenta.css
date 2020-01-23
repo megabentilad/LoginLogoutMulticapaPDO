@@ -1,0 +1,33 @@
+label{
+    float: left;
+    height: 40px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+input{
+    font-size: 20px;
+}
+#name, #pass, #pass2{
+    width: 130px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    float: right;
+}
+.obligatorio{
+    height: 50px;
+}
+.error{
+    background-color: #ff708c;
+    width: 15%;
+    padding: 0.5%;
+    border-radius: 10px;
+    display: inline-block;
+    position: absolute;
+}
+#epass{
+    top: 225px;
+}
+#epass2{
+    top: 300px;
+}

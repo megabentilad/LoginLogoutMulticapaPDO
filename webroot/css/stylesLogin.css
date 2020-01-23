@@ -1,3 +1,8 @@
+form{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
 label{
     float: left;
     height: 40px;
@@ -20,17 +25,19 @@ input{
 }
 .error{
     background-color: #ff708c;
-    width: 15%;
+    width: 13%;
     padding: 0.5%;
     border-radius: 10px;
     display: inline-block;
     position: absolute;
 }
 #ename{
-    top: 150px;
+    top: 35px;
+    left: 370px;
 }
 #epass{
-    top: 220px;
+    top: 105px;
+    left: 370px;
 }
 .volver{
     position: absolute;
@@ -42,11 +49,31 @@ input{
 
 .diagramaDeClases{
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 400px;
+    left: 500px;
 }
 .imagenDiagramaDeClases{
     width: 37vw;
+}
+
+.estructuraDeAlmacenamiento{
+    position: absolute;
+    top: 350px;
+    left: 0px;
+}
+.imagenEstructuraDeAlmacenamiento{
+    width: 15vw;
+}
+
+.catalogoDeRequisitos{
+    position: absolute;
+    top: 500px;
+    left: 72vw;
+    
+}
+.imagencatalogoDeRequisitos{
+    width: 25vw;
+    border-radius: 20px;
 }
 
 /*Slider de recordar*/
@@ -108,4 +135,78 @@ input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
+}
+
+/*RELOJ*/
+#marco{
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    border: 2px solid black;
+    margin: auto;
+    position: absolute;
+    top: 3vh;
+    left: 75vw;
+}
+#centro{
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: black;
+    position: relative;
+    /*                left: 48%;*/
+    top: 10px;
+
+}
+#aguja{
+    width: 2px;
+    height: 75px;
+    background-color: red;
+    position: relative;
+    top: 15px;
+    transform-origin: 50% 100%;   /* Esto sirve para cambiar el eje desde el cual gira (Me lo dijo Alex ^^) */
+    transition: 0.8s ease-in-out;
+
+}
+#minutero{
+    width: 3px;
+    height: 65px;
+    background-color: black;
+    position: relative;
+    top: -60px;
+    transform-origin: 50% 100%;   /* Esto sirve para cambiar el eje desde el cual gira (Me lo dijo Alex ^^) */
+
+}
+#horero{
+    width: 5px;
+    height: 45px;
+    background-color: black;
+    position: relative;
+    top: -105px;
+    transform-origin: 50% 100%;   /* Esto sirve para cambiar el eje desde el cual gira (Me lo dijo Alex ^^) */
+
+}
+#aguja, #minutero, #horero{
+    border-radius: 20px;
+}
+#centro, #aguja, #minutero, #horero{
+    margin: auto;
+}
+#doce{
+    position: relative;
+    top: -195px;
+}
+#tres{
+    position: relative;
+    left: 80px;
+    top: -135px;
+}
+#seis{
+    position: relative;
+    top: -72px;
+}
+#nueve{
+    position: relative;
+    left: -80px;
+    top: -170px;
 }
