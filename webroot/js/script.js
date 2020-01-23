@@ -2,14 +2,30 @@ $(function () {
     
     reloj = setInterval(function(){
         var tiempo = new Date();
-        $('#aguja').css("transform","rotate(" + parseInt(tiempo.getTime()/10*0.06)%360 + "deg)");
-        $('#minutero').css("transform","rotate(" + parseInt(tiempo.getTime()/10*0.06)%(360*60)/60 + "deg)");
-        $('#horero').css("transform","rotate(" + ((parseInt(tiempo.getTime()/10*0.06)%(360*60)/3600) + 30) + "deg)");
-//        aguja.style.transform = "rotate(" + centisegundos*0.06%360 + "deg)";
-//            minutero.style.transform = "rotate(" + centisegundos*0.06%(360*60)/60 + "deg)";
-//            horero.style.transform = "rotate(" + centisegundos*0.06%(360*3600)/3600 + "deg)";
+        $('#aguja').css("transform","rotate(" + parseInt(tiempo.getTime()*0.006)%360 + "deg)");
+        $('#minutero').css("transform","rotate(" + parseInt(tiempo.getTime()*0.006)%(360*60)/60 + "deg)");
+        $('#horero').css("transform","rotate(" + ((parseInt(tiempo.getTime()*0.006)/(360*60)/3600)+30) + "deg)");
     },1000);
     
+    /*Carrusel*/
+    $('.carrusel').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.carrusel-nav'
+    });
+    $('.carrusel-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.carrusel',
+        dots: true,
+        centerMode: true,
+        focusOnSelect: true
+    });
+
+  
+  
     function recargar(){
         //Si está creada la sesion storage que la ponga en el input de usuario
         var usuarioSesion= sessionStorage.getItem("usuario");

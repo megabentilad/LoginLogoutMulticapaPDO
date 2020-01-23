@@ -210,3 +210,9 @@ input:checked + .slider:before {
     left: -80px;
     top: -170px;
 }
+
+
+
+.carruse, .carrusel-navl{
+    width: 50%;
+}
