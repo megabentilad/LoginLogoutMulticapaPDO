@@ -4,7 +4,7 @@ $(function () {
         var tiempo = new Date();
         $('#aguja').css("transform","rotate(" + parseInt(tiempo.getTime()*0.006)%360 + "deg)");
         $('#minutero').css("transform","rotate(" + parseInt(tiempo.getTime()*0.006)%(360*60)/60 + "deg)");
-        $('#horero').css("transform","rotate(" + ((parseInt(tiempo.getTime()*0.006)/(360*60)/3600)+30) + "deg)");
+        $('#horero').css("transform","rotate(" + ((parseInt(tiempo.getTime()*0.006)%(720*60)/3600)-60) + "deg)");
     },1000);
     
     /*Carrusel*/
