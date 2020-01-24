@@ -60,14 +60,21 @@ form{
 .images{
     text-align: center;
 }
-.iconoFooter{
+.iconoFooter, .iconoFooter2{
     width: 30px;
     opacity: 0.8;    
     position: fixed;
+    
+}
+.iconoFooter{
     left: 90vw;
     top: 96vh;
 }
-.iconoFooter:hover{
+.iconoFooter2{
+    left: 10vw;
+    top: 96vh;
+}
+.iconoFooter:hover, .iconoFooter2:hover{
     opacity: 1;
 }
 .bandera{

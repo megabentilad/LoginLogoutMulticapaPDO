@@ -53,12 +53,12 @@
 <div class="carrusel">
     <div class="diagramaDeClases"><img src="webroot/img/DiagramaDeClases.png" title="Diagrama de clases" alt="Diagrama de clases" class="imagenDiagramaDeClases"></div>
     <div class="estructuraDeAlmacenamiento"><img src="webroot/img/estructuraDeAlmacenamiento.png" title="Estructura de almacenamiento" alt="Estructura de almacenamiento" class="imagenEstructuraDeAlmacenamiento"></div>
-    <!--<a href="doc/200113CatalogoDeRequisitos.pdf" target="_blank"><div class="catalogoDeRequisitos"><img src="webroot/img/catalogoDeRequisitos.PNG" title="Catalogo de requisitos" alt="Catalogo de requisitos" class="imagencatalogoDeRequisitos"></div></a>-->
+    <a href="doc/200113CatalogoDeRequisitos.pdf" target="_blank"><div class="catalogoDeRequisitos"><img src="webroot/img/catalogoDeRequisitos.PNG" title="Catalogo de requisitos" alt="Catalogo de requisitos" class="imagencatalogoDeRequisitos"></div></a>
 </div>
 <div class="carrusel-nav">
     <div class="diagramaDeClases"><img src="webroot/img/DiagramaDeClases.png" title="Diagrama de clases" alt="Diagrama de clases" class="imagenDiagramaDeClases"></div>
     <div class="estructuraDeAlmacenamiento"><img src="webroot/img/estructuraDeAlmacenamiento.png" title="Estructura de almacenamiento" alt="Estructura de almacenamiento" class="imagenEstructuraDeAlmacenamiento"></div>
-    <!--<a href="doc/200113CatalogoDeRequisitos.pdf" target="_blank"><div class="catalogoDeRequisitos"><img src="webroot/img/catalogoDeRequisitos.PNG" title="Catalogo de requisitos" alt="Catalogo de requisitos" class="imagencatalogoDeRequisitos"></div></a>-->
+    <div class="catalogoDeRequisitos"><img src="webroot/img/catalogoDeRequisitos.PNG" title="Catalogo de requisitos" alt="Catalogo de requisitos" class="imagencatalogoDeRequisitos"></div>
 </div>
 
 

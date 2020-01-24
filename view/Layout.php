@@ -41,6 +41,9 @@
                 <a href="http://daw-usgit.sauces.local/luism/LoginLogoutMulticapaPDO/tree/master" target="_blank">
                     <img src="webroot/img/gitLab.png" class="iconoFooter"  title="GitLab">
                 </a>
+                <a href="doc/200112LMRED2.pdf" target="_blank">
+                    <img src="webroot/img/tecnologias.png" class="iconoFooter2"  title="Tecnologias">
+                </a>
             </p>
         </footer>
     </body>
