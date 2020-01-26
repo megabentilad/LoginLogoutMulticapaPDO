@@ -47,33 +47,19 @@ input{
     width: 80px;
 }
 
-.diagramaDeClases{
-    position: absolute;
-    top: 400px;
-    left: 500px;
-}
-.imagenDiagramaDeClases{
-    width: 37vw;
+.imagenCarrusel{
+    height: 22vw;
 }
 
-.estructuraDeAlmacenamiento{
-    position: absolute;
-    top: 350px;
-    left: 0px;
+.carrusel{
+    top: 20vh;
+    height: 50vh;
+    width: 70vw;
+    margin: auto;
 }
-.imagenEstructuraDeAlmacenamiento{
-    width: 15vw;
-}
-
-.catalogoDeRequisitos{
-    position: absolute;
-    top: 500px;
-    left: 72vw;
-    
-}
-.imagencatalogoDeRequisitos{
-    width: 25vw;
-    border-radius: 20px;
+.slick-prev::before, .slick-next::before{
+    background-color: #66b3ff;
+    border-radius: 50%;
 }
 
 /*Slider de recordar*/

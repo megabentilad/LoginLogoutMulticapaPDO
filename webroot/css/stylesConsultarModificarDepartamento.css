@@ -5,11 +5,12 @@ label{
     font-size: 20px;
     font-family: Arial;
 }
+
 input{
     font-size: 20px;
 }
-#name, #pass, #pass2, #desc{
-    width: 130px;
+#cod, #vol, #desc, #creacion, #baja{
+    width: 210px;
     height: 40px;
     border-radius: 10px;
     font-size: 20px;
@@ -26,17 +27,11 @@ input{
     display: inline-block;
     position: absolute;
 }
-#ename{
-    top: 160px;
-}
 #edesc{
     top: 230px;
 }
-#epass{
+#evol{
     top: 295px;
-}
-#epass2{
-    top: 360px;
 }
 .volver{
     position: absolute;

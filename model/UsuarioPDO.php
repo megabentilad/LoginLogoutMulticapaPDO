@@ -48,13 +48,13 @@ class UsuarioPDO{
         return $objetoUsuario;
     }
 
-    public static function existeUsuario($codUsuario){
+    public static function validaCodNoExiste($codUsuario){
         $consulta = "SELECT T01_CodUsuario FROM T01_Usuario WHERE T01_CodUsuario=?;";
         $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$codUsuario]);
          if($resultadoConsulta->rowCount() == 1){
-             return true;
+             return false;
          }
-        return false;
+        return true;
     }
     
     public static function crearUsuario($codUsuario, $descUsuario, $password){

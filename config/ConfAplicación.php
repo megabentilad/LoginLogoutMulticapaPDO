@@ -5,6 +5,8 @@ include_once 'core/ValidaForms.php';
 include_once 'model/BDPDO.php';
 include_once 'model/Usuario.php';
 include_once 'model/UsuarioPDO.php';
+include_once 'model/Departamento.php';
+include_once 'model/DepartamentoPDO.php';
 
 //Hacemnos estos arrays para facilitar la comprensión del código
 $controladores = [
@@ -14,7 +16,10 @@ $controladores = [
     "miCuenta" => "controller/cMiCuenta.php",
     "mtoDepartamentos" => "controller/cMtoDepartamentos.php",
     "mtoUsuarios" => "controller/cMtoUsuarios.php",
-    "borrarCuenta" => "controller/cBorrarCuenta.php"
+    "borrarCuenta" => "controller/cBorrarCuenta.php",
+    "altaDepartamento" => "controller/cAltaDepartamento.php",
+    "consultarModificarDepartamento" => "controller/cConsultarModificarDepartamento.php",
+    "eliminarDepartamento" => "controller/cEliminarDepartamento.php"
 ];
 
 $vistas = [
@@ -25,5 +30,8 @@ $vistas = [
     "miCuenta" => "view/vMiCuenta.php",
     "mtoDepartamentos" => "view/vMtoDepartamentos.php",
     "mtoUsuarios" => "view/vMtoUsuarios.php",
-    "borrarCuenta" => "view/vBorrarCuenta.php"
+    "borrarCuenta" => "view/vBorrarCuenta.php",
+    "altaDepartamento" => "view/vAltaDepartamento.php",
+    "consultarModificarDepartamento" => "view/vConsultarModificarDepartamento.php",
+    "eliminarDepartamento" => "view/vEliminarDepartamento.php"
 ];

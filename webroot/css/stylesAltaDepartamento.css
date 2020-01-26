@@ -8,7 +8,7 @@ label{
 input{
     font-size: 20px;
 }
-#name, #pass, #pass2, #desc{
+#cod, #vol, #desc{
     width: 130px;
     height: 40px;
     border-radius: 10px;
@@ -26,17 +26,14 @@ input{
     display: inline-block;
     position: absolute;
 }
-#ename{
+#ecod{
     top: 160px;
 }
 #edesc{
     top: 230px;
 }
-#epass{
+#evol{
     top: 295px;
-}
-#epass2{
-    top: 360px;
 }
 .volver{
     position: absolute;

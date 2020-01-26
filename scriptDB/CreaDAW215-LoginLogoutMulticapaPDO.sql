@@ -20,6 +20,14 @@
         T01_FechaHoraUltimaConexion int default 0, -- Es un entero porque timestamp es una porquería no util para lo que quiero hacer
         T01_Perfil enum('administrador', 'usuario') default 'usuario' -- Valor por defecto usuario
     );
+
+    CREATE TABLE IF NOT EXISTS T02_Departamento(
+        T02_CodDepartamento varchar(3) PRIMARY KEY,
+        T02_DescDepartamento varchar(255) NOT null,
+        T02_FechaBajaDepartamento int DEFAULT null, -- Valor por defecto null, ya que cuando lo creas no puede estar de baja logica
+        T02_FechaCreacionDepartamento int NOT null,
+        T02_VolumenNegocio float NOT null
+    );
 -- Crear del usuario --
     CREATE USER IF NOT EXISTS 'usuarioDAW215LoginLogoutPDO'@'%' identified BY 'paso'; 
 -- Dar permisos al usuario --

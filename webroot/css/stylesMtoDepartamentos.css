@@ -1,0 +1,17 @@
+.nuevo{
+    width: 2vw;
+    top: 1.3vh;
+    left: 1vw;
+    position: relative;
+    opacity: 0.8;
+}
+.nuevo:hover{
+    opacity: 1;
+}
+.imagenTabla{
+    width: 4vw;
+    opacity: 0.8;
+}
+.imagenTabla:hover{
+    opacity: 1;
+}

@@ -1,28 +1,25 @@
 <?php
 if(isset($_REQUEST['pagina'])){
-    session_destroy();
+    $_SESSION['DAW215LLPagina'] = $_SESSION['DAW215LLPaginaAnterior'];
     header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión
     exit;
 }
     $entradaOK = true; //Inicializamos una variable que nos ayudara a controlar si todo esta correcto    
     //Inicializamos un array que se encargara de recoger los errores(Campos vacios)
     $aErrores = [
-        'name' => null,
+        'cod' => null,
         'desc' => null,
-        'pass' => null,
-        'pass2' => null
+        'vol' => null
     ];
     if (isset($_POST['enviar'])) { //Si se ha pulsado enviar
         //La posición del array de errores recibe el mensaje de error si hubiera
-        $aErrores['name'] = validacionFormularios::comprobarAlfaNumerico($_POST['name'], 15, 1, 1);  //maximo, mínimo y opcionalidad
+        $aErrores['cod'] = validacionFormularios::comprobarAlfabetico($_POST['cod'], 3, 3, 1);  //maximo, mínimo y opcionalidad
         $aErrores['desc'] = validacionFormularios::comprobarAlfaNumerico($_POST['desc'], 255, 1, 1); //maximo, mínimo y opcionalidad
-        $aErrores['pass'] = validacionFormularios::comprobarAlfaNumerico($_POST['pass'], 64, 4, 1); //maximo, mínimo y opcionalidad
-        $aErrores['pass2'] = validacionFormularios::comprobarAlfaNumerico($_POST['pass2'], 64, 4, 1); //maximo, mínimo y opcionalidad
+        $aErrores['vol'] = validacionFormularios::comprobarFloat($_POST['vol'], 99999, 0, 1); //maximo, mínimo y opcionalidad
         
-        if($_POST['pass'] !== $_POST['pass2']){
-            $aErrores['pass2'] = "Las contraseñas no coinciden";
+        if(strlen(trim(substr($_POST['cod'],1))) != 2 && $aErrores['cod'] == null){
+            $aErrores['cod'] = "Eso está feo.";
         }
-
         foreach ($aErrores as $campo => $error) { //Recorre el array en busca de mensajes de error
             if ($error != null) { //Si lo encuentra vacia el campo y cambia la condiccion
                 $entradaOK = false; //Cambia la condiccion de la variable
@@ -30,20 +27,20 @@ if(isset($_REQUEST['pagina'])){
         }
         //Autenticación con la base de datos
         if ($entradaOK) {
-            $codUsuario = $_POST['name'];
-            $descUsuario = $_POST['desc'];
-            $password = hash('sha256', $_POST['name'] . $_POST['pass']); //Guardar la contraseña ya resumida
-            if(!UsuarioPDO::validaCodNoExiste($codUsuario)){ //Si el codigo ya está en uso, muestra un mensaje de error
-                $aErrores['name'] = "El usuario ya existe";
+            $codDepartamento = strtoupper($_POST['cod']);
+            $descDepartamento = ucfirst($_POST['desc']);
+            $vol =  $_POST['vol']; 
+            if(!DepartamentoPDO::validaCodNoExiste($codDepartamento)){ //Si el codigo ya está en uso, muestra un mensaje de error
+                $aErrores['cod'] = "El usuario ya existe";
             }else{
-                $objetoUsuario = UsuarioPDO::crearUsuario($codUsuario, $descUsuario, $password); //Comprobar que el usuario existe en la base de datos
-                $_SESSION['DAW215LoginLogoutPOOUsuario'] = $objetoUsuario;
-                $_SESSION['DAW215LLPagina'] = 'inicio';
+                $objetoDepartamento = DepartamentoPDO::altaDepartamento($codDepartamento, $descDepartamento, $vol); //Comprobar que el usuario existe en la base de datos
+                $_SESSION['DAW215LoginLogoutPOODepartamento'] = $objetoDepartamento;
+                $_SESSION['DAW215LLPagina'] = 'mtoDepartamentos';
                 $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
-                header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión
+                header("Location: index.php?pagina=" . $_SESSION['DAW215LLPaginaAnterior']); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión
                 exit;
             }
-        }    
+        }
     }
 $vista = $vistas[$_SESSION['DAW215LLPagina']]; //guarda la variable para que el layout sepa que mostrar
 $_SESSION['DAW215LLPOOtituloPagina'] = ucfirst($_SESSION['DAW215LLPagina']); //Sirve para la cabecera

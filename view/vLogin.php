@@ -51,14 +51,11 @@
     <div id="nueve">9</div>
 </div>   
 <div class="carrusel">
-    <div class="diagramaDeClases"><img src="webroot/img/DiagramaDeClases.png" title="Diagrama de clases" alt="Diagrama de clases" class="imagenDiagramaDeClases"></div>
-    <div class="estructuraDeAlmacenamiento"><img src="webroot/img/estructuraDeAlmacenamiento.png" title="Estructura de almacenamiento" alt="Estructura de almacenamiento" class="imagenEstructuraDeAlmacenamiento"></div>
-    <a href="doc/200113CatalogoDeRequisitos.pdf" target="_blank"><div class="catalogoDeRequisitos"><img src="webroot/img/catalogoDeRequisitos.PNG" title="Catalogo de requisitos" alt="Catalogo de requisitos" class="imagencatalogoDeRequisitos"></div></a>
+    <div class="diagramaDeClases"><img src="webroot/img/DiagramaDeClases.png" title="Diagrama de clases" alt="Diagrama de clases" class="imagenCarrusel"></div>
+    <div class="estructuraDeAlmacenamiento"><img src="webroot/img/estructuraDeAlmacenamiento.png" title="Estructura de almacenamiento" alt="Estructura de almacenamiento" class="imagenCarrusel"></div>
+    <div class="arbolDeNavegacion"><a href="webroot/img/ArbolDeNavegacion.png" target="_blank"><img src="webroot/img/ArbolDeNavegacion.png" title="Arbol de navegación" alt="Arbol de navegación" class="imagenCarrusel"></a></div>
+    <div class="catalogoDeRequisitos"><a href="doc/200113CatalogoDeRequisitos.pdf" target="_blank"><img src="webroot/img/catalogoDeRequisitos.PNG" title="Catalogo de requisitos" alt="Catalogo de requisitos" class="imagenCarrusel"></a></div>
+    <div class="diagramaDeCasosDeUso"><a href="webroot/img/DiagramaDeCasosDeUso.png" target="_blank"><img src="webroot/img/DiagramaDeCasosDeUso.png" title="Diagrama de casos de uso" alt="Diagrama de casos de uso" class="imagenCarrusel"></a></div>
+    <div class="modeloFisicoDeDatos"><img src="webroot/img/ModeloFisicoDeDatos.png" title="Modelo Fisico De Datos" alt="Modelo Fisico De Datos" class="imagenCarrusel"></div>
+    <div class="relacionDeFicheros"><a href="webroot/img/RelacionDeFicheros.png" target="_blank"><img src="webroot/img/RelacionDeFicheros.png" title="Relación de ficheros" alt="Relación de ficheros" class="imagenCarrusel"></a></div>
 </div>
-<div class="carrusel-nav">
-    <div class="diagramaDeClases"><img src="webroot/img/DiagramaDeClases.png" title="Diagrama de clases" alt="Diagrama de clases" class="imagenDiagramaDeClases"></div>
-    <div class="estructuraDeAlmacenamiento"><img src="webroot/img/estructuraDeAlmacenamiento.png" title="Estructura de almacenamiento" alt="Estructura de almacenamiento" class="imagenEstructuraDeAlmacenamiento"></div>
-    <div class="catalogoDeRequisitos"><img src="webroot/img/catalogoDeRequisitos.PNG" title="Catalogo de requisitos" alt="Catalogo de requisitos" class="imagencatalogoDeRequisitos"></div>
-</div>
-
-
