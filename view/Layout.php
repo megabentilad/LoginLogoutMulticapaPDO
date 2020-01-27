@@ -44,8 +44,8 @@
                 <a href="http://daw215.sauces.local/index.html">
                     <span>© Luis Mateo Rivera Uriarte 2019-2020</span>
                 </a>
-                <a href="http://daw-usgit.sauces.local/luism/LoginLogoutMulticapaPDO/tree/master" target="_blank">
-                    <img src="webroot/img/gitLab.png" class="iconoFooter"  title="GitLab">
+                <a href="https://github.com/megabentilad/LoginLogoutMulticapaPDO" target="_blank">
+                    <img src="webroot/img/gitHub.png" class="iconoFooter"  title="GitHub">
                 </a>
                 <a href="doc/200112LMRED2.pdf" target="_blank">
                     <img src="webroot/img/tecnologias.png" class="iconoFooter2"  title="Tecnologias">
