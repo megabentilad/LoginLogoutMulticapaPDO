@@ -1,17 +1,10 @@
-# Puesta en marcha de un servidor de desarrollo
-### Pasos iniciales
-Partiendo de una máquina virtual limpia con Ubuntu server 18
-instalado realizamos las siguientes comprobaciones.
-```bash
-ping 8.8.8.8
-```
-Para comprobar si la máquina dispone de conexxión a internet.
+# Requisitos iniciales
+Para el correcto funcionamiento de la aplicación es necesario:
+* Servidor Apache2 alojado en un Ubuntu Server 18.04
+* Modulo interprete de PHP (Última versión)
+* Servicio MySQL-server actualizado
 
-```bash
-apt-get update
-```
-Para actualizar los enlaces de instalación.
-
+## Instalación de estos requerimientos
 ### Apache2
 #### Instalación
 Para instalarlo utilizamos el siguiente comando:
