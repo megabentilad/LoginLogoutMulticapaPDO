@@ -7,8 +7,8 @@ if(isset($_REQUEST['pagina'])){
 }
 
     if (isset($_POST['enviar'])) { //Si se ha pulsado enviar
-        DepartamentoPDO::bajaFisicaDepartamento($_SESSION['DAW215LoginLogoutPOODepartamento']->getCodDepartamento());
-        $_SESSION['DAW215LLPagina'] = "mtoDepartamentos";
+        UsuarioPDO::borrarUsuario($_SESSION['DAW215LoginLogoutPOOUsuarioGestionar']->getCodUsuario());
+        $_SESSION['DAW215LLPagina'] = "mtoUsuarios";
         header("Location: index.php");
         exit;  
     }

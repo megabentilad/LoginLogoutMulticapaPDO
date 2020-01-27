@@ -24,16 +24,16 @@ if(isset($_REQUEST['ponerBaja'])){
     header("Location: index.php");
     exit;
 }
-if(!isset($_SESSION['DAW215LLBusquedaCodigo'])){
-    $_SESSION['DAW215LLBusquedaCodigo'] = "";
+if(!isset($_SESSION['DAW215LLBusquedaDescripcion'])){
+    $_SESSION['DAW215LLBusquedaDescripcion'] = "";
 }
 if(isset($_POST['buscar'])){
-    $_SESSION['DAW215LLBusquedaCodigo'] = $_REQUEST['busqueda'];
+    $_SESSION['DAW215LLBusquedaDescripcion'] = $_REQUEST['busqueda'];
     header("Location: index.php");
     exit;
 }
 
-$aDepartamentos = DepartamentoPDO::buscarDepartamentosPorDescripcion("%" . $_SESSION['DAW215LLBusquedaCodigo'] . "%");
+$aDepartamentos = DepartamentoPDO::buscarDepartamentosPorDescripcion("%" . $_SESSION['DAW215LLBusquedaDescripcion'] . "%");
 if(count($aDepartamentos) > 0){
     $tabla = "<table><thead><tr><th>Código</th><th>Descripción</th><th>Alta/Baja</th><th>Editar</th><th>Borrar</th></tr></thead><tbody>";
     foreach ($aDepartamentos as $clave => $valor){

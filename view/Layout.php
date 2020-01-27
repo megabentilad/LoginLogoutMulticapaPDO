@@ -19,6 +19,10 @@
         if($vista == "view/vAltaDepartamento.php"){echo '<link rel="stylesheet" type="text/css" href="webroot/css/stylesAltaDepartamento.css" media="screen">';}?>
         <?php
         if($vista == "view/vConsultarModificarDepartamento.php"){echo '<link rel="stylesheet" type="text/css" href="webroot/css/stylesConsultarModificarDepartamento.css" media="screen">';}?>
+        <?php
+        if($vista == "view/vMtoUsuarios.php"){echo '<link rel="stylesheet" type="text/css" href="webroot/css/stylesMtoUsuarios.css" media="screen">';}?>
+        <?php
+        if($vista == "view/vConsultarModificarUsuario.php"){echo '<link rel="stylesheet" type="text/css" href="webroot/css/stylesConsultarModificarUsuario.css" media="screen">';}?>
         <link rel="icon" type="image/png" href="webroot/img/mifavicon.png">
         <script src="webroot/js/jquery.js"></script>
         <script src="webroot/js/slick.js"></script>

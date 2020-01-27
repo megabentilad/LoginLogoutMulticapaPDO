@@ -19,7 +19,9 @@ $controladores = [
     "borrarCuenta" => "controller/cBorrarCuenta.php",
     "altaDepartamento" => "controller/cAltaDepartamento.php",
     "consultarModificarDepartamento" => "controller/cConsultarModificarDepartamento.php",
-    "eliminarDepartamento" => "controller/cEliminarDepartamento.php"
+    "eliminarDepartamento" => "controller/cEliminarDepartamento.php",
+    "consultarModificarUsuario" => "controller/cConsultarModificarUsuario.php",
+    "eliminarUsuario" => "controller/cEliminarUsuario.php"
 ];
 
 $vistas = [
@@ -33,5 +35,7 @@ $vistas = [
     "borrarCuenta" => "view/vBorrarCuenta.php",
     "altaDepartamento" => "view/vAltaDepartamento.php",
     "consultarModificarDepartamento" => "view/vConsultarModificarDepartamento.php",
-    "eliminarDepartamento" => "view/vEliminarDepartamento.php"
+    "eliminarDepartamento" => "view/vEliminarDepartamento.php",
+    "consultarModificarUsuario" => "view/vConsultarModificarUsuario.php",
+    "eliminarUsuario" => "view/vEliminarUsuario.php"
 ];

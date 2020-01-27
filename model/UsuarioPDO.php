@@ -40,14 +40,33 @@ class UsuarioPDO{
             $consulta1 = "UPDATE T01_Usuario SET T01_FechaHoraUltimaConexion = " . time() . " WHERE T01_CodUsuario=?;";
             BDPDO::ejecutarConsulta($consulta1, [$codUsuario]);
             $consulta2 = "UPDATE T01_Usuario SET T01_NumAccesos = " . (intval($resultadoFormateado->T01_NumAccesos) + 1) . " WHERE T01_CodUsuario=?;";
-            BDPDO::ejecutarConsulta($consulta2, [$codUsuario]);
-            
+            BDPDO::ejecutarConsulta($consulta2, [$codUsuario]);            
         }
-        
-        
         return $objetoUsuario;
     }
 
+        public static function buscarUsuariosPorDescripcion($busqueda){
+            $arrayUsuarios = [];
+            $consulta = "select * from T01_Usuario where T01_DescUsuario like ? and T01_CodUsuario !='" . $_SESSION['DAW215LoginLogoutPOOUsuario']->getCodUsuario() . "';";
+            $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$busqueda]);
+            if($resultadoConsulta->rowCount() != 0){
+                for($i = 0; $i < $resultadoConsulta->rowCount(); $i++){
+                    $resultadoFormateado = $resultadoConsulta->fetchObject();
+                    $objetoUsuario = new Usuario($resultadoFormateado->T01_CodUsuario, $resultadoFormateado->T01_Password, $resultadoFormateado->T01_DescUsuario, $resultadoFormateado->T01_NumAccesos, $resultadoFormateado->T01_FechaHoraUltimaConexion, $resultadoFormateado->T01_Perfil);
+                    array_push($arrayUsuarios, $objetoUsuario);
+                }
+            } 
+            return $arrayUsuarios;
+        }
+        
+        public static function buscarUsuarioPorCodigo($codUsuario){
+            $consulta = "select * from T01_Usuario where T01_CodUsuario = ?;";
+            $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$codUsuario]);
+            $resultadoFormateado = $resultadoConsulta->fetchObject();
+            $objetoUsuario = new Usuario($resultadoFormateado->T01_CodUsuario, $resultadoFormateado->T01_Password, $resultadoFormateado->T01_DescUsuario, $resultadoFormateado->T01_NumAccesos, $resultadoFormateado->T01_FechaHoraUltimaConexion, $resultadoFormateado->T01_Perfil);
+            return $objetoUsuario;
+        }
+    
     public static function validaCodNoExiste($codUsuario){
         $consulta = "SELECT T01_CodUsuario FROM T01_Usuario WHERE T01_CodUsuario=?;";
         $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$codUsuario]);
@@ -66,18 +85,18 @@ class UsuarioPDO{
     public static function modificarUsuario($codUsuario, $nuevaDescUsuario){
         $consulta = "UPDATE T01_Usuario SET T01_DescUsuario = ? WHERE T01_CodUsuario = ?;";
         BDPDO::ejecutarConsulta($consulta, [$nuevaDescUsuario, $codUsuario]);
-        
         $objetoUsuario = new Usuario($codUsuario, $_SESSION['DAW215LoginLogoutPOOUsuario']->getPassword(), $nuevaDescUsuario, $_SESSION['DAW215LoginLogoutPOOUsuario']->getNumAccesos(), $_SESSION['DAW215LoginLogoutPOOUsuario']->getFechaHoraUltimaConexion(), $_SESSION['DAW215LoginLogoutPOOUsuario']->getPerfil());
-
+        return $objetoUsuario;
+    }
+    public static function modificarUsuarioGestion($codUsuario, $nuevaDescUsuario, $perfil){
+        $consulta1 = "UPDATE T01_Usuario SET T01_DescUsuario = ?, T01_Perfil = ? WHERE T01_CodUsuario = ?;";
+        BDPDO::ejecutarConsulta($consulta1, [$nuevaDescUsuario, $perfil, $codUsuario]);
+        $objetoUsuario = new Usuario($codUsuario, $_SESSION['DAW215LoginLogoutPOOUsuario']->getPassword(), $nuevaDescUsuario, $_SESSION['DAW215LoginLogoutPOOUsuario']->getNumAccesos(), $_SESSION['DAW215LoginLogoutPOOUsuario']->getFechaHoraUltimaConexion(), $_SESSION['DAW215LoginLogoutPOOUsuario']->getPerfil());
         return $objetoUsuario;
     }
     
     public static function borrarUsuario($codUsuario){
         $consulta = "DELETE FROM T01_Usuario WHERE T01_CodUsuario = ?;";
         BDPDO::ejecutarConsulta($consulta, [$codUsuario]);
-        
-        $objetoUsuario = null;
-
-        return $objetoUsuario;
     }
 }

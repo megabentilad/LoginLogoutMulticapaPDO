@@ -19,11 +19,13 @@
                         <label for="conexiones">Número de accesos: </label> 
                         <input type="text" id="conexiones" name="conexiones" value="<?php echo $_SESSION['DAW215LoginLogoutPOOUsuario']->getNumAccesos() + 1; ?>" disabled><br>        
                     </div>
+                    <?php if($_SESSION['DAW215LoginLogoutPOOUsuario']->getFechaHoraUltimaConexion() == null){ ?>
                     <br/>
                     <div class="obligatorio">
                         <label for="fecha">Fecha de la última conexión: </label> 
                         <input type="text" id="fecha" name="fecha" value="<?php echo date('d/m/Y - H:i:s',$_SESSION['DAW215LoginLogoutPOOUsuario']->getFechaHoraUltimaConexion()); ?>" disabled><br>        
                     </div>
+                    <?php } ?>
                     <br/>
                     <div>
                         <input type="submit" name="enviar" value="Aceptar">

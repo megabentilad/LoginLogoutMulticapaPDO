@@ -40,7 +40,6 @@ class DepartamentoPDO{
                 $objetoDepartamento = new Departamento($resultadoFormateado->T02_CodDepartamento, $resultadoFormateado->T02_DescDepartamento, $resultadoFormateado->T02_VolumenNegocio, $resultadoFormateado->T02_FechaCreacionDepartamento, $resultadoFormateado->T02_FechaBajaDepartamento);
                 array_push($arrayDepartamentos, $objetoDepartamento);
             }
-            return $arrayDepartamentos;
         } 
         return $arrayDepartamentos;
     }
@@ -51,7 +50,8 @@ class DepartamentoPDO{
     }
     
     public static function bajaFisicaDepartamento($codDepartamento){
-        
+        $consulta = "DELETE FROM T02_Departamento WHERE T02_CodDepartamento = ?;";
+        BDPDO::ejecutarConsulta($consulta, [$codDepartamento]);
     }
     
     public static function bajaLogicaDepartamento($codDepartamento){
