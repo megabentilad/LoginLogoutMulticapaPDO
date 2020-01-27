@@ -16,10 +16,24 @@ require_once 'Departamento.php';
 
 class DepartamentoPDO{
     
-    public static function buscarDepartamentosPorCodigo($codDepartamento){
+    public static function buscarDepartamentosPorCodigo($busqueda){
         $arrayDepartamentos = [];
         $consulta = "select * from T02_Departamento where T02_CodDepartamento like ?;";
-        $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$codDepartamento]);
+        $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$busqueda]);
+        if($resultadoConsulta->rowCount() != 0){
+            for($i = 0; $i < $resultadoConsulta->rowCount(); $i++){
+                $resultadoFormateado = $resultadoConsulta->fetchObject();
+                $objetoDepartamento = new Departamento($resultadoFormateado->T02_CodDepartamento, $resultadoFormateado->T02_DescDepartamento, $resultadoFormateado->T02_VolumenNegocio, $resultadoFormateado->T02_FechaCreacionDepartamento, $resultadoFormateado->T02_FechaBajaDepartamento);
+                array_push($arrayDepartamentos, $objetoDepartamento);
+            }
+            return $arrayDepartamentos;
+        } 
+        return $arrayDepartamentos;
+    }
+    public static function buscarDepartamentosPorDescripcion($busqueda){
+        $arrayDepartamentos = [];
+        $consulta = "select * from T02_Departamento where T02_DescDepartamento like ?;";
+        $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$busqueda]);
         if($resultadoConsulta->rowCount() != 0){
             for($i = 0; $i < $resultadoConsulta->rowCount(); $i++){
                 $resultadoFormateado = $resultadoConsulta->fetchObject();

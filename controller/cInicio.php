@@ -1,4 +1,5 @@
 <?php
+unset($_SESSION['DAW215LLBusquedaCodigo']);
 if(isset($_REQUEST['pagina'])){
     $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
     $_SESSION['DAW215LLPagina'] = $_REQUEST['pagina'];

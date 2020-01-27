@@ -33,7 +33,7 @@ if(isset($_POST['buscar'])){
     exit;
 }
 
-$aDepartamentos = DepartamentoPDO::buscarDepartamentosPorCodigo("%" . $_SESSION['DAW215LLBusquedaCodigo'] . "%");
+$aDepartamentos = DepartamentoPDO::buscarDepartamentosPorDescripcion("%" . $_SESSION['DAW215LLBusquedaCodigo'] . "%");
 if(count($aDepartamentos) > 0){
     $tabla = "<table><thead><tr><th>Código</th><th>Descripción</th><th>Alta/Baja</th><th>Editar</th><th>Borrar</th></tr></thead><tbody>";
     foreach ($aDepartamentos as $clave => $valor){

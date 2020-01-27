@@ -51,7 +51,7 @@
     <div id="nueve">9</div>
 </div>   
 <div class="carrusel">
-    <div class="diagramaDeClases"><img src="webroot/img/DiagramaDeClases.png" title="Diagrama de clases" alt="Diagrama de clases" class="imagenCarrusel"></div>
+    <div class="diagramaDeClases"><a href="webroot/img/DiagramaDeClases.png" target="_blank"><img src="webroot/img/DiagramaDeClases.png" title="Diagrama de clases" alt="Diagrama de clases" class="imagenCarrusel"></a></div>
     <div class="estructuraDeAlmacenamiento"><img src="webroot/img/estructuraDeAlmacenamiento.png" title="Estructura de almacenamiento" alt="Estructura de almacenamiento" class="imagenCarrusel"></div>
     <div class="arbolDeNavegacion"><a href="webroot/img/ArbolDeNavegacion.png" target="_blank"><img src="webroot/img/ArbolDeNavegacion.png" title="Arbol de navegación" alt="Arbol de navegación" class="imagenCarrusel"></a></div>
     <div class="catalogoDeRequisitos"><a href="doc/200113CatalogoDeRequisitos.pdf" target="_blank"><img src="webroot/img/catalogoDeRequisitos.PNG" title="Catalogo de requisitos" alt="Catalogo de requisitos" class="imagenCarrusel"></a></div>
