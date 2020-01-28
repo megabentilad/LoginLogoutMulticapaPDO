@@ -1,0 +1,47 @@
+label{
+    float: left;
+    height: 40px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: Arial;
+}
+input{
+    font-size: 20px;
+}
+input[type='checkbox']{
+    width: 3vw;
+    height: 5vh;
+    position: relative;
+    left: -63%;
+    
+}
+.labelshiny{
+    position: relative;
+    left: -63%
+}
+#pokemon{
+    width: 130px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    float: right;
+}
+.obligatorio{
+    height: 50px;
+}
+.error{
+    background-color: #ff708c;
+    width: 15%;
+    padding: 0.5%;
+    border-radius: 10px;
+    display: inline-block;
+    position: absolute;
+}
+#epokemon{
+    top: 160px;
+}
+.pokemonSprite{
+    position: absolute;
+    left: 20vw;
+    width: 10vw;
+}

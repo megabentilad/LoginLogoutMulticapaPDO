@@ -1,5 +1,8 @@
 <?php
 unset($_SESSION['DAW215LLBusquedaDescripcion']);
+unset($_SESSION['DAW215LLBusquedaPokemon']);
+unset($_SESSION['DAW215LLBusquedaPokemonShiny']);
+unset($_SESSION['DAW215LLBusquedaPokemonSprite']);
 if(isset($_REQUEST['pagina'])){
     $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
     $_SESSION['DAW215LLPagina'] = $_REQUEST['pagina'];

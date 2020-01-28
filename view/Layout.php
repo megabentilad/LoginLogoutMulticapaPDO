@@ -23,6 +23,8 @@
         if($vista == "view/vMtoUsuarios.php"){echo '<link rel="stylesheet" type="text/css" href="webroot/css/stylesMtoUsuarios.css" media="screen">';}?>
         <?php
         if($vista == "view/vConsultarModificarUsuario.php"){echo '<link rel="stylesheet" type="text/css" href="webroot/css/stylesConsultarModificarUsuario.css" media="screen">';}?>
+        <?php
+        if($vista == "view/vREST.php"){echo '<link rel="stylesheet" type="text/css" href="webroot/css/stylesREST.css" media="screen">';}?>
         <link rel="icon" type="image/png" href="webroot/img/mifavicon.png">
         <script src="webroot/js/jquery.js"></script>
         <script src="webroot/js/slick.js"></script>
