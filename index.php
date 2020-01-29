@@ -6,7 +6,11 @@ include_once 'config/ConfDB.php';
 
 session_start();
 
-
+if (isset($_REQUEST["cerrar"])) {
+    session_destroy();
+    header("location: index.php");
+    exit;
+}
  
 if (!isset($_SESSION['DAW215LoginLogoutPOOUsuario'])) {  //Si el usuario no está definido, entras al login y, si está definido, al inicio
      if(!isset($_SESSION['DAW215LLPagina'])){

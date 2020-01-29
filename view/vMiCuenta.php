@@ -29,11 +29,10 @@
                     <br/>
                     <div>
                         <input type="submit" name="enviar" value="Aceptar">
-                        <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=" . $_SESSION['DAW215LLPaginaAnterior']; ?>"><input type="button" name="volver" value="Cancelar"></a>
+                        <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=inicio"; ?>"><input type="button" name="volver" value="Cancelar"></a>
                     </div>
                 </fieldset>
                 <br/>
-                <a href="#"><input type="button" name="volver" value="Cambiar contraseña" disabled></a>
                 <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=" . 'borrarCuenta'; ?>"><input type="button" name="Eliminar cuenta" value="Eliminar cuenta"></a>
             </form>
   

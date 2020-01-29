@@ -19,7 +19,7 @@
         <br/>
         <div>
             <input type="submit" name="enviar" value="Borrar cuenta">
-            <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=" . $_SESSION['DAW215LLPaginaAnterior']; ?>"><input type="button" name="volver" value="Cancelar"></a>
+            <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=miCuenta"; ?>"><input type="button" name="volver" value="Cancelar"  id="volver"></a>
         </div>
     </fieldset>
 </form>

@@ -26,7 +26,7 @@
         <br/>
         <div>
             <input type="submit" name="enviar" value="Registrarse">
-            <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=" . $_SESSION['DAW215LLPaginaAnterior']; ?>"><input type="button" name="volver" value="Cancelar"></a>
+            <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=login"; ?>"><input type="button" name="volver" value="Cancelar"></a>
         </div>
     </fieldset>
 </form>

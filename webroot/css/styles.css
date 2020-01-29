@@ -88,3 +88,33 @@ form{
 .bandera:hover{
     opacity: 1;
 }
+
+button, input[type="submit"], input[type="button"]{
+    box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background: #66b3ff;
+	background-color:#66b3ff;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+        font-size: 20px;
+        
+}
+button:hover, input[type="submit"]:hover, input[type="button"]:hover{
+    background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+    background-color:#0688fa;
+}
+
+#volver{
+    position: fixed;
+    left: 10vw;
+    top: 3vh;
+}
+#menuUsuario{
+    position: fixed;
+    left: 80vw;
+    top: 3vh;
+}

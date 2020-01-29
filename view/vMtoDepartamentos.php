@@ -5,7 +5,7 @@
 </form>
         <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=altaDepartamento"?>"><img src="webroot/img/nuevo.png" alt="nuevo" class="nuevo" title="Crear un nuevo departamento"></a>     
         <br/>
-        <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=inicio"; ?>"><input type="button" name="volver" value="Volver"></a>
+        <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=inicio"; ?>"><input type="button" name="volver" value="Volver"  id="volver"></a>
         <br>
         <br>
         <?php echo $tabla; ?>

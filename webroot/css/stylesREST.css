@@ -15,9 +15,30 @@ input[type='checkbox']{
     left: -63%;
     
 }
+input[type='radio']{
+    width: 1vw;
+    height: 2vh;
+    position: relative;
+    left: 20%;
+    top: -5vh;
+    
+}
+#generoF{
+    left: 9%;
+}
 .labelshiny{
     position: relative;
-    left: -63%
+    left: -63%;
+}
+.labelspriteM{
+    position: relative;
+    left: 47.5%;
+    top: -6vh;
+}
+.labelspriteF{
+    position: relative;
+    left: 30%;
+    top: -6vh;
 }
 #pokemon{
     width: 130px;
@@ -38,10 +59,22 @@ input[type='checkbox']{
     position: absolute;
 }
 #epokemon{
-    top: 160px;
+    top: 175px;
+}
+#egenero{
+    top: 230px;
+    background-color: #e6b800;
 }
 .pokemonSprite{
     position: absolute;
-    left: 20vw;
+    left: 15vw;
     width: 10vw;
+}
+.pokemonSprite2{
+    position: absolute;
+    left: 24vw;
+    width: 10vw;
+}
+fieldset{
+    height: 14vh;
 }

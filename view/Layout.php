@@ -38,10 +38,16 @@
                 </h1>
                 <h2>
                     <?php
-                    echo $_SESSION['DAW215LLPOOtituloPagina']?>
+                    echo $_SESSION['DAW215LLPOOtituloPagina']; ?>
                 </h2>
             </div>
         </header>
+        <?php if(isset($_SESSION["DAW215LoginLogoutPOOUsuario"])){ ?>
+        <div id="menuUsuario">
+            <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=" . 'miCuenta'; ?>"><button>Editar perfil</button></a>
+            <a href="index.php?cerrar=true"><button>Cerrar sesión</button></a>
+        </div>
+       <?php } ?>
         <div class="contenido">
             <?php require_once $vista; ?>
         </div>

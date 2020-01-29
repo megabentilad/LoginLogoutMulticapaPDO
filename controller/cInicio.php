@@ -3,6 +3,9 @@ unset($_SESSION['DAW215LLBusquedaDescripcion']);
 unset($_SESSION['DAW215LLBusquedaPokemon']);
 unset($_SESSION['DAW215LLBusquedaPokemonShiny']);
 unset($_SESSION['DAW215LLBusquedaPokemonSprite']);
+unset($_SESSION['DAW215LLBusquedaPokemonSprite2']);
+unset($_SESSION['DAW215LLBusquedaPokemonGenero']);
+unset($_SESSION['DAW215LLBusquedaPokemonErrorGenero']);
 if(isset($_REQUEST['pagina'])){
     $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
     $_SESSION['DAW215LLPagina'] = $_REQUEST['pagina'];
@@ -10,11 +13,6 @@ if(isset($_REQUEST['pagina'])){
     exit;
 }
 setlocale(LC_ALL,"es_ES.UTF-8"); //Pongo el idioma en español
-if (isset($_GET["cerrar"])) {
-    session_destroy();
-    header("location: index.php");
-    exit;
-} else {
     if ($_SESSION["DAW215LoginLogoutPOOUsuario"]->getNumAccesos() == 0) {
         $mensajeDeBienvenida = "Wolas, es la primera vez que te conectas, " . ucfirst($_SESSION["DAW215LoginLogoutPOOUsuario"]->getDescUsuario()) . ".";
     } else{
@@ -39,4 +37,3 @@ if (isset($_GET["cerrar"])) {
     $vista = $vistas[$_SESSION['DAW215LLPagina']]; //le digo al controlador la vista de inicio
     $_SESSION['DAW215LLPOOtituloPagina'] = ucfirst($_SESSION['DAW215LLPagina']); //Sirve para la cabecera
     require_once $vistas['layout']; //cargo la página que contiene inicio
-}

@@ -17,9 +17,7 @@
         }
         ?>
         <br/>
-        <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=" . 'miCuenta'; ?>"><button>Editar perfil</button></a>
         <?php if($_SESSION['DAW215LoginLogoutPOOUsuario']->getPerfil() == "usuario"){echo "<a href='" . $_SERVER['PHP_SELF'] . "?pagina=mtoDepartamentos'><button>Mto Departamentos</button></a>";}else{echo "<a href='" . $_SERVER['PHP_SELF'] . "?pagina=mtoUsuarios'><button>Mto Usuarios</button></a>";} ?>
-        <a href="index.php?cerrar=true"><button>Cerrar sesión</button></a>
         <br/><br/><br/>
         <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=" . 'rest'; ?>"><button>Servicio REST</button></a>
         <div class="contenedorBanderas">
