@@ -6,6 +6,7 @@ unset($_SESSION['DAW215LLBusquedaPokemonSprite']);
 unset($_SESSION['DAW215LLBusquedaPokemonSprite2']);
 unset($_SESSION['DAW215LLBusquedaPokemonGenero']);
 unset($_SESSION['DAW215LLBusquedaPokemonErrorGenero']);
+unset($_SESSION['DAW215LLBusquedaPokemonDatos']);
 if(isset($_REQUEST['pagina'])){
     $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
     $_SESSION['DAW215LLPagina'] = $_REQUEST['pagina'];

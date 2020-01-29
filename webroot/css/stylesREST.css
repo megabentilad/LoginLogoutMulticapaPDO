@@ -8,6 +8,11 @@ label{
 input{
     font-size: 20px;
 }
+p{
+    height: 40px;
+    font-size: 20px;
+    font-family: Arial;
+}
 input[type='checkbox']{
     width: 3vw;
     height: 5vh;
@@ -77,4 +82,9 @@ input[type='radio']{
 }
 fieldset{
     height: 14vh;
+}
+.pokedatos{
+    position: fixed;
+    left: 8vw;
+    top: 20vh;
 }

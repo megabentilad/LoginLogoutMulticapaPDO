@@ -65,6 +65,7 @@ if (isset($_POST['buscar'])) { //Si se ha pulsado enviar
             $_SESSION['DAW215LLBusquedaPokemon'] = "";
             unset($_SESSION['DAW215LLBusquedaPokemonSprite']);
             unset($_SESSION['DAW215LLBusquedaPokemonSprite2']);
+            unset($_SESSION['DAW215LLBusquedaPokemonDatos']);
             $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = null;
         }
     }
@@ -81,6 +82,7 @@ if (isset($_POST['buscar'])) { //Si se ha pulsado enviar
             $_SESSION['DAW215LLBusquedaPokemon'] = "";
             unset($_SESSION['DAW215LLBusquedaPokemonSprite']);
             unset($_SESSION['DAW215LLBusquedaPokemonSprite2']);
+            unset($_SESSION['DAW215LLBusquedaPokemonDatos']);
         }else{
             if($datosPokemon['sprites']['front_female'] == null){
                 $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = "Este pokemon no tiene variación de genero.";
@@ -110,7 +112,7 @@ if (isset($_POST['buscar'])) { //Si se ha pulsado enviar
                 }
                 $_SESSION['DAW215LLBusquedaPokemonGenero'] = "hembra";
             }
-            
+            $_SESSION['DAW215LLBusquedaPokemonDatos'] = $datosPokemon;
         }
         if(is_null($aErrores['pokemon'])){
             header("Location: index.php");

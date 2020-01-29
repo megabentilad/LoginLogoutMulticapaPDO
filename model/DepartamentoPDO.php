@@ -6,9 +6,9 @@
  *
  * Clase que contiene todo lo referente al departamentoPDO que sirve para gestionar la base de datos desde la aplicación
  *
- * @since Versión 0.3 Se van añadiendo cosas, ya tu sabes
+ * @since Versión 1.0 Ya está todo listo
  * @author Luis Mateo Rivera Uriarte
- * @version 0.3
+ * @version 1.0
  *
  */
 require_once 'BDPDO.php';

@@ -27,3 +27,9 @@
 <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=inicio"; ?>"><input type="button" name="volver" value="Volver" id="volver"></a>
 <img src="<?php if(isset($_SESSION['DAW215LLBusquedaPokemonSprite'])){ echo $_SESSION['DAW215LLBusquedaPokemonSprite']; } ?>" class="pokemonSprite">
 <img src="<?php if(isset($_SESSION['DAW215LLBusquedaPokemonSprite2'])){ echo $_SESSION['DAW215LLBusquedaPokemonSprite2']; } ?>" class="pokemonSprite2">
+<?php if(isset($_SESSION['DAW215LLBusquedaPokemonDatos'])){ ?>
+<div class="pokedatos">
+    <p><?php echo "Nº" . $_SESSION['DAW215LLBusquedaPokemonDatos']['id']; ?></p>
+    <p><?php echo ucfirst($_SESSION['DAW215LLBusquedaPokemonDatos']['name']); ?></p>
+</div>
+<?php } ?>

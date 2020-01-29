@@ -6,9 +6,8 @@
  *
  * Clase que contiene todo lo referente al usuarioPDO que sirve para gestionar la base de datos desde la aplicación
  *
- * @since Versión 0.3 Se van añadiendo cosas, ya tu sabes
  * @author Luis Mateo Rivera Uriarte
- * @version 0.3
+ * @version 1.0
  *
  */
 require_once 'BDPDO.php';
@@ -20,7 +19,6 @@ class UsuarioPDO{
      * @function validarUsuario();
      * @author Luis Mateo Rivera Uriarte
      * @version 1.0 Funciona y hace lo que debe hacer.
-     * @since 2020-01-15
      * @param $codUsuario Contiene el código del usuario a validar.
      * @param $maxTamanio Tamaño máximo de la cádena.
      * @param $minTamanio Tamaño mínimo de la cadena.
