@@ -62,6 +62,9 @@
                 <a href="doc/200112LMRED2.pdf" target="_blank">
                     <img src="webroot/img/tecnologias.png" class="iconoFooter2"  title="Tecnologias">
                 </a>
+                <a href="doc/phpDoc/index.html" target="_blank">
+                    <img src="webroot/img/phpDoc.png" class="iconoFooter3"  title="phpDoc">
+                </a>
             </p>
         </footer>
     </body>

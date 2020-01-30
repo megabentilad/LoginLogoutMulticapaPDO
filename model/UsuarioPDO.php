@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class UsuarioPDO
  *
@@ -13,88 +14,174 @@
 require_once 'BDPDO.php';
 require_once 'Usuario.php';
 
-class UsuarioPDO{
+class UsuarioPDO {
+
     //Copiado de David
     /**
+     * Función que valida a un usuario.
+     * 
+     * Función que valida un usuario y, si existe en la base de datos, te lo devuelve con toda su información.
+     * 
      * @function validarUsuario();
      * @author Luis Mateo Rivera Uriarte
      * @version 1.0 Funciona y hace lo que debe hacer.
-     * @param $codUsuario Contiene el código del usuario a validar.
-     * @param $maxTamanio Tamaño máximo de la cádena.
-     * @param $minTamanio Tamaño mínimo de la cadena.
-     * @param $obligatorio Valor booleano indicado mediante 1, si es obligatorio o 0 si no lo es.
-     * @return null -> Si la variable errores es null o en su defecto contiene tan sólo espacios en blanco
-     *         $mensajeError -> Que contiene una cadena con los errores que han surgido concatenados.
-     **/
-    public static function validarUsuario($codUsuario, $password){
+     * @param $codUsuario Contiene el código del Usuario a validar.
+     * @param $password Tamaño máximo de la cádena.
+     * @return Usuario
+     * */
+    public static function validarUsuario($codUsuario, $password) {
         $consulta = "select * from T01_Usuario where T01_CodUsuario=? and T01_Password=?;";
         $objetoUsuario = null;
         $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$codUsuario, $password]);
-        if($resultadoConsulta->rowCount() == 1){
+        if ($resultadoConsulta->rowCount() == 1) {
             $resultadoFormateado = $resultadoConsulta->fetchObject();
             $objetoUsuario = new Usuario($codUsuario, $password, $resultadoFormateado->T01_DescUsuario, $resultadoFormateado->T01_NumAccesos, $resultadoFormateado->T01_FechaHoraUltimaConexion, $resultadoFormateado->T01_Perfil);
-        
+
             //actualizar usuario
             $consulta1 = "UPDATE T01_Usuario SET T01_FechaHoraUltimaConexion = " . time() . " WHERE T01_CodUsuario=?;";
             BDPDO::ejecutarConsulta($consulta1, [$codUsuario]);
             $consulta2 = "UPDATE T01_Usuario SET T01_NumAccesos = " . (intval($resultadoFormateado->T01_NumAccesos) + 1) . " WHERE T01_CodUsuario=?;";
-            BDPDO::ejecutarConsulta($consulta2, [$codUsuario]);            
+            BDPDO::ejecutarConsulta($consulta2, [$codUsuario]);
         }
         return $objetoUsuario;
     }
 
-        public static function buscarUsuariosPorDescripcion($busqueda){
-            $arrayUsuarios = [];
-            $consulta = "select * from T01_Usuario where T01_DescUsuario like ? and T01_CodUsuario !='" . $_SESSION['DAW215LoginLogoutPOOUsuario']->getCodUsuario() . "';";
-            $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$busqueda]);
-            if($resultadoConsulta->rowCount() != 0){
-                for($i = 0; $i < $resultadoConsulta->rowCount(); $i++){
-                    $resultadoFormateado = $resultadoConsulta->fetchObject();
-                    $objetoUsuario = new Usuario($resultadoFormateado->T01_CodUsuario, $resultadoFormateado->T01_Password, $resultadoFormateado->T01_DescUsuario, $resultadoFormateado->T01_NumAccesos, $resultadoFormateado->T01_FechaHoraUltimaConexion, $resultadoFormateado->T01_Perfil);
-                    array_push($arrayUsuarios, $objetoUsuario);
-                }
-            } 
-            return $arrayUsuarios;
+    /**
+     * Función que busca Usuarios.
+     * 
+     * Función que busca Usuarios en la base de datos con respecto a lo que se introduzca en la barra de búsquueda.
+     * 
+     * @function buscarUsuariosPorDescripción();
+     * @author Luis Mateo Rivera Uriarte
+     * @version 1.0 Funciona y hace lo que debe hacer.
+     * @param $busqueda Cadena que se compara con las descripciones de los Usuarios.
+     * @return array
+     **/
+    public static function buscarUsuariosPorDescripcion($busqueda) {
+        $arrayUsuarios = [];
+        $consulta = "select * from T01_Usuario where T01_DescUsuario like ? and T01_CodUsuario !='" . $_SESSION['DAW215LoginLogoutPOOUsuario']->getCodUsuario() . "';";
+        $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$busqueda]);
+        if ($resultadoConsulta->rowCount() != 0) {
+            for ($i = 0; $i < $resultadoConsulta->rowCount(); $i++) {
+                $resultadoFormateado = $resultadoConsulta->fetchObject();
+                $objetoUsuario = new Usuario($resultadoFormateado->T01_CodUsuario, $resultadoFormateado->T01_Password, $resultadoFormateado->T01_DescUsuario, $resultadoFormateado->T01_NumAccesos, $resultadoFormateado->T01_FechaHoraUltimaConexion, $resultadoFormateado->T01_Perfil);
+                array_push($arrayUsuarios, $objetoUsuario);
+            }
         }
-        
-        public static function buscarUsuarioPorCodigo($codUsuario){
-            $consulta = "select * from T01_Usuario where T01_CodUsuario = ?;";
-            $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$codUsuario]);
-            $resultadoFormateado = $resultadoConsulta->fetchObject();
-            $objetoUsuario = new Usuario($resultadoFormateado->T01_CodUsuario, $resultadoFormateado->T01_Password, $resultadoFormateado->T01_DescUsuario, $resultadoFormateado->T01_NumAccesos, $resultadoFormateado->T01_FechaHoraUltimaConexion, $resultadoFormateado->T01_Perfil);
-            return $objetoUsuario;
-        }
-    
-    public static function validaCodNoExiste($codUsuario){
+        return $arrayUsuarios;
+    }
+
+    /**
+     * Función que busca un Usuario.
+     * 
+     * Función que busca un Usuario en concreto a partir de su código.
+     * 
+     * @function buscarUsuarioPorCodigo();
+     * @author Luis Mateo Rivera Uriarte
+     * @version 1.0 Funciona y hace lo que debe hacer.
+     * @param $codUsuario Código del Usuario que se está buscando.
+     * @return Usuario
+     **/
+    public static function buscarUsuarioPorCodigo($codUsuario) {
+        $consulta = "select * from T01_Usuario where T01_CodUsuario = ?;";
+        $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$codUsuario]);
+        $resultadoFormateado = $resultadoConsulta->fetchObject();
+        $objetoUsuario = new Usuario($resultadoFormateado->T01_CodUsuario, $resultadoFormateado->T01_Password, $resultadoFormateado->T01_DescUsuario, $resultadoFormateado->T01_NumAccesos, $resultadoFormateado->T01_FechaHoraUltimaConexion, $resultadoFormateado->T01_Perfil);
+        return $objetoUsuario;
+    }
+
+    /**
+     * Función que valida un código.
+     * 
+     * Función que valida un código miurando si existe en la base de datos.
+     * 
+     * @function validaCodNoExiste();
+     * @author Luis Mateo Rivera Uriarte
+     * @version 1.0 Funciona y hace lo que debe hacer.
+     * @param $codUsuario Código del Usuario que se está buscando.
+     * @return boolean
+     **/
+    public static function validaCodNoExiste($codUsuario) {
         $consulta = "SELECT T01_CodUsuario FROM T01_Usuario WHERE T01_CodUsuario=?;";
         $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$codUsuario]);
-         if($resultadoConsulta->rowCount() == 1){
-             return false;
-         }
+        if ($resultadoConsulta->rowCount() == 1) {
+            return false;
+        }
         return true;
     }
-    
-    public static function crearUsuario($codUsuario, $descUsuario, $password){
+
+    /**
+     * Función que crea un Usuario.
+     * 
+     * Función que crea un Usuario partiendo de un código, una descripcuión y una contraseña.
+     * 
+     * @function crearUsuario();
+     * @author Luis Mateo Rivera Uriarte
+     * @version 1.0 Funciona y hace lo que debe hacer.
+     * @param $codUsuario Código del Usuario que se va a crear.
+     * @param $descUsuario Descripción del Usuario que se va a crear.
+     * @param $password Contraseña del Usuario que se va a crear.
+     * @return Usuario
+     **/
+    public static function crearUsuario($codUsuario, $descUsuario, $password) {
         $consulta = "INSERT INTO T01_Usuario(T01_CodUsuario, T01_DescUsuario, T01_Password) VALUES(?,?,?);";
         BDPDO::ejecutarConsulta($consulta, [$codUsuario, $descUsuario, $password]);
         return self::validarUsuario($codUsuario, $password);
     }
-    
-    public static function modificarUsuario($codUsuario, $nuevaDescUsuario){
+
+    /**
+     * Función que modifica un Usuario.
+     * 
+     * Función que modifica un Usuario (Modificar tu propia cuenta).
+     * 
+     * @function modificarUsuario();
+     * @author Luis Mateo Rivera Uriarte
+     * @version 1.0 Funciona y hace lo que debe hacer.
+     * @param $codUsuario Código del Usuario que se va a modificar.
+     * @param $nuevaDescUsuario Descripción del Usuario que se va a aplicar.
+     * @return Usuario
+     **/
+    public static function modificarUsuario($codUsuario, $nuevaDescUsuario) {
         $consulta = "UPDATE T01_Usuario SET T01_DescUsuario = ? WHERE T01_CodUsuario = ?;";
         BDPDO::ejecutarConsulta($consulta, [$nuevaDescUsuario, $codUsuario]);
         $objetoUsuario = new Usuario($codUsuario, $_SESSION['DAW215LoginLogoutPOOUsuario']->getPassword(), $nuevaDescUsuario, $_SESSION['DAW215LoginLogoutPOOUsuario']->getNumAccesos(), $_SESSION['DAW215LoginLogoutPOOUsuario']->getFechaHoraUltimaConexion(), $_SESSION['DAW215LoginLogoutPOOUsuario']->getPerfil());
         return $objetoUsuario;
     }
-    public static function modificarUsuarioGestion($codUsuario, $nuevaDescUsuario, $perfil){
+    
+    /**
+     * Función que modifica un Usuario.
+     * 
+     * Función que modifica un Usuario (Modificar desde mtoUsuarios).
+     * 
+     * @function modificarUsuarioGestion();
+     * @author Luis Mateo Rivera Uriarte
+     * @version 1.0 Funciona y hace lo que debe hacer.
+     * @param $codUsuario Código del Usuario que se va a modificar.
+     * @param $nuevaDescUsuario Descripción del Usuario que se va a aplicar.
+     * @param $perfil Perfil que se va a aplicar al Usuario.
+     * @return Usuario
+     **/
+    public static function modificarUsuarioGestion($codUsuario, $nuevaDescUsuario, $perfil) {
         $consulta1 = "UPDATE T01_Usuario SET T01_DescUsuario = ?, T01_Perfil = ? WHERE T01_CodUsuario = ?;";
         BDPDO::ejecutarConsulta($consulta1, [$nuevaDescUsuario, $perfil, $codUsuario]);
         $objetoUsuario = new Usuario($codUsuario, $_SESSION['DAW215LoginLogoutPOOUsuario']->getPassword(), $nuevaDescUsuario, $_SESSION['DAW215LoginLogoutPOOUsuario']->getNumAccesos(), $_SESSION['DAW215LoginLogoutPOOUsuario']->getFechaHoraUltimaConexion(), $_SESSION['DAW215LoginLogoutPOOUsuario']->getPerfil());
         return $objetoUsuario;
     }
     
-    public static function borrarUsuario($codUsuario){
+    /**
+     * Función que borra un Usuario.
+     * 
+     * Función que borra un Usuario (propio o desde mtoUsuarios).
+     * 
+     * @function borrarUsuario();
+     * @author Luis Mateo Rivera Uriarte
+     * @version 1.0 Funciona y hace lo que debe hacer.
+     * @param $codUsuario Código del Usuario que se va a borrar.
+     * @return void
+     **/
+    public static function borrarUsuario($codUsuario) {
         $consulta = "DELETE FROM T01_Usuario WHERE T01_CodUsuario = ?;";
         BDPDO::ejecutarConsulta($consulta, [$codUsuario]);
     }
+
 }

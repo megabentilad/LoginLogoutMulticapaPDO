@@ -37,8 +37,7 @@ $entradaOK = true; //Inicializamos una variable que nos ayudara a controlar si t
             $descDepartamento = $_POST['desc'];
             $vol = $_POST['vol'];
 
-            $objetoDepartamento = DepartamentoPDO::modificaDepartamento($_SESSION['DAW215LoginLogoutPOODepartamento']->getCodDepartamento(), $descDepartamento, $vol);
-            $_SESSION['DAW215LoginLogoutPOODepartamento'] = $objetoDepartamento;
+            DepartamentoPDO::modificaDepartamento($_SESSION['DAW215LoginLogoutPOODepartamento']->getCodDepartamento(), $descDepartamento, $vol);
             $_SESSION['DAW215LLPagina'] = 'mtoDepartamentos';
             header("Location: index.php"); 
             exit;

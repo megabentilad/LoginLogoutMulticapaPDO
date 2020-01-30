@@ -3,8 +3,7 @@ unset($_SESSION['DAW215LoginLogoutPOODepartamento']);
 if(isset($_REQUEST['codigoModificarBorrar'])){
     $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
     $_SESSION['DAW215LLPagina'] =  $_REQUEST['pagina'];
-    $arrayRespuesta = DepartamentoPDO::buscarDepartamentosPorCodigo($_REQUEST['codigoModificarBorrar']);
-    $_SESSION['DAW215LoginLogoutPOODepartamento'] = $arrayRespuesta[0];
+    $_SESSION['DAW215LoginLogoutPOODepartamento'] = DepartamentoPDO::buscarDepartamentoPorCodigo($_REQUEST['codigoModificarBorrar']);
     header("Location: index.php");
     exit;
 }
