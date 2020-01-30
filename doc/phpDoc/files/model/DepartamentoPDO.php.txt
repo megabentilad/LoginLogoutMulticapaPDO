@@ -1,7 +1,5 @@
 <?php
 /**
- * Class DepartamentoPDO
- *
  * Clase que contiene todo lo referente al departamentoPDO
  *
  * Clase que contiene todo lo referente al departamentoPDO que sirve para gestionar la base de datos desde la aplicación
@@ -10,6 +8,7 @@
  * @author Luis Mateo Rivera Uriarte
  * @version 1.0
  *
+ * Class DepartamentoPDO
  */
 require_once 'BDPDO.php';
 require_once 'Departamento.php';
