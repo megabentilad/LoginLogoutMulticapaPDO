@@ -58,13 +58,15 @@ input[type='checkbox']{
 }
 .pokemonSprite{
     position: absolute;
-    left: 15vw;
+    left: 20vw;
     width: 10vw;
+    top: 8vh;
 }
 .pokemonSprite2{
     position: absolute;
-    left: 24vw;
+    left: 20vw;
     width: 10vw;
+    top: 23vh;
 }
 fieldset *{
     font-family: Arial;
@@ -74,7 +76,15 @@ fieldset label{
     float:left;
 }
 .pokedatos{
-    position: fixed;
-    left: 8vw;
-    top: 20vh;
+    position: absolute;
+    left: 12vw;
+    top: 15vh;
+}
+.labelbuscador, .labelshiny{
+    position: relative;
+    top: 10px;
+}
+.labelshiny{
+    position: relative;
+    top: 7px;
 }
