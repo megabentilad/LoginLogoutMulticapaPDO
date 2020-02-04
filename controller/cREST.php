@@ -1,4 +1,10 @@
 <?php
+if(isset($_REQUEST['pagina'])){
+    $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
+    $_SESSION['DAW215LLPagina'] =  $_REQUEST['pagina'];
+    header("Location: index.php"); 
+    exit;
+}
 if(!isset($_SESSION['DAW215LLBusquedaPokemon'])){
     $_SESSION['DAW215LLBusquedaPokemon'] = "";
 }
@@ -10,12 +16,6 @@ if(!isset($_SESSION['DAW215LLBusquedaPokemonGenero'])){
 }
 if(!isset($_SESSION['DAW215LLBusquedaPokemonErrorGenero'])){
     $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = null;
-}
-if(isset($_REQUEST['pagina'])){
-    $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
-    $_SESSION['DAW215LLPagina'] =  $_REQUEST['pagina'];
-    header("Location: index.php"); 
-    exit;
 }
 
 function apiREST($method, $url, $data = false){
@@ -84,23 +84,23 @@ if (isset($_POST['buscar'])) { //Si se ha pulsado enviar
             unset($_SESSION['DAW215LLBusquedaPokemonSprite2']);
             unset($_SESSION['DAW215LLBusquedaPokemonDatos']);
         }else{
-            if($datosPokemon['sprites']['front_female'] == null){
-                $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = "Este pokemon no tiene variación de genero.";
+            if($datosPokemon['sprites']['front_female'] == null){ //Si el poquemon no tiene variación de genero, muestra una alerta
+                $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = "Este pokemon no tiene variación de genero."; 
             }else{
                 $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = null;
             }
-            if($_POST['genero'] == "macho" || $datosPokemon['sprites']['front_female'] == null){
-                if(isset($_POST['shiny'])){
+            if($_POST['genero'] == "macho" || $datosPokemon['sprites']['front_female'] == null){  //si el poquemon es macho o no tiene variación de género, muestra estas imágenes
+                if(isset($_POST['shiny'])){  //Si es shiny, se muestran estos 2
                     $_SESSION['DAW215LLBusquedaPokemonSprite'] = $datosPokemon['sprites']['front_shiny'];
                     $_SESSION['DAW215LLBusquedaPokemonSprite2'] = $datosPokemon['sprites']['back_shiny'];
                     $_SESSION['DAW215LLBusquedaPokemonShiny'] = true;
-                }else{
+                }else{ //si no es shiny, se muestran estos dos
                     $_SESSION['DAW215LLBusquedaPokemonSprite'] = $datosPokemon['sprites']['front_default'];
                     $_SESSION['DAW215LLBusquedaPokemonSprite2'] = $datosPokemon['sprites']['back_default'];
                     $_SESSION['DAW215LLBusquedaPokemonShiny'] = false;
                 }
-                $_SESSION['DAW215LLBusquedaPokemonGenero'] = "macho";
-            }else{
+                $_SESSION['DAW215LLBusquedaPokemonGenero'] = "macho";  //Se establece como macho para que se seleccione el radiobutton
+            }else{  //Si es hembra y tiene variación de genero, entra por aquí
                 if(isset($_POST['shiny'])){
                     $_SESSION['DAW215LLBusquedaPokemonSprite'] = $datosPokemon['sprites']['front_shiny_female'];
                     $_SESSION['DAW215LLBusquedaPokemonSprite2'] = $datosPokemon['sprites']['back_shiny_female'];

@@ -1,7 +1,7 @@
 .nuevo{
-    width: 2vw;
-    top: 1.3vh;
-    left: 1vw;
+    width: 50px;
+    top: -130px;
+    left: 10px;
     position: relative;
     opacity: 0.8;
 }
@@ -14,4 +14,56 @@
 }
 .imagenTabla:hover{
     opacity: 1;
+}
+label{
+    float: left;
+    height: 40px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: Arial;
+}
+input[type="text"]{
+    width: 180px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    float: right;
+}
+input[type="submit"]{
+    position: relative; 
+    bottom: 15px;
+}
+fieldset{
+    height: 120px;
+}
+table{
+    position: relative;
+    top: -20px;
+}
+#etiquetaEstado{
+    position: relative;        
+    left: -38%;
+    text-decoration: underline;
+}
+#divEstadoEtiquetas{
+    position: relative;        
+    top: -15px;
+    display: inline-block;
+    left: -20px;
+}
+#divEstadoEtiquetas label{
+    padding-right: 25px;
+}
+#divEstadoRadio{
+    position: relative;        
+    top: -35px;
+    display: inline-block;
+    left: -205px;
+    z-index: -10;
+}
+#alta{
+    margin-right: 50px;
+}
+#baja{
+    margin-right: 65px;
 }

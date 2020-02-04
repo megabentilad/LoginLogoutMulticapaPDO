@@ -5,7 +5,6 @@ if(isset($_REQUEST['pagina'])){
     header("Location: index.php");
     exit;
 }
-
 $entradaOK = true; //Inicializamos una variable que nos ayudara a controlar si todo esta correcto    
     //Inicializamos un array que se encargara de recoger los errores(Campos vacios)
     $aErrores = [

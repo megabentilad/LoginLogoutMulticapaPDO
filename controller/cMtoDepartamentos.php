@@ -26,8 +26,12 @@ if(isset($_REQUEST['ponerBaja'])){
 if(!isset($_SESSION['DAW215LLBusquedaDescripcion'])){
     $_SESSION['DAW215LLBusquedaDescripcion'] = "";
 }
+if(!isset($_SESSION['DAW215LLBusquedaEstado'])){
+    $_SESSION['DAW215LLBusquedaEstado'] = "todos";
+}
 if(isset($_POST['buscar'])){
     $_SESSION['DAW215LLBusquedaDescripcion'] = $_REQUEST['busqueda'];
+    $_SESSION['DAW215LLBusquedaEstado'] = $_REQUEST['estado'];
     header("Location: index.php");
     exit;
 }
@@ -36,11 +40,24 @@ $aDepartamentos = DepartamentoPDO::buscarDepartamentosPorDescripcion("%" . $_SES
 if(count($aDepartamentos) > 0){
     $tabla = "<table><thead><tr><th>Código</th><th>Descripción</th><th>Alta/Baja</th><th>Editar</th><th>Borrar</th></tr></thead><tbody>";
     foreach ($aDepartamentos as $clave => $valor){
-        if($valor->getFechaBajaDepartamento() == null){
-            $tabla .= "<tr><td>" . $valor->getCodDepartamento() . "</td><td>" . $valor->getDescDepartamento() . "</td><td><a href='" . $_SERVER['PHP_SELF'] . "?ponerBaja=true&codigo=" . $valor->getCodDepartamento() ."'><img src='webroot/img/alta.png' class='imagenTabla'></a></td><td><a href='" . $_SERVER['PHP_SELF'] . "?pagina=consultarModificarDepartamento&codigoModificarBorrar=" . $valor->getCodDepartamento() ."'><img src='webroot/img/editar.png' class='imagenTabla'></a></td><td><a href='" . $_SERVER['PHP_SELF'] . "?pagina=eliminarDepartamento&codigoModificarBorrar=" . $valor->getCodDepartamento() ."'><img src='webroot/img/borrar.png' class='imagenTabla'></a></td></tr>";
-        }else{
-        $tabla .= "<tr><td>" . $valor->getCodDepartamento() . "</td><td>" . $valor->getDescDepartamento() . "</td><td><a href='" . $_SERVER['PHP_SELF'] . "?ponerAlta=true&codigo=" . $valor->getCodDepartamento() ."'><img src='webroot/img/baja.png' class='imagenTabla'></a></td><td><a href='" . $_SERVER['PHP_SELF'] . "?pagina=consultarModificarDepartamento&codigoModificarBorrar=" . $valor->getCodDepartamento() ."'><img src='webroot/img/editar.png' class='imagenTabla'></a></td><td><a href='" . $_SERVER['PHP_SELF'] . "?pagina=eliminarDepartamento&codigoModificarBorrar=" . $valor->getCodDepartamento() ."'><img src='webroot/img/borrar.png' class='imagenTabla'></a></td></tr>";
-        }
+        switch($_SESSION['DAW215LLBusquedaEstado']){
+            case "alta":
+                if($valor->getFechaBajaDepartamento() == null){
+                    $tabla .= "<tr><td>" . $valor->getCodDepartamento() . "</td><td>" . $valor->getDescDepartamento() . "</td><td><a href='" . $_SERVER['PHP_SELF'] . "?ponerBaja=true&codigo=" . $valor->getCodDepartamento() ."'><img src='webroot/img/alta.png' class='imagenTabla'></a></td><td><a href='" . $_SERVER['PHP_SELF'] . "?pagina=consultarModificarDepartamento&codigoModificarBorrar=" . $valor->getCodDepartamento() ."'><img src='webroot/img/editar.png' class='imagenTabla'></a></td><td><a href='" . $_SERVER['PHP_SELF'] . "?pagina=eliminarDepartamento&codigoModificarBorrar=" . $valor->getCodDepartamento() ."'><img src='webroot/img/borrar.png' class='imagenTabla'></a></td></tr>";
+                }
+                break;
+            case "baja":
+                if($valor->getFechaBajaDepartamento() != null){
+                    $tabla .= "<tr><td>" . $valor->getCodDepartamento() . "</td><td>" . $valor->getDescDepartamento() . "</td><td><a href='" . $_SERVER['PHP_SELF'] . "?ponerAlta=true&codigo=" . $valor->getCodDepartamento() ."'><img src='webroot/img/baja.png' class='imagenTabla'></a></td><td><a href='" . $_SERVER['PHP_SELF'] . "?pagina=consultarModificarDepartamento&codigoModificarBorrar=" . $valor->getCodDepartamento() ."'><img src='webroot/img/editar.png' class='imagenTabla'></a></td><td><a href='" . $_SERVER['PHP_SELF'] . "?pagina=eliminarDepartamento&codigoModificarBorrar=" . $valor->getCodDepartamento() ."'><img src='webroot/img/borrar.png' class='imagenTabla'></a></td></tr>";
+                }
+                break;
+            default:
+                if($valor->getFechaBajaDepartamento() == null){
+                    $tabla .= "<tr><td>" . $valor->getCodDepartamento() . "</td><td>" . $valor->getDescDepartamento() . "</td><td><a href='" . $_SERVER['PHP_SELF'] . "?ponerBaja=true&codigo=" . $valor->getCodDepartamento() ."'><img src='webroot/img/alta.png' class='imagenTabla'></a></td><td><a href='" . $_SERVER['PHP_SELF'] . "?pagina=consultarModificarDepartamento&codigoModificarBorrar=" . $valor->getCodDepartamento() ."'><img src='webroot/img/editar.png' class='imagenTabla'></a></td><td><a href='" . $_SERVER['PHP_SELF'] . "?pagina=eliminarDepartamento&codigoModificarBorrar=" . $valor->getCodDepartamento() ."'><img src='webroot/img/borrar.png' class='imagenTabla'></a></td></tr>";
+                }else{
+                    $tabla .= "<tr><td>" . $valor->getCodDepartamento() . "</td><td>" . $valor->getDescDepartamento() . "</td><td><a href='" . $_SERVER['PHP_SELF'] . "?ponerAlta=true&codigo=" . $valor->getCodDepartamento() ."'><img src='webroot/img/baja.png' class='imagenTabla'></a></td><td><a href='" . $_SERVER['PHP_SELF'] . "?pagina=consultarModificarDepartamento&codigoModificarBorrar=" . $valor->getCodDepartamento() ."'><img src='webroot/img/editar.png' class='imagenTabla'></a></td><td><a href='" . $_SERVER['PHP_SELF'] . "?pagina=eliminarDepartamento&codigoModificarBorrar=" . $valor->getCodDepartamento() ."'><img src='webroot/img/borrar.png' class='imagenTabla'></a></td></tr>";
+                }
+        } 
     }
     $tabla .= "</tbody></table>";
 }else{

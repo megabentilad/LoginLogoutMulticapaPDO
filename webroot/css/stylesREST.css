@@ -1,6 +1,6 @@
 fieldset{
     position: relative;
-    height: 120px
+    height: 150px
 }
 
 p{
@@ -17,7 +17,7 @@ input[type='checkbox']{
 .genero{
     position: absolute;
     right: 20px;
-    bottom: 0;
+    bottom: 30px;
     display: block;
     width: 100px;
 }
@@ -27,7 +27,7 @@ input[type='checkbox']{
 
 .shiny-box{
     position: absolute;
-    bottom:0;
+    bottom: 40px;
 }
 
 
@@ -60,7 +60,7 @@ input[type='checkbox']{
     position: absolute;
     left: 20vw;
     width: 10vw;
-    top: 8vh;
+    top: 5vh;
 }
 .pokemonSprite2{
     position: absolute;
@@ -78,7 +78,7 @@ fieldset label{
 .pokedatos{
     position: absolute;
     left: 12vw;
-    top: 15vh;
+    top: 18vh;
 }
 .labelbuscador, .labelshiny{
     position: relative;
@@ -87,4 +87,9 @@ fieldset label{
 .labelshiny{
     position: relative;
     top: 7px;
+}
+.masInformacionPoke{
+    color: blue;
+    position: relative;
+    top: 70px;
 }

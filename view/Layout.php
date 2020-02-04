@@ -18,7 +18,7 @@
         <?php
         if($vista == "view/vAltaDepartamento.php"){echo '<link rel="stylesheet" type="text/css" href="webroot/css/stylesAltaDepartamento.css" media="screen">';}?>
         <?php
-        if($vista == "view/vConsultarModificarDepartamento.php"){echo '<link rel="stylesheet" type="text/css" href="webroot/css/stylesConsultarModificarDepartamento.css" media="screen">';}?>
+        if($vista == "view/vConsultarModificarDepartamento.php" || $vista == "view/vEliminarDepartamento.php"){echo '<link rel="stylesheet" type="text/css" href="webroot/css/stylesConsultarModificarDepartamento.css" media="screen">';}?>
         <?php
         if($vista == "view/vMtoUsuarios.php"){echo '<link rel="stylesheet" type="text/css" href="webroot/css/stylesMtoUsuarios.css" media="screen">';}?>
         <?php

@@ -16,7 +16,8 @@
             <label for="generoF" class="labelspriteF">Hembra: </label>
             <input type="radio" name="genero" id="generoF" value="hembra" <?php if($_SESSION['DAW215LLBusquedaPokemonGenero'] == "hembra"){ echo 'checked'; } ?>>
         </div>
-        
+        <br/>
+        <a href="https://pokeapi.co/docs/v2.html#pokemon" target="_blank" class="masInformacionPoke">Mas información</a>
     </fieldset>
     <input type="submit" name="buscar" value="Buscar">
     </form>
