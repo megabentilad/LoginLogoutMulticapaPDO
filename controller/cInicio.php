@@ -1,5 +1,6 @@
 <?php
 unset($_SESSION['DAW215LLBusquedaDescripcion']);
+unset($_SESSION['DAW215LLBusquedaEstado']);
 unset($_SESSION['DAW215LLBusquedaPokemon']);
 unset($_SESSION['DAW215LLBusquedaPokemonShiny']);
 unset($_SESSION['DAW215LLBusquedaPokemonSprite']);

@@ -7,6 +7,8 @@ include_once 'model/Usuario.php';
 include_once 'model/UsuarioPDO.php';
 include_once 'model/Departamento.php';
 include_once 'model/DepartamentoPDO.php';
+include_once 'model/REST.php';
+include_once 'model/Pokemon.php';
 
 //Hacemnos estos arrays para facilitar la comprensión del código
 $controladores = [

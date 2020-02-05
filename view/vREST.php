@@ -21,6 +21,8 @@
     </fieldset>
     <input type="submit" name="buscar" value="Buscar">
     </form>
+<p>Cómo usar mi api: Escribir http://daw215.sauces.local/proyectoDWES/loginLogoutPOO/api/apiREST.php?codigo=[código del departamento]</p>
+<p>Devuelve el volumen cómo cadena si está correcto y "null" si no encuentra el departamento</p>
 <?php if ($aErrores['pokemon'] != NULL) { ?>
     <div class="error" id="epokemon">
     <?php echo $aErrores['pokemon']; //Mensaje de error que tiene el array aErrores   ?>
@@ -37,7 +39,7 @@
 <img src="<?php if(isset($_SESSION['DAW215LLBusquedaPokemonSprite2'])){ echo $_SESSION['DAW215LLBusquedaPokemonSprite2']; } ?>" class="pokemonSprite2">
 <?php if(isset($_SESSION['DAW215LLBusquedaPokemonDatos'])){ ?>
 <div class="pokedatos">
-    <p><?php echo "Nº" . $_SESSION['DAW215LLBusquedaPokemonDatos']['id']; ?></p>
-    <p><?php echo ucfirst($_SESSION['DAW215LLBusquedaPokemonDatos']['name']); ?></p>
+    <p><?php echo "Nº" . $_SESSION['DAW215LLBusquedaPokemonDatos']->getPokeID(); ?></p>
+    <p><?php echo ucfirst($_SESSION['DAW215LLBusquedaPokemonDatos']->getPokeNombre()); ?></p>
 </div>
 <?php } ?>

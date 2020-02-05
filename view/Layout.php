@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Luis Mateo Rivera Uriarte</title>
+        <title>Luis Mateo Rivera Uriarte <?php echo $_SESSION['DAW215LLPOOtituloPagina']; ?></title>
         <meta charset="UTF-8">
         <meta name="author" content="Luis Mateo Rivera Uriarte">
         <link rel="stylesheet" type="text/css" href="webroot/css/styles.css" media="screen">
@@ -34,11 +34,10 @@
         <header>
             <div>
                 <h1>
-                    Login Logout MVC
+                    Multicapa POO
                 </h1>
                 <h2>
-                    <?php
-                    echo $_SESSION['DAW215LLPOOtituloPagina']; ?>
+                    <?php echo $_SESSION['DAW215LLPOOtituloPagina']; ?>
                 </h2>
             </div>
         </header>
