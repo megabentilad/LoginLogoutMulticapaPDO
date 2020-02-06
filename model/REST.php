@@ -33,13 +33,11 @@ class REST {
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); //le decimos que lo guarde en "curl_exec" en vez de mostrarlo
 
         $result = curl_exec($curl); //cogemos el resultado de curl_exec para devolverlo
-        var_dump($result);
-        $result = json_decode($result,true);
-        var_dump($result['id']);
+        $resultadoFinal = json_decode($result,true);
         curl_close($curl); //cerramos el curl
 
         
-        $oPokemon = new Pokemon($result["name"], $result["id"], $result["sprites"]);
+        $oPokemon = new Pokemon($resultadoFinal["name"], $resultadoFinal["id"], $resultadoFinal["sprites"]);
         
         return $oPokemon;
         
@@ -60,6 +58,20 @@ class REST {
         curl_close($curl);
 
         return $result;
+    }
+    
+    public static function propioApiREST($codDepartamento){
+        $curl = curl_init(); //Iniciamos el curl
+        $url = "http://daw215.sauces.local/proyectoDWES/loginLogoutPOO/api/apiREST.php?codigo=" . $codDepartamento;  //Preparamos la url de la api con el departamento que buscamos
+
+        curl_setopt($curl, CURLOPT_URL, $url); //Le decimos que queremos los datos de esa url
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); //le decimos que lo guarde en "curl_exec" en vez de mostrarlo
+
+        $result = curl_exec($curl); //cogemos el resultado de curl_exec para devolverlo
+        $resultadoFinal = json_decode($result,true);
+        curl_close($curl); //cerramos el curl
+
+        return $resultadoFinal;   
     }
 }
 

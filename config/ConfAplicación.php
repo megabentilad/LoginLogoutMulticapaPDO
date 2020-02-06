@@ -24,7 +24,8 @@ $controladores = [
     "eliminarDepartamento" => "controller/cEliminarDepartamento.php",
     "consultarModificarUsuario" => "controller/cConsultarModificarUsuario.php",
     "eliminarUsuario" => "controller/cEliminarUsuario.php",
-    "rest" => "controller/cREST.php"
+    "rest" => "controller/cREST.php",
+    "restPropio" => "controller/cRESTPropio.php"
 ];
 
 $vistas = [
@@ -41,5 +42,6 @@ $vistas = [
     "eliminarDepartamento" => "view/vEliminarDepartamento.php",
     "consultarModificarUsuario" => "view/vConsultarModificarUsuario.php",
     "eliminarUsuario" => "view/vEliminarUsuario.php",
-    "rest" => "view/vREST.php"
+    "rest" => "view/vREST.php",
+    "restPropio" => "view/vRESTPropio.php"
 ];

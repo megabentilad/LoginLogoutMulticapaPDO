@@ -93,3 +93,29 @@ fieldset label{
     position: relative;
     top: 70px;
 }
+
+
+/*API PROPIA*/
+#codPropio{
+    width: 130px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    float: right;
+}
+.labelbuscadorPropio{
+    position: relative;
+    top: 10px;
+}
+#epropio{
+    top: 460px;
+
+}
+span{
+    float: left;
+}
+.masInformacionPropio{
+    color: blue;
+    position: relative;
+    top: 0px;
+}

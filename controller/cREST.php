@@ -18,12 +18,22 @@ if(!isset($_SESSION['DAW215LLBusquedaPokemonErrorGenero'])){
     $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = null;
 }
 
+if(!isset($_SESSION['DAW215LLBusquedaVolPropio'])){
+    $_SESSION['DAW215LLBusquedaVolPropio'] = "";
+}
+if(!isset($_SESSION['DAW215LLValorVolPropio'])){
+    $_SESSION['DAW215LLValorVolPropio'] = "";
+}
+
 //var_dump(REST::twitterApiREST("EvilAFM"));
 
 $entradaOK = true;
 $aErrores = [
     'pokemon' => null,
+    'codPropio' => null
 ];
+
+        //POKEAPI
 if (isset($_POST['buscar'])) { //Si se ha pulsado enviar
     //La posición del array de errores recibe el mensaje de error si hubiera
     $aErrores['pokemon'] = validacionFormularios::comprobarNoVacio($_POST['pokemon']);
@@ -40,7 +50,7 @@ if (isset($_POST['buscar'])) { //Si se ha pulsado enviar
     }
 
     if ($entradaOK) {
-        $_SESSION['DAW215LLBusquedaPokemon'] = $_POST['pokemon'];;
+        $_SESSION['DAW215LLBusquedaPokemon'] = strtolower($_POST['pokemon']);
         
         $datosPokemon = REST::pokemonApiREST($_SESSION['DAW215LLBusquedaPokemon']);
         if (is_null($datosPokemon)) { 
@@ -82,6 +92,41 @@ if (isset($_POST['buscar'])) { //Si se ha pulsado enviar
             $_SESSION['DAW215LLBusquedaPokemonDatos'] = $datosPokemon;
         }
         if(is_null($aErrores['pokemon'])){
+            header("Location: index.php");
+            exit;
+        }
+    }
+}
+
+
+        //API PROPIA
+if (isset($_POST['buscarPropio'])) { //Si se ha pulsado enviar
+    //La posición del array de errores recibe el mensaje de error si hubiera
+    $aErrores['codPropio'] = validacionFormularios::comprobarAlfabetico($_POST['codPropio'],3,3,1); //max, min y obligatoriedad
+    
+    if(strlen(trim(substr($_POST['codPropio'],1))) != 2 && $aErrores['codPropio'] == null){
+        $aErrores['codPropio'] = "No puede haber espacios.";
+    }
+    foreach ($aErrores as $campo => $error) { //Recorre el array en busca de mensajes de error
+        if ($error != null) { //Si el código está mal formateado, da error
+            $entradaOK = false; //Cambia la condiccion de la variable
+            $_SESSION['DAW215LLBusquedaVolPropio'] = "";
+            $_SESSION['DAW215LLValorVolPropio'] = "";
+        }
+    }
+
+    if ($entradaOK) {
+        $_SESSION['DAW215LLBusquedaVolPropio'] = strtoupper($_POST['codPropio']);
+        
+        $volumenPropio = REST::propioApiREST($_SESSION['DAW215LLBusquedaVolPropio']);
+        if (is_null($volumenPropio)) { 
+            $aErrores['codPropio'] = "Ese departamento no existe.";
+            $_SESSION['DAW215LLBusquedaVolPropio'] = "";
+            $_SESSION['DAW215LLValorVolPropio'] = "";
+        }else{
+            $_SESSION['DAW215LLValorVolPropio'] = $volumenPropio;
+        }
+        if(is_null($aErrores['codPropio'])){
             header("Location: index.php");
             exit;
         }
