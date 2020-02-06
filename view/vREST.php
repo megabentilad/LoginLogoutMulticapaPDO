@@ -37,7 +37,7 @@
         </div>
       
         <br/>
-        <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=restPropio"; ?>" target="_blank" class="masInformacionPropio">Mas información</a>
+        <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=restPropio"; ?>" class="masInformacionPropio">Mas información</a>
     </fieldset>
     <input type="submit" name="buscarPropio" value="Buscar">
 </form>
@@ -60,12 +60,12 @@
     </div>   
 <?php } ?>
 <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=inicio"; ?>"><input type="button" name="volver" value="Volver" id="volver"></a>
-<img src="<?php if (isset($_SESSION['DAW215LLBusquedaPokemonSprite'])) {
-    echo $_SESSION['DAW215LLBusquedaPokemonSprite'];
+<img src="<?php if (isset($_SESSION['DAW215LLBusquedaPokemonDatos'])) {
+    echo $_SESSION['DAW215LLBusquedaPokemonDatos']->getPokeSprite1();
 } ?>" class="pokemonSprite">
 <br/>
-<img src="<?php if (isset($_SESSION['DAW215LLBusquedaPokemonSprite2'])) {
-    echo $_SESSION['DAW215LLBusquedaPokemonSprite2'];
+<img src="<?php if (isset($_SESSION['DAW215LLBusquedaPokemonDatos'])) {
+    echo $_SESSION['DAW215LLBusquedaPokemonDatos']->getPokeSprite2();
 } ?>" class="pokemonSprite2">
 <?php if (isset($_SESSION['DAW215LLBusquedaPokemonDatos'])) { ?>
     <div class="pokedatos">

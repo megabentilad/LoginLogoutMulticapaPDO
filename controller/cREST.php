@@ -42,8 +42,6 @@ if (isset($_POST['buscar'])) { //Si se ha pulsado enviar
         if ($error != null) { //Si lo encuentra vacia el campo y cambia la condiccion
             $entradaOK = false; //Cambia la condiccion de la variable
             $_SESSION['DAW215LLBusquedaPokemon'] = "";
-            unset($_SESSION['DAW215LLBusquedaPokemonSprite']);
-            unset($_SESSION['DAW215LLBusquedaPokemonSprite2']);
             unset($_SESSION['DAW215LLBusquedaPokemonDatos']);
             $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = null;
         }
@@ -51,44 +49,19 @@ if (isset($_POST['buscar'])) { //Si se ha pulsado enviar
 
     if ($entradaOK) {
         $_SESSION['DAW215LLBusquedaPokemon'] = strtolower($_POST['pokemon']);
-        
+        $_SESSION['DAW215LLBusquedaPokemonGenero'] = ($_POST['genero']);
+        if(isset($_POST['shiny'])){
+            $_SESSION['DAW215LLBusquedaPokemonShiny'] = true;
+        }
         $datosPokemon = REST::pokemonApiREST($_SESSION['DAW215LLBusquedaPokemon']);
         if (is_null($datosPokemon)) { 
             $aErrores['pokemon'] = "No se ha podido encontrar al pokemon.";
             $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = null;
             $_SESSION['DAW215LLBusquedaPokemon'] = "";
-            unset($_SESSION['DAW215LLBusquedaPokemonSprite']);
-            unset($_SESSION['DAW215LLBusquedaPokemonSprite2']);
             unset($_SESSION['DAW215LLBusquedaPokemonDatos']);
-        }else{
-            if($datosPokemon->getPokeSprites()['front_female'] == null){ //Si el poquemon no tiene variación de genero, muestra una alerta
-                $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = "Este pokemon no tiene variación de genero."; 
-            }else{
-                $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = null;
-            }
-            if($_POST['genero'] == "macho" || $datosPokemon->getPokeSprites()['front_female'] == null){  //si el poquemon es macho o no tiene variación de género, muestra estas imágenes
-                if(isset($_POST['shiny'])){  //Si es shiny, se muestran estos 2
-                    $_SESSION['DAW215LLBusquedaPokemonSprite'] = $datosPokemon->getPokeSprites()['front_shiny'];
-                    $_SESSION['DAW215LLBusquedaPokemonSprite2'] = $datosPokemon->getPokeSprites()['back_shiny'];
-                    $_SESSION['DAW215LLBusquedaPokemonShiny'] = true;
-                }else{ //si no es shiny, se muestran estos dos
-                    $_SESSION['DAW215LLBusquedaPokemonSprite'] = $datosPokemon->getPokeSprites()['front_default'];
-                    $_SESSION['DAW215LLBusquedaPokemonSprite2'] = $datosPokemon->getPokeSprites()['back_default'];
-                    $_SESSION['DAW215LLBusquedaPokemonShiny'] = false;
-                }
-                $_SESSION['DAW215LLBusquedaPokemonGenero'] = "macho";  //Se establece como macho para que se seleccione el radiobutton
-            }else{  //Si es hembra y tiene variación de genero, entra por aquí
-                if(isset($_POST['shiny'])){
-                    $_SESSION['DAW215LLBusquedaPokemonSprite'] = $datosPokemon->getPokeSprites()['front_shiny_female'];
-                    $_SESSION['DAW215LLBusquedaPokemonSprite2'] = $datosPokemon['sprites']['back_shiny_female'];
-                    $_SESSION['DAW215LLBusquedaPokemonShiny'] = true;
-                }else{
-                    $_SESSION['DAW215LLBusquedaPokemonSprite'] = $datosPokemon->getPokeSprites()['front_female'];
-                    $_SESSION['DAW215LLBusquedaPokemonSprite2'] = $datosPokemon->getPokeSprites()['back_female'];
-                    $_SESSION['DAW215LLBusquedaPokemonShiny'] = false;
-                }
-                $_SESSION['DAW215LLBusquedaPokemonGenero'] = "hembra";
-            }
+            $_SESSION['DAW215LLBusquedaPokemonGenero'] = "macho";
+            $_SESSION['DAW215LLBusquedaPokemonShiny'] = false;
+        }else{     
             $_SESSION['DAW215LLBusquedaPokemonDatos'] = $datosPokemon;
         }
         if(is_null($aErrores['pokemon'])){

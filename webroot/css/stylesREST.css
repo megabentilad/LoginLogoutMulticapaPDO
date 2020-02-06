@@ -3,11 +3,6 @@ fieldset{
     height: 150px
 }
 
-p{
-    height: 40px;
-    font-size: 20px;
-    font-family: Arial;
-}
 input[type='checkbox']{
     width: 35px;
     height: 35px;
@@ -111,7 +106,7 @@ fieldset label{
     top: 460px;
 
 }
-span{
+fieldset span{
     float: left;
 }
 .masInformacionPropio{

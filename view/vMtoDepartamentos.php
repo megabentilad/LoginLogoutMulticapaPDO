@@ -1,9 +1,9 @@
-<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" autocomplete="off">
     <fieldset>
         <label for="descripcion">Busqueda por departamento: </label>
-        <input type="text" name="busqueda" placeholder="Descripción" value="<?php echo $_SESSION['DAW215LLBusquedaDescripcion']; ?>">
+        <input type="text" name="busqueda" placeholder="Descripción" value="<?php echo $_SESSION['DAW215LLBusquedaDescripcion']; ?>" id="descripcion">
         <br/>
-        <label id="etiquetaEstado">Estado </label>
+        <label id="etiquetaEstado">Estado</label>
         <div id="divEstadoEtiquetas">
             <label for="alta">Alta: </label>
             <label for="baja">Baja: </label>
@@ -16,13 +16,20 @@
         </div>
         <br/>
         <input type="submit" name="buscar" value="Buscar">
+        <br/>
+        <select id="sugerencias" size="4" name="sugerencias">
+            <option value="1">Buenas</option>
+            <option value="2">Tardes</option>
+            <option value="3">Tenga</option>
+            <option value="4">Usted</option>
+        </select>
     </fieldset>
 </form>
+
+
         <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=altaDepartamento"?>"><img src="webroot/img/nuevo.png" alt="nuevo" class="nuevo" title="Crear un nuevo departamento"></a>     
         <br/>
         <a href="<?php echo $_SERVER['PHP_SELF'] . "?pagina=inicio"; ?>"><input type="button" name="volver" value="Volver"  id="volver"></a>
-        <br>
-        <br>
         <?php echo $tabla; ?>
 
 

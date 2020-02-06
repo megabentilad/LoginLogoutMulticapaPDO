@@ -14,7 +14,8 @@
 class Pokemon{
     private $pokeNombre;
     private $pokeID;
-    private $pokeSprites;
+    private $pokeSprite1;
+    private $pokeSprite2;
     
     /**
      * @function __construct();
@@ -23,12 +24,14 @@ class Pokemon{
      * @since 2020-01-26
      * @param $pokeNombre
      * @param $pokeID
-     * @param $pokeSprites
+     * @param $pokeSprite1
+     * @param $pokeSprite2
      **/
-    function __construct($pokeNombre, $pokeID, $pokeSprites) {
+    function __construct($pokeNombre, $pokeID, $pokeSprite1, $pokeSprite2) {
         $this->pokeNombre = $pokeNombre;
         $this->pokeID = $pokeID;
-        $this->pokeSprites = $pokeSprites;
+        $this->pokeSprite1 = $pokeSprite1;
+        $this->pokeSprite2 = $pokeSprite2;
     }
 
     function getPokeNombre() {
@@ -39,8 +42,11 @@ class Pokemon{
         return $this->pokeID;
     }
 
-    function getPokeSprites() {
-        return $this->pokeSprites;
+    function getPokeSprite1() {
+        return $this->pokeSprite1;
+    }
+    function getPokeSprite2() {
+        return $this->pokeSprite2;
     }
 
 

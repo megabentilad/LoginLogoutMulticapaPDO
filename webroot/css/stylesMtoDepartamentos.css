@@ -37,8 +37,9 @@ fieldset{
     height: 120px;
 }
 table{
-    position: relative;
-    top: -20px;
+    position: absolute;
+    left: 25vw;
+    margin-bottom: 8vh;
 }
 #etiquetaEstado{
     position: relative;        
@@ -66,4 +67,25 @@ table{
 }
 #baja{
     margin-right: 65px;
+}
+
+#sugerencias{
+    overflow: hidden;
+    background-color: #f9f9f9;
+    border: 0px;
+    font-family: Arial;
+    width: 180px;
+    position: relative;
+    font-size: 15px;
+    left: 143px;
+    top: -150px;
+    display: inline-block;
+    z-index: 15;
+    border-radius: 0px 0px 10px 10px;
+    margin: 0;
+}
+#sugerencias option:hover{
+    cursor: pointer;
+    background-color: gray;
+    color: whitesmoke;
 }

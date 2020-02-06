@@ -36,11 +36,42 @@ class REST {
         $resultadoFinal = json_decode($result,true);
         curl_close($curl); //cerramos el curl
 
-        
-        $oPokemon = new Pokemon($resultadoFinal["name"], $resultadoFinal["id"], $resultadoFinal["sprites"]);
-        
-        return $oPokemon;
-        
+        if($resultadoFinal == null){
+            return $resultadoFinal;
+        }else{
+             if ($resultadoFinal['sprites']['front_female'] == null) { //Si el poquemon no tiene variación de genero, muestra una alerta
+                $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = "Este pokemon no tiene variación de genero.";
+            } else {
+                $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = null;
+            }
+            if ($_SESSION['DAW215LLBusquedaPokemonGenero'] == "macho" || $resultadoFinal['sprites']['front_female'] == null) {  //si el poquemon es macho o no tiene variación de género, muestra estas imágenes
+                if ($_SESSION['DAW215LLBusquedaPokemonShiny']) {  //Si es shiny, se muestran estos 2
+                    $sprite1 = $resultadoFinal['sprites']['front_shiny'];
+                    $sprite2 = $resultadoFinal['sprites']['back_shiny'];
+                    $_SESSION['DAW215LLBusquedaPokemonShiny'] = true;
+                } else { //si no es shiny, se muestran estos dos
+                    $sprite1 = $resultadoFinal['sprites']['front_default'];
+                    $sprite2 = $resultadoFinal['sprites']['back_default'];
+                    $_SESSION['DAW215LLBusquedaPokemonShiny'] = false;
+                }
+                $_SESSION['DAW215LLBusquedaPokemonGenero'] = "macho";  //Se establece como macho para que se seleccione el radiobutton
+            } else {  //Si es hembra y tiene variación de genero, entra por aquí
+                if (isset($_POST['shiny'])) {
+                    $sprite1 = $resultadoFinal['sprites']['front_shiny_female'];
+                    $sprite2 = $resultadoFinal['sprites']['back_shiny_female'];
+                    $_SESSION['DAW215LLBusquedaPokemonShiny'] = true;
+                } else {
+                    $sprite1 = $resultadoFinal['sprites']['front_female'];
+                    $sprite2 = $resultadoFinal['sprites']['back_female'];
+                    $_SESSION['DAW215LLBusquedaPokemonShiny'] = false;
+                }
+                $_SESSION['DAW215LLBusquedaPokemonGenero'] = "hembra";
+            }
+
+            $oPokemon = new Pokemon($resultadoFinal["name"], $resultadoFinal["id"], $sprite1, $sprite2);
+
+            return $oPokemon;
+        }
     }
     
     public static function twitterApiREST($nombre){

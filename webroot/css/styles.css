@@ -113,7 +113,7 @@ button:hover, input[type="submit"]:hover, input[type="button"]:hover{
 }
 
 #volver{
-    position: absolute;
+    position: fixed;
     left: 10vw;
     top: 3vh;
 }

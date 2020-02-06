@@ -3,8 +3,6 @@ unset($_SESSION['DAW215LLBusquedaDescripcion']);
 unset($_SESSION['DAW215LLBusquedaEstado']);
 unset($_SESSION['DAW215LLBusquedaPokemon']);
 unset($_SESSION['DAW215LLBusquedaPokemonShiny']);
-unset($_SESSION['DAW215LLBusquedaPokemonSprite']);
-unset($_SESSION['DAW215LLBusquedaPokemonSprite2']);
 unset($_SESSION['DAW215LLBusquedaPokemonGenero']);
 unset($_SESSION['DAW215LLBusquedaPokemonErrorGenero']);
 unset($_SESSION['DAW215LLBusquedaPokemonDatos']);
