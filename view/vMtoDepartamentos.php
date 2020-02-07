@@ -17,11 +17,7 @@
         <br/>
         <input type="submit" name="buscar" value="Buscar">
         <br/>
-        <select id="sugerencias" size="4" name="sugerencias">
-            <option value="1">Buenas</option>
-            <option value="2">Tardes</option>
-            <option value="3">Tenga</option>
-            <option value="4">Usted</option>
+        <select id="sugerencias" size="4" name="sugerencias" disabled>
         </select>
     </fieldset>
 </form>

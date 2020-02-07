@@ -1,6 +1,6 @@
 .nuevo{
     width: 50px;
-    top: -130px;
+    top: -215px;
     left: 10px;
     position: relative;
     opacity: 0.8;
@@ -40,6 +40,10 @@ table{
     position: absolute;
     left: 25vw;
     margin-bottom: 8vh;
+    width: 50vw;
+}
+th{
+    text-align: center;
 }
 #etiquetaEstado{
     position: relative;        
@@ -71,21 +75,46 @@ table{
 
 #sugerencias{
     overflow: hidden;
-    background-color: #f9f9f9;
+   /* background-color: #f9f9f9; */
+    background-color: #e8e8e8;
     border: 0px;
     font-family: Arial;
     width: 180px;
     position: relative;
     font-size: 15px;
     left: 143px;
-    top: -150px;
+    top: -145px;
     display: inline-block;
     z-index: 15;
     border-radius: 0px 0px 10px 10px;
     margin: 0;
+    height: 75px;
 }
 #sugerencias option:hover{
     cursor: pointer;
-    background-color: gray;
-    color: whitesmoke;
+}
+option{
+    font-family: Arial;
+}
+td, th{
+    font-family: Arial;
+}
+td:nth-child(5n-4){
+    width: 10%;
+    text-align: center;
+}
+td:nth-child(5n-3){
+    width: 50%;
+}
+td:nth-child(5n-2){
+    width: 10%;
+    text-align: center;
+}
+td:nth-child(5n-1){
+    width: 10%;
+    text-align: center;
+}
+td:nth-child(5n){
+    width: 10%;
+    text-align: center;
 }
