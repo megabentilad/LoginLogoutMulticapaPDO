@@ -74,6 +74,8 @@ fieldset label{
     position: absolute;
     left: 12vw;
     top: 18vh;
+    font-family: Arial;
+    font-size: 25px;
 }
 .labelbuscador, .labelshiny{
     position: relative;
