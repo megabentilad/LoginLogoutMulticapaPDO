@@ -15,3 +15,54 @@
 .imagenTabla:hover{
     opacity: 1;
 }
+td:nth-child(6n-5){
+    width: 15%;
+}
+td:nth-child(6n-4){
+    width: 20%;
+}
+td:nth-child(6n-3){
+    width: 30%;
+    text-align: center;
+}
+td:nth-child(6n-2){
+    width: 15%;
+    
+}
+td:nth-child(6n-1){
+    width: 10%;
+    text-align: center;
+}
+td:nth-child(6n){
+    width: 10%;
+    text-align: center;
+}
+label{
+    height: 40px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: Arial;
+}
+input[type="text"]{
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: Arial;
+}
+
+th:nth-child(6n-3){
+    text-align: center;
+}
+th:nth-child(6n-2){
+
+}
+th:nth-child(6n-1){
+    text-align: center;
+}
+th:nth-child(6n){
+    text-align: center;
+}
+th, td{
+    font-family: Arial;
+}

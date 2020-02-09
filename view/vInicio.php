@@ -1,5 +1,7 @@
 <h3><?php echo $mensajeDeBienvenida; ?></h3>
         <br/>
+        <br/>
+        <br/>
         <?php
         //Cambia el texto según la cookie del idioma
         switch ($_COOKIE['idiomaDAW215']){

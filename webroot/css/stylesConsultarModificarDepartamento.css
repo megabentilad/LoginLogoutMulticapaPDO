@@ -10,7 +10,7 @@ input{
     font-size: 20px;
 }
 #cod, #vol, #desc, #creacion, #baja{
-    width: 210px;
+    width: 250px;
     height: 40px;
     border-radius: 10px;
     font-size: 20px;

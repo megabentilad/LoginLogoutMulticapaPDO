@@ -23,7 +23,7 @@ label{
     font-family: Arial;
 }
 input[type="text"]{
-    width: 180px;
+    width: 250px;
     height: 40px;
     border-radius: 10px;
     font-size: 20px;
@@ -79,10 +79,10 @@ th{
     background-color: #e8e8e8;
     border: 0px;
     font-family: Arial;
-    width: 180px;
+    width: 250px;
     position: relative;
     font-size: 15px;
-    left: 143px;
+    left: 133px;
     top: -145px;
     display: inline-block;
     z-index: 15;

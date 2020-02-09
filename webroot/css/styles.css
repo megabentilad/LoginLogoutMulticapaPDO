@@ -86,8 +86,7 @@ form{
     width: 60px;
     opacity: 0.8;    
     position: relative;
-    left: 400px;
-    top: -240px;
+    top: -250px;
 }
 .bandera:hover{
     opacity: 1;
@@ -121,4 +120,7 @@ button:hover, input[type="submit"]:hover, input[type="button"]:hover{
     position: fixed;
     left: 80vw;
     top: 3vh;
+}
+h3{
+    font-family: Arial;
 }
