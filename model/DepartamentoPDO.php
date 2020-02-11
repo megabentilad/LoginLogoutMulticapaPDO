@@ -50,7 +50,13 @@ class DepartamentoPDO{
      **/
     public static function buscarDepartamentosPorDescripcion($busqueda){
         $arrayDepartamentos = [];
-        $consulta = "select * from T02_Departamento where T02_DescDepartamento like ?;";
+        $consulta0 = "select * from T02_Departamento where T02_DescDepartamento like ?;";
+        $resultadoConsulta0 = BDPDO::ejecutarConsulta($consulta0, [$busqueda]);
+        if($resultadoConsulta0->rowCount() != 0){
+            $numPaginas = $resultadoConsulta0->rowCount() / 5;
+            $_SESSION['DAW215LLPOONumPaginasTotales'] = $numPaginas;
+        }
+        $consulta = "select * from T02_Departamento where T02_DescDepartamento like ? LIMIT 5 OFFSET " . $_SESSION['DAW215LLPOONumPagina']*5 . ";";
         $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$busqueda]);
         if($resultadoConsulta->rowCount() != 0){
             for($i = 0; $i < $resultadoConsulta->rowCount(); $i++){

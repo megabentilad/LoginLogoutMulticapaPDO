@@ -10,7 +10,7 @@
 <br/>
 </br>
 <div class="codigo">
-    <h1>Código del modelo</h1>
+    <h1>Ejemplo de función en el modelo REST</h1>
     <pre>
     public static function propioApiREST($codDepartamento){
         $curl = curl_init(); //Iniciamos el curl
@@ -30,7 +30,7 @@
 <br>
 <br>
 <div class="codigo">
-    <h1>Código del formulario</h1>
+    <h1>Ejemplo de implantación en un controlador</h1>
     <pre>
     if (isset($_POST['buscarPropio'])) { //Si se ha pulsado enviar
         //La posición del array de errores recibe el mensaje de error si hubiera

@@ -35,6 +35,11 @@ if(isset($_POST['buscar'])){
     header("Location: index.php");
     exit;
 }
+if(isset($_REQUEST['paginacion'])){
+    $_SESSION['DAW215LLPOONumPagina'] = $_REQUEST['paginacion'];
+    header("Location: index.php");
+    exit;
+}
 
 $aDepartamentos = DepartamentoPDO::buscarDepartamentosPorDescripcion("%" . $_SESSION['DAW215LLBusquedaDescripcion'] . "%");
 if(count($aDepartamentos) > 0){
@@ -60,8 +65,21 @@ if(count($aDepartamentos) > 0){
         } 
     }
     $tabla .= "</tbody></table>";
+    
+    //paginación
+    if($_SESSION['DAW215LLPOONumPagina'] == 0){
+        $paginacion = "<div id='paginacion'><button id='pagAnterior' disabled ><div id='divPagAnterior'></div></button>";
+    }else{
+        $paginacion = "<div id='paginacion'><button id='pagAnterior'><div id='divPagAnterior'></div></button>";
+    }
+    
+    for($i = 0; $i<$_SESSION['DAW215LLPOONumPaginasTotales']; $i++){
+        $paginacion .="<a href='" . $_SERVER['PHP_SELF'] . "?paginacion=" . $i . "'><button class='botonPagina'>" . ($i+1) . "</button></a>";
+    }
+    $paginacion .= "<button id='pagSiguiente'><div id='divPagSiguiente'></div></button></div>";
 }else{
     $tabla = "<h2>No hay departamentos</h2>";
+    $paginacion = "";
 }
 
 

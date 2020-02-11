@@ -39,7 +39,7 @@ fieldset{
 table{
     position: absolute;
     left: 25vw;
-    margin-bottom: 8vh;
+    top: 370px;
     width: 50vw;
 }
 th{
@@ -117,4 +117,12 @@ td:nth-child(5n-1){
 td:nth-child(5n){
     width: 10%;
     text-align: center;
+}
+
+/*PAGINACIÓN*/
+
+#paginacion{
+    position: relative;
+    top: 430px;
+    margin-bottom: 7vh;
 }
