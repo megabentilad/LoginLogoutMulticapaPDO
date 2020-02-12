@@ -6,7 +6,7 @@ unset($_SESSION['DAW215LLBusquedaPokemonShiny']);
 unset($_SESSION['DAW215LLBusquedaPokemonGenero']);
 unset($_SESSION['DAW215LLBusquedaPokemonErrorGenero']);
 unset($_SESSION['DAW215LLBusquedaPokemonDatos']);
-$_SESSION['DAW215LLPOONumPagina'] = 1; //Inicializo la variable que dice el  número de página de las tablas
+$_SESSION['DAW215LLPOONumPagina'] = 0; //Inicializo la variable que dice el  número de página de las tablas
 $_SESSION['DAW215LLPOONumPaginasTotales'] = 1; //Inicializo el número de las páginas
 if(isset($_REQUEST['pagina'])){
     $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];

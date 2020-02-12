@@ -1,4 +1,10 @@
 <?php
+if(isset($_REQUEST['pagina'])){
+    $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
+    $_SESSION['DAW215LLPagina'] =  $_REQUEST['pagina'];
+    header("Location: index.php"); 
+    exit;
+}
 if(!isset($_SESSION['DAW215LLBusquedaPokemon'])){
     $_SESSION['DAW215LLBusquedaPokemon'] = "";
 }
@@ -11,50 +17,23 @@ if(!isset($_SESSION['DAW215LLBusquedaPokemonGenero'])){
 if(!isset($_SESSION['DAW215LLBusquedaPokemonErrorGenero'])){
     $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = null;
 }
-if(isset($_REQUEST['pagina'])){
-    $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
-    $_SESSION['DAW215LLPagina'] =  $_REQUEST['pagina'];
-    header("Location: index.php"); 
-    exit;
+
+if(!isset($_SESSION['DAW215LLBusquedaVolPropio'])){
+    $_SESSION['DAW215LLBusquedaVolPropio'] = "";
+}
+if(!isset($_SESSION['DAW215LLValorVolPropio'])){
+    $_SESSION['DAW215LLValorVolPropio'] = "";
 }
 
-function apiREST($method, $url, $data = false){
-    $curl = curl_init();
-
-    switch ($method)
-    {
-        case "POST":
-            curl_setopt($curl, CURLOPT_POST, 1);
-
-            if ($data)
-                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-            break;
-        case "PUT":
-            curl_setopt($curl, CURLOPT_PUT, 1);
-            break;
-        default:
-            if ($data)
-                $url = sprintf("%s?%s", $url, http_build_query($data));
-    }
-
-    // Optional Authentication:
-    curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-    curl_setopt($curl, CURLOPT_USERPWD, "username:password");
-
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-
-    $result = curl_exec($curl);
-
-    curl_close($curl);
-
-    return $result;
-}
+//var_dump(REST::twitterApiREST("EvilAFM"));
 
 $entradaOK = true;
 $aErrores = [
     'pokemon' => null,
+    'codPropio' => null
 ];
+
+        //POKEAPI
 if (isset($_POST['buscar'])) { //Si se ha pulsado enviar
     //La posición del array de errores recibe el mensaje de error si hubiera
     $aErrores['pokemon'] = validacionFormularios::comprobarNoVacio($_POST['pokemon']);
@@ -63,58 +42,64 @@ if (isset($_POST['buscar'])) { //Si se ha pulsado enviar
         if ($error != null) { //Si lo encuentra vacia el campo y cambia la condiccion
             $entradaOK = false; //Cambia la condiccion de la variable
             $_SESSION['DAW215LLBusquedaPokemon'] = "";
-            unset($_SESSION['DAW215LLBusquedaPokemonSprite']);
-            unset($_SESSION['DAW215LLBusquedaPokemonSprite2']);
             unset($_SESSION['DAW215LLBusquedaPokemonDatos']);
             $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = null;
         }
     }
 
     if ($entradaOK) {
-        $pokemon = $_POST['pokemon'];
-        $_SESSION['DAW215LLBusquedaPokemon'] = $pokemon;
-        $method = "GET";
-        $url = "https://pokeapi.co/api/v2/pokemon/" . $pokemon . "/";
-        $datosPokemon = json_decode(apiREST($method, $url),true);
+        $_SESSION['DAW215LLBusquedaPokemon'] = strtolower($_POST['pokemon']);
+        $_SESSION['DAW215LLBusquedaPokemonGenero'] = ($_POST['genero']);
+        if(isset($_POST['shiny'])){
+            $_SESSION['DAW215LLBusquedaPokemonShiny'] = true;
+        }
+        $datosPokemon = REST::pokemonApiREST($_SESSION['DAW215LLBusquedaPokemon']);
         if (is_null($datosPokemon)) { 
             $aErrores['pokemon'] = "No se ha podido encontrar al pokemon.";
             $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = null;
             $_SESSION['DAW215LLBusquedaPokemon'] = "";
-            unset($_SESSION['DAW215LLBusquedaPokemonSprite']);
-            unset($_SESSION['DAW215LLBusquedaPokemonSprite2']);
             unset($_SESSION['DAW215LLBusquedaPokemonDatos']);
-        }else{
-            if($datosPokemon['sprites']['front_female'] == null){
-                $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = "Este pokemon no tiene variación de genero.";
-            }else{
-                $_SESSION['DAW215LLBusquedaPokemonErrorGenero'] = null;
-            }
-            if($_POST['genero'] == "macho" || $datosPokemon['sprites']['front_female'] == null){
-                if(isset($_POST['shiny'])){
-                    $_SESSION['DAW215LLBusquedaPokemonSprite'] = $datosPokemon['sprites']['front_shiny'];
-                    $_SESSION['DAW215LLBusquedaPokemonSprite2'] = $datosPokemon['sprites']['back_shiny'];
-                    $_SESSION['DAW215LLBusquedaPokemonShiny'] = true;
-                }else{
-                    $_SESSION['DAW215LLBusquedaPokemonSprite'] = $datosPokemon['sprites']['front_default'];
-                    $_SESSION['DAW215LLBusquedaPokemonSprite2'] = $datosPokemon['sprites']['back_default'];
-                    $_SESSION['DAW215LLBusquedaPokemonShiny'] = false;
-                }
-                $_SESSION['DAW215LLBusquedaPokemonGenero'] = "macho";
-            }else{
-                if(isset($_POST['shiny'])){
-                    $_SESSION['DAW215LLBusquedaPokemonSprite'] = $datosPokemon['sprites']['front_shiny_female'];
-                    $_SESSION['DAW215LLBusquedaPokemonSprite2'] = $datosPokemon['sprites']['back_shiny_female'];
-                    $_SESSION['DAW215LLBusquedaPokemonShiny'] = true;
-                }else{
-                    $_SESSION['DAW215LLBusquedaPokemonSprite'] = $datosPokemon['sprites']['front_female'];
-                    $_SESSION['DAW215LLBusquedaPokemonSprite2'] = $datosPokemon['sprites']['back_female'];
-                    $_SESSION['DAW215LLBusquedaPokemonShiny'] = false;
-                }
-                $_SESSION['DAW215LLBusquedaPokemonGenero'] = "hembra";
-            }
+            $_SESSION['DAW215LLBusquedaPokemonGenero'] = "macho";
+            $_SESSION['DAW215LLBusquedaPokemonShiny'] = false;
+        }else{     
             $_SESSION['DAW215LLBusquedaPokemonDatos'] = $datosPokemon;
         }
         if(is_null($aErrores['pokemon'])){
+            header("Location: index.php");
+            exit;
+        }
+    }
+}
+
+
+        //API PROPIA
+if (isset($_POST['buscarPropio'])) { //Si se ha pulsado enviar
+    //La posición del array de errores recibe el mensaje de error si hubiera
+    $aErrores['codPropio'] = validacionFormularios::comprobarAlfabetico($_POST['codPropio'],3,3,1); //max, min y obligatoriedad
+    
+    if(strlen(trim(substr($_POST['codPropio'],1))) != 2 && $aErrores['codPropio'] == null){
+        $aErrores['codPropio'] = "No puede haber espacios.";
+    }
+    foreach ($aErrores as $campo => $error) { //Recorre el array en busca de mensajes de error
+        if ($error != null) { //Si el código está mal formateado, da error
+            $entradaOK = false; //Cambia la condiccion de la variable
+            $_SESSION['DAW215LLBusquedaVolPropio'] = "";
+            $_SESSION['DAW215LLValorVolPropio'] = "";
+        }
+    }
+
+    if ($entradaOK) {
+        $_SESSION['DAW215LLBusquedaVolPropio'] = strtoupper($_POST['codPropio']);
+        
+        $volumenPropio = REST::propioApiREST($_SESSION['DAW215LLBusquedaVolPropio']);
+        if (is_null($volumenPropio)) { 
+            $aErrores['codPropio'] = "Ese departamento no existe.";
+            $_SESSION['DAW215LLBusquedaVolPropio'] = "";
+            $_SESSION['DAW215LLValorVolPropio'] = "";
+        }else{
+            $_SESSION['DAW215LLValorVolPropio'] = $volumenPropio;
+        }
+        if(is_null($aErrores['codPropio'])){
             header("Location: index.php");
             exit;
         }

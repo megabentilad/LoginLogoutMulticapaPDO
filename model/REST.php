@@ -24,7 +24,7 @@ class REST {
      * @version 1.0 Funciona y hace lo que debe hacer.
      * @param $pokemon ID o nombre del pokemon que se busca.
      * @return Pokemon
-     * */
+     **/
     public static function pokemonApiREST($pokemon){
         $curl = curl_init(); //Iniciamos el curl
         $url = "https://pokeapi.co/api/v2/pokemon/" . $pokemon . "/";  //Preparamos la url de la api con el pokemon que buscamos
@@ -74,23 +74,34 @@ class REST {
         }
     }
     
-    public static function twitterApiREST($nombre){
-        $curl = curl_init();
-        $url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" . $nombre . "&count=2";
-
-        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-        curl_setopt($curl, CURLOPT_USERPWD, "user:password");
-
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-
-        $result = curl_exec($curl);
-
-        curl_close($curl);
-
-        return $result;
-    }
+//    public static function twitterApiREST($nombre){
+//        $curl = curl_init();
+//        $url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" . $nombre . "&count=2";
+//
+//        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+//        curl_setopt($curl, CURLOPT_USERPWD, "user:password");
+//
+//        curl_setopt($curl, CURLOPT_URL, $url);
+//        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+//
+//        $result = curl_exec($curl);
+//
+//        curl_close($curl);
+//
+//        return $result;
+//    }
     
+    /**
+     * Función que obtiene los datos de un departamento.
+     * 
+     * Función que obtiene los datos de un departamento de esta misma aplicación.
+     * 
+     * @function propioApiREST();
+     * @author Luis Mateo Rivera Uriarte
+     * @version 1.0 Funciona y hace lo que debe hacer.
+     * @param $codDepartamento código del departamento que se busca.
+     * @return int
+     **/
     public static function propioApiREST($codDepartamento){
         $curl = curl_init(); //Iniciamos el curl
         $url = "http://daw215.sauces.local/proyectoDWES/loginLogoutPOO/api/apiREST.php?codigo=" . $codDepartamento;  //Preparamos la url de la api con el departamento que buscamos

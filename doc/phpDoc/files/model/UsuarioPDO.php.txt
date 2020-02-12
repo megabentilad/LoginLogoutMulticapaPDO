@@ -1,9 +1,6 @@
 <?php
-
 /**
  * Class UsuarioPDO
- *
- * Clase que contiene todo lo referente al usuarioPDO
  *
  * Clase que contiene todo lo referente al usuarioPDO que sirve para gestionar la base de datos desde la aplicación
  *

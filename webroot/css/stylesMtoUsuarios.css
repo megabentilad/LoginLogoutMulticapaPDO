@@ -66,3 +66,39 @@ th:nth-child(6n){
 th, td{
     font-family: Arial;
 }
+
+/*PAGINACIÓN*/
+
+#paginacion{
+    position: relative;
+    top: 70px;
+    margin-bottom: 7vh;
+}
+#paginacion button{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.paginacionFinal{
+    background-color:#8dabc9;
+    cursor: default;
+    box-shadow:none;
+}
+.paginacionFinal:hover{
+    background:none;
+    background-color:#8dabc9;
+}
+.paginacionImg{
+    width: 15px;
+    margin: 0; 
+    padding: 0;
+}
+
+.pagActual{
+    background-color:#fcba03;
+    cursor: default;
+    box-shadow:none;
+}
+.pagActual:hover{
+    background:none;
+    background-color:#fcba03;
+}

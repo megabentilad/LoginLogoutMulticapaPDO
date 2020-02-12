@@ -1,9 +1,6 @@
 <?php
-
 /**
  * Class UsuarioPDO
- *
- * Clase que contiene todo lo referente al usuarioPDO
  *
  * Clase que contiene todo lo referente al usuarioPDO que sirve para gestionar la base de datos desde la aplicación
  *
@@ -59,7 +56,18 @@ class UsuarioPDO {
      **/
     public static function buscarUsuariosPorDescripcion($busqueda) {
         $arrayUsuarios = [];
-        $consulta = "select * from T01_Usuario where T01_DescUsuario like ? and T01_CodUsuario !='" . $_SESSION['DAW215LoginLogoutPOOUsuario']->getCodUsuario() . "';";
+        //Conteo de páginas
+        $consulta0 = "select * from T01_Usuario where T01_DescUsuario like ? and T01_CodUsuario !='" . $_SESSION['DAW215LoginLogoutPOOUsuario']->getCodUsuario() . "';";
+        $resultadoConsulta0 = BDPDO::ejecutarConsulta($consulta0, [$busqueda]);
+        if($resultadoConsulta0->rowCount() != 0){
+            if(is_float($resultadoConsulta0->rowCount() / 5 )){
+                $numPaginas = intval($resultadoConsulta0->rowCount() / 5 ) + 1;
+            }else{
+                $numPaginas = intval($resultadoConsulta0->rowCount() / 5 );
+            }
+            $_SESSION['DAW215LLPOONumPaginasTotales'] = $numPaginas;
+        }
+        $consulta = "select * from T01_Usuario where T01_DescUsuario like ? and T01_CodUsuario !='" . $_SESSION['DAW215LoginLogoutPOOUsuario']->getCodUsuario() . "'LIMIT 5 OFFSET " . $_SESSION['DAW215LLPOONumPagina']*5 . ";";
         $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$busqueda]);
         if ($resultadoConsulta->rowCount() != 0) {
             for ($i = 0; $i < $resultadoConsulta->rowCount(); $i++) {

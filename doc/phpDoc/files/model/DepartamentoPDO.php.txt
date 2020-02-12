@@ -1,14 +1,12 @@
 <?php
 /**
- * Clase que contiene todo lo referente al departamentoPDO
+ * Class DepartamentoPDO
  *
  * Clase que contiene todo lo referente al departamentoPDO que sirve para gestionar la base de datos desde la aplicación
  *
  * @since Versión 1.0 Ya está todo listo
  * @author Luis Mateo Rivera Uriarte
  * @version 1.0
- *
- * Class DepartamentoPDO
  */
 require_once 'BDPDO.php';
 require_once 'Departamento.php';
@@ -42,7 +40,7 @@ class DepartamentoPDO{
      * 
      * Función que busca Departamentos en la base de datos con respecto a lo que se introduzca en la barra de búsquueda.
      * 
-     * @function buscarDepartamentosPorDescripción();
+     * @function buscarDepartamentosPorDescripcion();
      * @author Luis Mateo Rivera Uriarte
      * @version 1.0 Funciona y hace lo que debe hacer.
      * @param $busqueda Cadena que se compara con las descripciones de los Departamentos.
@@ -50,7 +48,39 @@ class DepartamentoPDO{
      **/
     public static function buscarDepartamentosPorDescripcion($busqueda){
         $arrayDepartamentos = [];
-        $consulta = "select * from T02_Departamento where T02_DescDepartamento like ?;";
+        //Conteo de páginas
+        switch($_SESSION['DAW215LLBusquedaEstado']){
+            case "alta":
+                $consulta0 = "select * from T02_Departamento where T02_DescDepartamento like ? and T02_FechaBajaDepartamento is null;";
+                break;
+            case "baja":
+                $consulta0 = "select * from T02_Departamento where T02_DescDepartamento like ? and T02_FechaBajaDepartamento is not null;";
+                break;
+            default:
+                $consulta0 = "select * from T02_Departamento where T02_DescDepartamento like ?;";
+        }
+        $resultadoConsulta0 = BDPDO::ejecutarConsulta($consulta0, [$busqueda]);
+        if($resultadoConsulta0->rowCount() != 0){
+            
+            if(is_float($resultadoConsulta0->rowCount() / 5 )){
+                $numPaginas = intval($resultadoConsulta0->rowCount() / 5 ) + 1;
+            }else{
+                $numPaginas = intval($resultadoConsulta0->rowCount() / 5 );
+            }
+            $_SESSION['DAW215LLPOONumPaginasTotales'] = $numPaginas;
+        }
+        
+        //Busqueda de departamentos en una página
+        switch($_SESSION['DAW215LLBusquedaEstado']){
+            case "alta":
+                $consulta = "select * from T02_Departamento where T02_DescDepartamento like ? and T02_FechaBajaDepartamento is null LIMIT 5 OFFSET " . $_SESSION['DAW215LLPOONumPagina']*5 . ";";
+                break;
+            case "baja":
+                $consulta = "select * from T02_Departamento where T02_DescDepartamento like ? and T02_FechaBajaDepartamento is not null LIMIT 5 OFFSET " . $_SESSION['DAW215LLPOONumPagina']*5 . ";";
+                break;
+            default:
+                $consulta = "select * from T02_Departamento where T02_DescDepartamento like ? LIMIT 5 OFFSET " . $_SESSION['DAW215LLPOONumPagina']*5 . ";";
+        }
         $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$busqueda]);
         if($resultadoConsulta->rowCount() != 0){
             for($i = 0; $i < $resultadoConsulta->rowCount(); $i++){

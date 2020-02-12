@@ -9,7 +9,7 @@
     opacity: 1;
 }
 .imagenTabla{
-    width: 4vw;
+    width: 70px;
     opacity: 0.8;
 }
 .imagenTabla:hover{
@@ -61,7 +61,7 @@ th{
 }
 #divEstadoRadio{
     position: relative;        
-    top: -35px;
+    top: -36px;
     display: inline-block;
     left: -205px;
     z-index: -10;
@@ -98,6 +98,7 @@ option{
 }
 td, th{
     font-family: Arial;
+    overflow: hidden;
 }
 td:nth-child(5n-4){
     width: 10%;
@@ -125,4 +126,32 @@ td:nth-child(5n){
     position: relative;
     top: 430px;
     margin-bottom: 7vh;
+}
+#paginacion button{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.paginacionFinal{
+    background-color:#8dabc9;
+    cursor: default;
+    box-shadow:none;
+}
+.paginacionFinal:hover{
+    background:none;
+    background-color:#8dabc9;
+}
+.paginacionImg{
+    width: 15px;
+    margin: 0; 
+    padding: 0;
+}
+
+.pagActual{
+    background-color:#fcba03;
+    cursor: default;
+    box-shadow:none;
+}
+.pagActual:hover{
+    background:none;
+    background-color:#fcba03;
 }

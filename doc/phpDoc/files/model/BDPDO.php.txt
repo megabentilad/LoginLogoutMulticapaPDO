@@ -2,28 +2,26 @@
 /**
  * Class BDPDO
  *
- * Clase que contiene todo lo referente al usuarioPDO
+ * Clase que se utiliza para hacer consultas a la base de datos
  *
- * PHP version 7.0
+ * @author Luis Mateo Rivera Uriarte
  *
- * @category Validacion
- * @package  Validacion
- * @source ClaseValidacion.php
- * @since Versión 1.1 Se han formateado los mensajes de error y modificado validarDni()
- * @since Version 1.2 Se han acabado de formatear los mensajes de error, se han modificado validarURL() y se han añadido validarCp(), validarPassword(), validarRadioB() y validarCheckBox()
- * @copyright 21-10-2018
- * @author Versión 1.3 Adrián Cando Oviedo
- * @version Versión 1.3 Se han modificado la devolución de varias funciones: comprobarNoVacío, comprobarMintamanio, comprobarMaxTamanio, comprobarEntero, comprobarFloat, antes estas 3 devolvían un valor boolean, ahora
- * devuelven una cadena con el mensaje de error. Estas 3 anteriores funciones se emplean en otras 3 funciones que he cambiado, algo más compuestas las cuales son: comprobarAlfabético, 
- * @since version 1.4 Mejorado los métodos comprobarEntero() y comprobarFlaoat()
- * comprobarAlfanumerico y validarEmail. También he eliminado una función inservible "comprobarCódigo". Este cambio se basa en simplificar la cantidad de código ya que antes los * errores
- * @since version 1.5 mejorada la ortografía de los mensajes de error
- * se escribian cada vez que querías mostrarlos ahora ya los devuelve cada función a la que se ha llamado sin tener que escribir nada.
- * 
  */
 
 class BDPDO{
     //Copiado de David
+    /**
+     * Función que realiza consultas a la base de datos.
+     * 
+     * Función que realiza consultas a la base de datos utilizada por el resto del modelo.
+     * 
+     * @function ejecutarConsulta();
+     * @author Luis Mateo Rivera Uriarte
+     * @version 1.0 Funciona y hace lo que debe hacer.
+     * @param $consulta String que contiene la sentencia SQL preparada.
+     * @param $parametros Array que contiene los parámetros de la consulta preparada.
+     * @return Departamento
+     **/
     
     public static function ejecutarConsulta($consulta, $parametros){
         try{
