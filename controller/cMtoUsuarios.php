@@ -18,6 +18,7 @@ if(!isset($_SESSION['DAW215LLBusquedaDescripcion'])){
 }
 if(isset($_POST['buscar'])){
     $_SESSION['DAW215LLBusquedaDescripcion'] = $_REQUEST['busqueda'];
+    $_SESSION['DAW215LLPOONumPagina'] = 0;
     header("Location: index.php");
     exit;
 }

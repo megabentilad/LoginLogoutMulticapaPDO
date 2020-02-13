@@ -22,10 +22,9 @@ $(function (){
         valorEscrito = $('#descripcion').val();
         
         //mostrar las opciones
-        $.post("core/sugerenciasDepartamentos.php",{valor:valorEscrito}, function(respuesta){
+        $.post("controller/cMtoDepartamentos.php",{valor:valorEscrito}, function(respuesta){
             $(JSON.parse(respuesta)).each(function(){
                 $("#sugerencias").append("<option>" + this["desc"] + "</option>"); 
-               
                 $('option').css("background-color","#f9f9f9");
                 $('option').on('mouseover',cambiarValor);
                 $('option').on('mouseout',ratonFuera);

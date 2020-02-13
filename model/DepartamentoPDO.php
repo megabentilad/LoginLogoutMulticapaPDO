@@ -51,24 +51,20 @@ class DepartamentoPDO{
         //Conteo de páginas
         switch($_SESSION['DAW215LLBusquedaEstado']){
             case "alta":
-                $consulta0 = "select * from T02_Departamento where T02_DescDepartamento like ? and T02_FechaBajaDepartamento is null;";
+                $consulta0 = "select count(T02_DescDepartamento) from T02_Departamento where T02_DescDepartamento like ? and T02_FechaBajaDepartamento is null;";
                 break;
             case "baja":
-                $consulta0 = "select * from T02_Departamento where T02_DescDepartamento like ? and T02_FechaBajaDepartamento is not null;";
+                $consulta0 = "select count(T02_DescDepartamento) from T02_Departamento where T02_DescDepartamento like ? and T02_FechaBajaDepartamento is not null;";
                 break;
             default:
-                $consulta0 = "select * from T02_Departamento where T02_DescDepartamento like ?;";
+                $consulta0 = "select count(T02_DescDepartamento) from T02_Departamento where T02_DescDepartamento like ?;";
         }
         $resultadoConsulta0 = BDPDO::ejecutarConsulta($consulta0, [$busqueda]);
-        if($resultadoConsulta0->rowCount() != 0){
-            
-            if(is_float($resultadoConsulta0->rowCount() / 5 )){
-                $numPaginas = intval($resultadoConsulta0->rowCount() / 5 ) + 1;
-            }else{
-                $numPaginas = intval($resultadoConsulta0->rowCount() / 5 );
-            }
-            $_SESSION['DAW215LLPOONumPaginasTotales'] = $numPaginas;
-        }
+        $resultadoFormateado0 = $resultadoConsulta0->fetchColumn();
+        if($resultadoFormateado0 % 5 == 0){
+            $_SESSION['DAW215LLPOONumPaginasTotales'] = ($resultadoFormateado0 / 5);
+        }else{
+            $_SESSION['DAW215LLPOONumPaginasTotales'] = intval($resultadoFormateado0 / 5)+1;
         
         //Busqueda de departamentos en una página
         switch($_SESSION['DAW215LLBusquedaEstado']){
@@ -88,7 +84,7 @@ class DepartamentoPDO{
                 $objetoDepartamento = new Departamento($resultadoFormateado->T02_CodDepartamento, $resultadoFormateado->T02_DescDepartamento, $resultadoFormateado->T02_VolumenNegocio, $resultadoFormateado->T02_FechaCreacionDepartamento, $resultadoFormateado->T02_FechaBajaDepartamento);
                 array_push($arrayDepartamentos, $objetoDepartamento);
             }
-        } 
+        }
         return $arrayDepartamentos;
     }
     
@@ -109,7 +105,21 @@ class DepartamentoPDO{
         $consulta = "INSERT INTO T02_Departamento(T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES(?,?,". time() .",?);";
         BDPDO::ejecutarConsulta($consulta, [$codDepartamento, $descDepartamento, $vol]);
     }
-    
+    public static function sacarDescripciones($busqueda){
+        include_once 'BDPDO.php';
+        $consulta="select T02_DescDepartamento from T02_Departamento where T02_DescDepartamento like ?;";
+        $resultado = BDPDO::ejecutarConsulta($consulta, ["%$busqueda%"]);
+        if ($resultado->rowCount() != 0) {
+            $devuelve = array();
+            while ($resultadoFormateado = $resultado->fetchObject()) {
+                $descripcion = $resultadoFormateado->T02_DescDepartamento;
+                $devuelve[] = array(
+                    "desc" => $descripcion
+                );
+            }
+            echo json_encode($devuelve);
+        }
+    }
     /**
      * Función que elimina un Departamento.
      * 

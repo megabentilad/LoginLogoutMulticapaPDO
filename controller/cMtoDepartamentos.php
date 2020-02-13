@@ -1,4 +1,11 @@
 <?php
+//AYAX
+if(isset($_REQUEST['valor'])){
+    include_once '../model/DepartamentoPDO.php';
+    include_once '../config/ConfDB.php';
+    DepartamentoPDO::sacarDescripciones($_REQUEST['valor']);
+}else{
+//PROGRAMA
 unset($_SESSION['DAW215LoginLogoutPOODepartamento']);
 if(isset($_REQUEST['codigoModificarBorrar'])){
     $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
@@ -32,6 +39,7 @@ if(!isset($_SESSION['DAW215LLBusquedaEstado'])){
 if(isset($_POST['buscar'])){
     $_SESSION['DAW215LLBusquedaDescripcion'] = $_REQUEST['busqueda'];
     $_SESSION['DAW215LLBusquedaEstado'] = $_REQUEST['estado'];
+    $_SESSION['DAW215LLPOONumPagina'] = 0;
     header("Location: index.php");
     exit;
 }
@@ -66,7 +74,6 @@ if(count($aDepartamentos) > 0){
         $paginacion = "<div id='paginacion'><a href='" . $_SERVER['PHP_SELF'] . "?paginacion=0'><button id='pagPrimera'><img src='webroot/img/flechaDoble.png' class='paginacionImg'></button></a><a href='" . $_SERVER['PHP_SELF'] . "?paginacion=" . intval($_SESSION['DAW215LLPOONumPagina']-1) . "'><button id='pagAnterior'><img src='webroot/img/flechaSimple.png' class='paginacionImg'></button></a>";
     }
     $paginacion .="<button class='botonPagina pagActual'>" . intval($_SESSION['DAW215LLPOONumPagina']+1) . "</button>";
-
     if($_SESSION['DAW215LLPOONumPagina'] == ($_SESSION['DAW215LLPOONumPaginasTotales']-1)){
         $paginacion .= "<button id='pagSiguiente' class='paginacionFinal'><img src='webroot/img/flechaSimple.png' class='paginacionImg' style='transform: rotate(180deg)'></button><button id='pagFinal' class='paginacionFinal'><img src='webroot/img/flechaDoble.png' class='paginacionImg' style='transform: rotate(180deg)'></button></div>";
     }else{
@@ -82,3 +89,4 @@ if(count($aDepartamentos) > 0){
 $vista = $vistas[$_SESSION['DAW215LLPagina']]; //guarda la variable para que el layout sepa que mostrar
 $_SESSION['DAW215LLPOOtituloPagina'] = ucfirst($_SESSION['DAW215LLPagina']); //Sirve para la cabecera
 require_once $vistas["layout"]; //muesto el layout con el login cómo base
+}
