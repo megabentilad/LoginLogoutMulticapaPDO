@@ -65,7 +65,7 @@ class DepartamentoPDO{
             $_SESSION['DAW215LLPOONumPaginasTotales'] = ($resultadoFormateado0 / 5);
         }else{
             $_SESSION['DAW215LLPOONumPaginasTotales'] = intval($resultadoFormateado0 / 5)+1;
-        
+        }
         //Busqueda de departamentos en una página
         switch($_SESSION['DAW215LLBusquedaEstado']){
             case "alta":
