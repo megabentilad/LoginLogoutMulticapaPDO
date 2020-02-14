@@ -1,5 +1,6 @@
 <?php
-if(isset($_REQUEST['buscaDescripcion'])){
+session_start();
+if(isset($_REQUEST['buscaDescripcion']) && isset($_SESSION['DAW215LoginLogoutPOOUsuario'])){
     //Incluimos los ficheros necesarios
     include_once '../model/DepartamentoPDO.php';
     include_once '../config/ConfDB.php';
