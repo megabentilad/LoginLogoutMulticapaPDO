@@ -1,11 +1,4 @@
 <?php
-//AYAX
-if(isset($_REQUEST['valor'])){
-    include_once '../model/DepartamentoPDO.php';
-    include_once '../config/ConfDB.php';
-    DepartamentoPDO::sacarDescripciones($_REQUEST['valor']);
-}else{
-//PROGRAMA
 unset($_SESSION['DAW215LoginLogoutPOODepartamento']);
 if(isset($_REQUEST['codigoModificarBorrar'])){
     $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];
@@ -89,4 +82,3 @@ if(count($aDepartamentos) > 0){
 $vista = $vistas[$_SESSION['DAW215LLPagina']]; //guarda la variable para que el layout sepa que mostrar
 $_SESSION['DAW215LLPOOtituloPagina'] = ucfirst($_SESSION['DAW215LLPagina']); //Sirve para la cabecera
 require_once $vistas["layout"]; //muesto el layout con el login cómo base
-}

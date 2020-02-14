@@ -106,18 +106,17 @@ class DepartamentoPDO{
         BDPDO::ejecutarConsulta($consulta, [$codDepartamento, $descDepartamento, $vol]);
     }
     public static function sacarDescripciones($busqueda){
-        include_once 'BDPDO.php';
         $consulta="select T02_DescDepartamento from T02_Departamento where T02_DescDepartamento like ?;";
         $resultado = BDPDO::ejecutarConsulta($consulta, ["%$busqueda%"]);
         if ($resultado->rowCount() != 0) {
-            $devuelve = array();
-            while ($resultadoFormateado = $resultado->fetchObject()) {
+            $aDescripciones = array();
+            while ($resultadoFormateado = $resultado->fetchObject()) { //metemos en un array todas las descripciones de departamentos
                 $descripcion = $resultadoFormateado->T02_DescDepartamento;
-                $devuelve[] = array(
+                $aDescripciones[] = array(
                     "desc" => $descripcion
                 );
             }
-            echo json_encode($devuelve);
+            echo json_encode($aDescripciones); //Mostramos el resultado en formato json para que ayax pueda leerlo
         }
     }
     /**
