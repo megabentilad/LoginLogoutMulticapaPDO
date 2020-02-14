@@ -106,7 +106,7 @@ class DepartamentoPDO{
         BDPDO::ejecutarConsulta($consulta, [$codDepartamento, $descDepartamento, $vol]);
     }
     public static function sacarDescripciones($busqueda){
-        $consulta="select T02_DescDepartamento from T02_Departamento where T02_DescDepartamento like ?;";
+        $consulta="select T02_DescDepartamento from T02_Departamento where T02_DescDepartamento like ? LIMIT 4;";
         $resultado = BDPDO::ejecutarConsulta($consulta, ["%$busqueda%"]);
         if ($resultado->rowCount() != 0) {
             $aDescripciones = array();
