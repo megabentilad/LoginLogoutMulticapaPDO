@@ -1,3 +1,12 @@
+<?php
+/**
+ * Useless function
+ * 
+ * Soy un fichero, jopé
+ * @package POO-LMR
+ * @author Luis Mateo Rivera Uriarte
+ */
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>

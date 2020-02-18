@@ -1,4 +1,11 @@
 <?php
+/**
+ * Useless function
+ * 
+ * Soy un fichero, jopé
+ * @package POO-LMR
+ * @author Luis Mateo Rivera Uriarte
+ */
 if(isset($_REQUEST['pagina'])){
     session_destroy();
     header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión

@@ -1,4 +1,12 @@
 <?php
+/**
+ * Documento de la aconfiguración (Modelo).
+ *
+ * Documento de la configuración que inclulle todo el código en cada recarga de la página.
+ * @author Luis Mateo Rivera Uriarte
+ * @version 1.0
+ * @package POO-LMR
+ */
 /*Totalmente basado (por no decir copiado) en David*/
 include_once 'core/ValidaForms.php';
 

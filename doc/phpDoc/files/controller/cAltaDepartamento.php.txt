@@ -1,4 +1,11 @@
 <?php
+/**
+ * Useless function
+ * 
+ * Soy un fichero, jopé
+ * @package POO-LMR
+ * @author Luis Mateo Rivera Uriarte
+ */
 if(isset($_REQUEST['pagina'])){
     $_SESSION['DAW215LLPagina'] = $_SESSION['DAW215LLPaginaAnterior'];
     header("Location: index.php"); //Volvemos a cargar el indx ahora que tenemos un usuario en la sesión

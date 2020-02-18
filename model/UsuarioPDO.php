@@ -1,16 +1,17 @@
 <?php
 /**
+ * Useless function
+ * 
+ * Soy un fichero, jopé
+ */
+/**
  * Class UsuarioPDO
  *
- * Clase que contiene todo lo referente al usuarioPDO que sirve para gestionar la base de datos desde la aplicación
- *
+ * Clase que contiene todo lo referente al usuarioPDO que sirve para gestionar la base de datos desde la aplicación.
  * @author Luis Mateo Rivera Uriarte
  * @version 1.0
- *
+ * @package POO-LMR
  */
-require_once 'BDPDO.php';
-require_once 'Usuario.php';
-
 class UsuarioPDO {
 
     //Copiado de David
@@ -18,13 +19,12 @@ class UsuarioPDO {
      * Función que valida a un usuario.
      * 
      * Función que valida un usuario y, si existe en la base de datos, te lo devuelve con toda su información.
-     * 
      * @function validarUsuario();
      * @author Luis Mateo Rivera Uriarte
      * @version 1.0 Funciona y hace lo que debe hacer.
-     * @param $codUsuario Contiene el código del Usuario a validar.
-     * @param $password Tamaño máximo de la cádena.
-     * @return Usuario
+     * @param string $codUsuario Contiene el código del Usuario a validar.
+     * @param string $password Tamaño máximo de la cádena.
+     * @return Usuario Devuelve un objeto Usuario.
      * */
     public static function validarUsuario($codUsuario, $password) {
         $consulta = "select * from T01_Usuario where T01_CodUsuario=? and T01_Password=?;";
@@ -47,12 +47,11 @@ class UsuarioPDO {
      * Función que busca Usuarios.
      * 
      * Función que busca Usuarios en la base de datos con respecto a lo que se introduzca en la barra de búsquueda.
-     * 
      * @function buscarUsuariosPorDescripción();
      * @author Luis Mateo Rivera Uriarte
      * @version 1.0 Funciona y hace lo que debe hacer.
-     * @param $busqueda Cadena que se compara con las descripciones de los Usuarios.
-     * @return array
+     * @param string $busqueda Cadena que se compara con las descripciones de los Usuarios.
+     * @return array Devuelve un array que contiene uno o más objetos Usuario.
      **/
     public static function buscarUsuariosPorDescripcion($busqueda) {
         $arrayUsuarios = [];
@@ -83,12 +82,11 @@ class UsuarioPDO {
      * Función que busca un Usuario.
      * 
      * Función que busca un Usuario en concreto a partir de su código.
-     * 
      * @function buscarUsuarioPorCodigo();
      * @author Luis Mateo Rivera Uriarte
      * @version 1.0 Funciona y hace lo que debe hacer.
-     * @param $codUsuario Código del Usuario que se está buscando.
-     * @return Usuario
+     * @param string $codUsuario Código del Usuario que se está buscando.
+     * @return Usuario Devuelve un objeto Usuario
      **/
     public static function buscarUsuarioPorCodigo($codUsuario) {
         $consulta = "select * from T01_Usuario where T01_CodUsuario = ?;";
@@ -102,12 +100,11 @@ class UsuarioPDO {
      * Función que valida un código.
      * 
      * Función que valida un código miurando si existe en la base de datos.
-     * 
      * @function validaCodNoExiste();
      * @author Luis Mateo Rivera Uriarte
      * @version 1.0 Funciona y hace lo que debe hacer.
-     * @param $codUsuario Código del Usuario que se está buscando.
-     * @return boolean
+     * @param string$codUsuario Código del Usuario que se está buscando.
+     * @return boolean Devuelve true o false dependiendo de si existe el código en la base de datos o no.
      **/
     public static function validaCodNoExiste($codUsuario) {
         $consulta = "SELECT T01_CodUsuario FROM T01_Usuario WHERE T01_CodUsuario=?;";
@@ -121,15 +118,14 @@ class UsuarioPDO {
     /**
      * Función que crea un Usuario.
      * 
-     * Función que crea un Usuario partiendo de un código, una descripcuión y una contraseña.
-     * 
+     * Función que crea un Usuario partiendo de un código, una descripcuión y una contraseña.string 
      * @function crearUsuario();
      * @author Luis Mateo Rivera Uriarte
      * @version 1.0 Funciona y hace lo que debe hacer.
-     * @param $codUsuario Código del Usuario que se va a crear.
-     * @param $descUsuario Descripción del Usuario que se va a crear.
-     * @param $password Contraseña del Usuario que se va a crear.
-     * @return Usuario
+     * @param string $codUsuario Código del Usuario que se va a crear.
+     * @param string $descUsuario Descripción del Usuario que se va a crear.
+     * @param string $password Contraseña del Usuario que se va a crear.
+     * @return Usuario Devuelve un objeto Usuario.
      **/
     public static function crearUsuario($codUsuario, $descUsuario, $password) {
         $consulta = "INSERT INTO T01_Usuario(T01_CodUsuario, T01_DescUsuario, T01_Password) VALUES(?,?,?);";
@@ -141,13 +137,12 @@ class UsuarioPDO {
      * Función que modifica un Usuario.
      * 
      * Función que modifica un Usuario (Modificar tu propia cuenta).
-     * 
      * @function modificarUsuario();
      * @author Luis Mateo Rivera Uriarte
      * @version 1.0 Funciona y hace lo que debe hacer.
-     * @param $codUsuario Código del Usuario que se va a modificar.
-     * @param $nuevaDescUsuario Descripción del Usuario que se va a aplicar.
-     * @return Usuario
+     * @param string $codUsuario Código del Usuario que se va a modificar.
+     * @param string $nuevaDescUsuario Descripción del Usuario que se va a aplicar.
+     * @return Usuario Devuelve un objeto Usuario.
      **/
     public static function modificarUsuario($codUsuario, $nuevaDescUsuario) {
         $consulta = "UPDATE T01_Usuario SET T01_DescUsuario = ? WHERE T01_CodUsuario = ?;";
@@ -160,14 +155,13 @@ class UsuarioPDO {
      * Función que modifica un Usuario.
      * 
      * Función que modifica un Usuario (Modificar desde mtoUsuarios).
-     * 
      * @function modificarUsuarioGestion();
      * @author Luis Mateo Rivera Uriarte
      * @version 1.0 Funciona y hace lo que debe hacer.
-     * @param $codUsuario Código del Usuario que se va a modificar.
-     * @param $nuevaDescUsuario Descripción del Usuario que se va a aplicar.
-     * @param $perfil Perfil que se va a aplicar al Usuario.
-     * @return Usuario
+     * @param string $codUsuario Código del Usuario que se va a modificar.
+     * @param string $nuevaDescUsuario Descripción del Usuario que se va a aplicar.
+     * @param string $perfil Perfil que se va a aplicar al Usuario.
+     * @return Usuario Devuelve un objeto Usuario.
      **/
     public static function modificarUsuarioGestion($codUsuario, $nuevaDescUsuario, $perfil) {
         $consulta1 = "UPDATE T01_Usuario SET T01_DescUsuario = ?, T01_Perfil = ? WHERE T01_CodUsuario = ?;";
@@ -184,12 +178,13 @@ class UsuarioPDO {
      * @function borrarUsuario();
      * @author Luis Mateo Rivera Uriarte
      * @version 1.0 Funciona y hace lo que debe hacer.
-     * @param $codUsuario Código del Usuario que se va a borrar.
-     * @return void
+     * @param string $codUsuario Código del Usuario que se va a borrar.
      **/
     public static function borrarUsuario($codUsuario) {
         $consulta = "DELETE FROM T01_Usuario WHERE T01_CodUsuario = ?;";
         BDPDO::ejecutarConsulta($consulta, [$codUsuario]);
     }
-
 }
+
+require_once 'BDPDO.php';
+require_once 'Usuario.php';

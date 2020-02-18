@@ -1,4 +1,11 @@
 <?php
+/**
+ * Useless function
+ * 
+ * Soy un fichero, jopé
+ * @package POO-LMR
+ * @author Luis Mateo Rivera Uriarte
+ */
     /*Totalmente basado (por no decir copiado) en David*/
     //Incluir los archivos de configuración
 include_once 'config/ConfAplicación.php';

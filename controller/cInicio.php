@@ -1,4 +1,11 @@
 <?php
+/**
+ * Useless function
+ * 
+ * Soy un fichero, jopé
+ * @package POO-LMR
+ * @author Luis Mateo Rivera Uriarte
+ */
 unset($_SESSION['DAW215LLBusquedaDescripcion']);
 unset($_SESSION['DAW215LLBusquedaEstado']);
 unset($_SESSION['DAW215LLBusquedaPokemon']);

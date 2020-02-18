@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <meta charset="utf-8"/>
-    <title>LoginLogoutMulticapaPDO</title>
+    <title>phpDoc</title>
     <meta name="author" content=""/>
     <meta name="description" content=""/>
 
@@ -80,7 +80,7 @@
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <i class="icon-ellipsis-vertical"></i>
             </a>
-            <a class="brand" href="../index.html">LoginLogoutMulticapaPDO</a>
+            <a class="brand" href="../index.html">phpDoc</a>
 
             <div class="nav-collapse">
                 <ul class="nav pull-right">                    <li class="dropdown" id="charts-menu">
@@ -101,7 +101,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="../reports/errors.html">                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">121</span>
+                                <a href="../reports/errors.html">                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">15</span>
                                 </a>
                             </li>
                             <li>
@@ -126,9 +126,9 @@
 <div id="___" class="container-fluid">    <section class="row-fluid">
         <div class="span2 sidebar">    <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
-            <div class="accordion-heading">                    <a class="accordion-toggle" data-toggle="collapse" data-target="#namespace-815571366"></a>                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            <div class="accordion-heading">                    <a class="accordion-toggle" data-toggle="collapse" data-target="#namespace-2109282399"></a>                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-815571366" class="accordion-body collapsein">
+            <div id="namespace-2109282399" class="accordion-body collapsein">
                 <div class="accordion-inner">
                     <ul>                            <li class="class"><a href="../classes/BDPDO.html">BDPDO</a></li>                            <li class="class"><a href="../classes/Departamento.html">Departamento</a></li>                            <li class="class"><a href="../classes/DepartamentoPDO.html">DepartamentoPDO</a></li>                            <li class="class"><a href="../classes/Pokemon.html">Pokemon</a></li>                            <li class="class"><a href="../classes/REST.html">REST</a></li>                            <li class="class"><a href="../classes/Usuario.html">Usuario</a></li>                            <li class="class"><a href="../classes/UsuarioPDO.html">UsuarioPDO</a></li>                            <li class="class"><a href="../classes/validacionFormularios.html">validacionFormularios</a></li>                    </ul>
                 </div>
@@ -145,7 +145,7 @@
                     <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
 
                     <h1><small>\</small>BDPDO</h1>
-                    <p><em>Class BDPDO</em></p><p>Clase que se utiliza para hacer consultas a la base de datos</p>                    
+                    <p><em>Clas que conecta con la base de datos</em></p><p>Clas que conecta con la base de datos recibiendo una consulta preparada (string) y los parámetros que se le asocian (array)</p>                    
                     <section id="summary">
                         <h2>Summary</h2>
                         <section class="row-fluid heading">
@@ -184,7 +184,7 @@
                     <dl>
                         <dt>File</dt>
                             <dd><a href="../files/model.BDPDO.html"><div class="path-wrapper">model\BDPDO.php</div></a></dd>                        <dt>Package</dt>
-                            <dd><div class="namespace-wrapper">Default</div></dd>                        <dt>Class hierarchy</dt>
+                            <dd><div class="namespace-wrapper">POO-LMR</div></dd>                        <dt>Class hierarchy</dt>
                             <dd class="hierarchy">                                <div class="namespace-wrapper">\BDPDO</div>
                             </dd>                    </dl>
                     <h2>Tags</h2>
@@ -192,6 +192,14 @@
                             <th>author
                             </th>
                             <td><p>Luis Mateo Rivera Uriarte</p>                            </td>
+                        </tr>                        <tr>
+                            <th>version
+                            </th>
+                            <td>                            </td>
+                        </tr>                        <tr>
+                            <th>since
+                            </th>
+                            <td>                            </td>
                         </tr>                    </table>
                 </aside>
             </div>            <a id="methods" name="methods"></a>
@@ -204,21 +212,21 @@
             <article class="method">
                 <h3 class="public">ejecutarConsulta()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">ejecutarConsulta(  <span class="argument">$consulta</span>,  <span class="argument">$parametros</span>): \Departamento</pre>
+                <pre class="signature" style="margin-right: 54px;">ejecutarConsulta(string  <span class="argument">$consulta</span>,array  <span class="argument">$parametros</span>): \PDOResultSet</pre>
                 <p><em>Función que realiza consultas a la base de datos.</em></p><p>Función que realiza consultas a la base de datos utilizada por el resto del modelo.</p>                    <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">                            <tr>
-                                <td></td>
+                                <td>string</td>
                                 <td>$consulta</td>
-                                <td><p>String que contiene la sentencia SQL preparada.</p></td>
+                                <td><p>que contiene la sentencia SQL preparada.</p></td>
                             </tr>                            <tr>
-                                <td></td>
+                                <td>array</td>
                                 <td>$parametros</td>
-                                <td><p>Array que contiene los parámetros de la consulta preparada.</p></td>
+                                <td><p>que contiene los parámetros de la consulta preparada.</p></td>
                             </tr>                    </table>
 Warning: count(): Parameter must be an array or an object that implements Countable in phar://I:/phpDocumentor/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1376
 
 Warning: count(): Parameter must be an array or an object that implements Countable in phar://I:/phpDocumentor/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1376
-                    <h4>Returns</h4><a href="../classes/Departamento.html">\Departamento</a>            </article>
+                    <h4>Returns</h4>\PDOResultSet            </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>                <span class="label label-info">static</span>            <dl>            </dl>
@@ -281,7 +289,7 @@ Warning: count(): Parameter must be an array or an object that implements Counta
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    onFebruary 12th, 2020 at 09:26.
+                    onFebruary 18th, 2020 at 12:17.
                 </section>
             </section>
         </section>

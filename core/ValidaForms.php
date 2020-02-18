@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Useless function
+ * 
+ * Soy un fichero, jopé
+ * @package POO-LMR
+ * @author Luis Mateo Rivera Uriarte
+ */
 /**
  * Class validacionFormularios
  *
@@ -8,7 +14,6 @@
  * PHP version 7.0
  *
  * @category Validacion
- * @package  Validacion
  * @source ClaseValidacion.php
  * @since Versión 1.1 Se han formateado los mensajes de error y modificado validarDni()
  * @since Version 1.2 Se han acabado de formatear los mensajes de error, se han modificado validarURL() y se han añadido validarCp(), validarPassword(), validarRadioB() y validarCheckBox()
@@ -25,6 +30,9 @@
 class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN VALIDAR FECHA, ELIMINACION DE VALIDAR CHECKBOX Y RADIOB, MEJORA GENERAL DE RESPUESTA, INCLUSION DE PARAMETROS PREDEFINIDOS Y MEJORAS SUSTANCIALES EN ALGUNOS METODOS
 
     /**
+     * Función que comprueba que algo sea Alfabético.
+     * 
+     * Función que comprueba que algo sea Alfabético y devuelve un mensaje de error en caso de que no sea así.
      * @function comprobarAlfabetico();
      * @author Adrián Cando Oviedo
      * @version 1.0 He eliminado todos los if innecesrios que había simplificandolo a llamar a las funciones internas de errores que devuelven un error si le hay
@@ -36,7 +44,7 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
      * @param $obligatorio Valor booleano indicado mediante 1, si es obligatorio o 0 si no lo es.
      * @return null -> Si la variable errores es null o en su defecto contiene tan sólo espacios en blanco
      *         $mensajeError -> Que contiene una cadena con los errores que han surgido concatenados.
-     *      */
+     */
     public static function comprobarAlfabetico($cadena, $maxTamanio = 1000, $minTamanio = 1, $obligatorio = 0) {  //AÑADIDOS VALORES POR DEFECTO Y MEJORADA LA RESPUESTA
         // Patrón para campos de solo texto
         $patron_texto = "/^[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑç\s]+$/";
@@ -61,6 +69,9 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
 // Return nada si es correcto, si hay errores devuelve un mensaje de error
 // Si es un 1 es obligatorio, si es un 0 no lo es
     /**
+     * Función que comprueba que algo sea Alfanumérico.
+     * 
+     * Función que comprueba que algo sea Alfanumérico y devuelve un mensaje de error en caso de que no sea así.
      * @function comprobarAlfaNumerico();        
      * @author Adrián Cando Oviedo
      * @version 1.0 He eliminado todos los if innecesrios que había simplificandolo a llamar a las funciones internas de errores que devuelven un error si le hay
@@ -90,8 +101,11 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
 // Return null es correcto, si no muestra el mensaje de error
 // Si es un 1 es obligatorio, si es un 0 no lo es
     /**
-     * @author Christian Muñiz de la Huerga
+     * Función que comprueba que algo sea entero.
+     * 
+     * Función que comprueba que algo sea entero y devuelve un mensaje de error en caso de que no sea así.
      * @function comprobarEntero();
+     * @author Christian Muñiz de la Huerga
      * @param $integer Número entero a comprobar
      * @param $max Valor máximo del entero
      * @param $min Valor mínimo del entero
@@ -120,8 +134,11 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
 // Return null es correcto, si no muestra el mensaje de error
 // Si es un 1 es obligatorio, si es un 0 no lo es
     /**
-     * @author Christian Muñiz de la Huerga
+     * Función que comprueba que algo sea decimal.
+     * 
+     * Función que comprueba que algo sea decimal y devuelve un mensaje de error en caso de que no sea así.
      * @function comprobarFloat();
+     * @author Christian Muñiz de la Huerga
      * @param $float Número entero a comprobar
      * @param $max Valor máximo del entero
      * @param $min Valor mínimo del entero
@@ -153,14 +170,15 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
 // Si es un 1 es obligatorio, si es un 0 no lo es
 // 
     /**
+     * Función que comprueba que algo sea un email.
+     * 
+     * Función que comprueba que algo sea un email y devuelve un mensaje de error en caso de que no sea así.
      * @function validarEmail();
      * @author Adrián Cando Oviedo
      * @version 1.3 He modificado el tratamiento de los mensajes de error, y las comprobaciones, adaptadas a la nueva forma de los mensajes. He eliminado los if innecesarios
      * He añadido nuevos comentarios explicando el nuevo funcionamiento.
      * @since 2018-10-23
      * @param $email Cadena a comprobar.
-     * @param $maxTamanio Tamaño máximo de la cadena.
-     * @param $minTamanio Tamaño mínimo de la cadena.
      * @param $obligatorio Valor booleano indicado mediante 1, si es obligatorio o 0 si no lo es.
      * @return null -> Si la variable errores es null o en su defecto contiene tan sólo espacios en blanco
      *              $mensajeError -> Que contiene una cadena con los errores que han surgido concatenados.
@@ -184,6 +202,9 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
 // Devuelve null si es correcto, sino muestra el mensaje de error
 // Si el parámetro $obligatorio es un 1 es obligatorio, si es un 0 es opcional
     /**
+     * Función que comprueba que algo sea una URL.
+     * 
+     * Función que comprueba que algo sea una URL y devuelve un mensaje de error en caso de que no sea así.
      * @function validarURL();
      * @author Christian Muñiz de la Huerga
      * @param $url Cadena a comprobar.
@@ -202,8 +223,13 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
     }
 
     /**
+     * Función que comprueba que algo sea una fecha.
+     * 
+     * Función que comprueba que algo sea una fecha y devuelve un mensaje de error en caso de que no sea así.
      * @function validarFecha();
      * @param $fecha Cadena a comprobar.
+     * @param $fechaMaxima Fecha máxima que no puede superar.
+     * @param $fechaMinima Fecha mínima que no puede superar.
      * @param $obligatorio Valor booleano indicado mediante 1, si es obligatorio o 0 si no lo es.
      * @return null|string Devuelve null si es correcto o un mensaje de error en caso de que lo haya.
      */
@@ -227,14 +253,9 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
     }
 
     /**
-     * @function validarDni();
-     *
-     * @param $dni cadena a comprobar.
-     * @param $obligatorio Valor booleano indicado mediante 1, si es obligatorio o 0 si no lo es.
-     * @return null|string Devuelve null si es correcto o un mensaje de error en caso de que lo haya.
-     */
-
-    /**
+     * Función que comprueba que algo sea un DNI.
+     * 
+     * Función que comprueba que algo sea unDNI y devuelve un mensaje de error en caso de que no sea así.
      * Si no es obligatorio, da por válido un campo vacío o un DNI, si lo es, será necesario introducir un DNI bien formateado
      * @function validarDni();
      * @author Mario Casquero Jañez
@@ -263,6 +284,9 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
 
     // Valida el código postal, si es opcional da por válido que sea correcto o este vacío, si es obligatorio solo da por válido que esté correcto
     /**
+     * Función que comprueba que algo sea un código postal.
+     * 
+     * Función que comprueba que algo sea un código postal y devuelve un mensaje de error en caso de que no sea así.
      * @function validarCp();
      * @author Mario Casquero Jañez
      * @param $cp cadena a comprobar.
@@ -283,6 +307,9 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
 
     // Valida el password, comprueba longitud y si al menos contiene una mayúscula y un número, si es opcional da por válido que sea correcto o este vacío, si es obligatorio solo da por válido que esté correcto
     /**
+     * Función que comprueba que algo sea una contraseña válida.
+     * 
+     * Función que comprueba que algo sea una contraseña válida y devuelve un mensaje de error en caso de que no sea así.
      * @function validarPassword();
      * @author Mario Casquero Jañez
      * @param $passwd cadena a comprobar.
@@ -310,6 +337,9 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
 // Función para validar si no esta vacio
 // Return false esta vacio, true no esta vacio
     /**
+     * Función que comprueba que algo no esté vacío.
+     * 
+     * Función que comprueba que algo no esté vacío y devuelve un mensaje de error en caso de que no sea así.
      * @function comprobarNoVacio();
      * @author Adrián Cando Oviedo
      * @version 1.3 Pequeño cambio a la hora de la devolución. Antes devolvía un valor boolean, ahora una cadena con el error o sin él
@@ -332,6 +362,9 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
 // Si tamaño es 0 significa que no tiene limite
 // Return false no es correcto, true es correcta
     /**
+     * Función que comprueba que algo no supere un tamaño.
+     * 
+     * Función que comprueba que algo no supere un tamaño y devuelve un mensaje de error en caso de que no sea así.
      * @function comprobarMaxTamanio();
      * @author Adrián Cando Oviedo
      * @version 1.3 Pequeño cambio a la hora de la devolución. Antes devolvía un valor boolean, ahora una cadena con el error o sin él
@@ -353,6 +386,9 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
 // Si el tamaño es 0 significa que no tiene limite
 // Return false no es correcto, true es correcta
     /**
+     * Función que comprueba que algo no tenga un tamaño demasiado bajo.
+     * 
+     * Función que comprueba que algo no tenga un tamaño demasiado bajo y devuelve un mensaje de error en caso de que no sea así.
      * @function comprobarMinTamanio();
      * @author Adrián Cando Oviedo
      * @version 1.3 Pequeño cambio a la hora de la devolución. Antes devolvía un valor boolean, ahora una cadena con el error o sin él
@@ -375,7 +411,6 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
 // Devuelve True si es una fecha valida y un false si no la es
     /**
      * @function validateFecha();
-     *
      * @param $date Fecha a comprobar
      * @param string $format formato de la cadena
      * @return bool Devuelve null si es correcto, y si no devuelve un error
@@ -386,11 +421,13 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
     }
  */
     /**
-     * @author Christian Muñiz de la Huerga
+     * Función que comprueba que algo está en la lista.
+     * 
+     * Función que comprueba que algo está en la lista y devuelve un mensaje de error en caso de que no sea así.
      * @function validarElementoEnLista();
+     * @author Christian Muñiz de la Huerga
      * @param $elementoElegido Elemento introducido que se va a comprobar.
      * @param $aOpciones Array con los posibles valores posibles con el que se va a comparar el elemento.
-     * @param $obligatorio Valor booleano indicado mediante 1, si es obligatorio o 0 si no lo es.
      * @return null|string Devuelve null en el caso en el que esté correcto, sino devuelve una cadena con el mensaje de error.
      */
     public static function validarElementoEnLista($elementoElegido, $aOpciones) {   //NO TIENE SENTIDO HACER UNA LISTA NO OBLIGATORIA
@@ -403,6 +440,9 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
     }
 
     /**
+     * Función que comprueba que algo es un teléfono.
+     * 
+     * Función que comprueba que algo es un teléfono y devuelve un mensaje de error en caso de que no sea así.
      * @function validaTelefono(); 
      * @author Tania Mateos
      * @version 1.3 Modificada la comprobación de si está vacio. Modificada la devolución de la función, ahora devuelve nada o un mensaje de error.
@@ -424,5 +464,3 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
         return $mensaje; 
     }
 }
-
-?>

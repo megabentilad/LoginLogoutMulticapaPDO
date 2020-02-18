@@ -1,4 +1,11 @@
 <?php
+/**
+ * Useless function
+ * 
+ * Soy un fichero, jopé
+ * @package POO-LMR
+ * @author Luis Mateo Rivera Uriarte
+ */
 unset($_SESSION['DAW215LoginLogoutPOOUsuarioGestionar']);
 if(isset($_REQUEST['codigoModificarBorrar'])){
     $_SESSION['DAW215LLPaginaAnterior'] = $_SESSION['DAW215LLPagina'];

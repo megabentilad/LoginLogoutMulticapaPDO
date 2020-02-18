@@ -1,14 +1,18 @@
 <?php
 /**
+ * Useless function
+ * 
+ * Soy un fichero, jopé
+ */
+/**
  * Clas que conecta con la base de datos
  *
  * Clas que conecta con la base de datos recibiendo una consulta preparada (string) y los parámetros que se le asocian (array)
  * @author Luis Mateo Rivera Uriarte
  * @version 1.0
- * @package miPakage
+ * @package POO-LMR
  * @since 14/02/2020
  */
-
 class BDPDO{
     //Copiado de David
     /**
@@ -35,5 +39,4 @@ class BDPDO{
         }
         return $resultado;
     }
-
 }

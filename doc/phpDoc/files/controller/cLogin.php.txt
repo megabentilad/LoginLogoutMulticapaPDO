@@ -1,4 +1,11 @@
 <?php
+/**
+ * Useless function
+ * 
+ * Soy un fichero, jopé
+ * @package POO-LMR
+ * @author Luis Mateo Rivera Uriarte
+ */
 //Las inicializo porque esta es la primera página que ves e la aplicación
 $_SESSION['DAW215LLPagina'] = "login";
 $_SESSION['DAW215LLPaginaAnterior'] = "login";

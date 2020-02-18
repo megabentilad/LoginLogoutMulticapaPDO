@@ -1,29 +1,28 @@
 <?php
-
+/**
+ * Useless function
+ * 
+ * Soy un fichero, jopé
+ */
 /**
  * Class REST
  *
- * Clase que contiene todos los métodos de apiREST
- *
  * Clase que contiene todos los métodos de apiREST necesarios para utilizar apis externas
- *
  * @author Luis Mateo Rivera Uriarte
- * @version 1.0
- *
+ * @version 1.0 Cosas de apiREST
+ * @package POO-LMR
  */
-
 class REST {
 
     /**
      * Función que obtiene los datos de un pokemon.
      * 
      * Función que obtiene los datos de un pokemon y los guarda en un array.
-     * 
      * @function pokemonApiREST();
      * @author Luis Mateo Rivera Uriarte
      * @version 1.0 Funciona y hace lo que debe hacer.
-     * @param $pokemon ID o nombre del pokemon que se busca.
-     * @return Pokemon
+     * @param string $pokemon ID o nombre del pokemon que se busca.
+     * @return Pokemon Devuelve un objeto pokemon con los datos correspondientes.
      **/
     public static function pokemonApiREST($pokemon){
         $curl = curl_init(); //Iniciamos el curl
@@ -67,40 +66,20 @@ class REST {
                 }
                 $_SESSION['DAW215LLBusquedaPokemonGenero'] = "hembra";
             }
-
             $oPokemon = new Pokemon($resultadoFinal["name"], $resultadoFinal["id"], $sprite1, $sprite2);
-
             return $oPokemon;
         }
     }
-    
-//    public static function twitterApiREST($nombre){
-//        $curl = curl_init();
-//        $url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" . $nombre . "&count=2";
-//
-//        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-//        curl_setopt($curl, CURLOPT_USERPWD, "user:password");
-//
-//        curl_setopt($curl, CURLOPT_URL, $url);
-//        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-//
-//        $result = curl_exec($curl);
-//
-//        curl_close($curl);
-//
-//        return $result;
-//    }
     
     /**
      * Función que obtiene los datos de un departamento.
      * 
      * Función que obtiene los datos de un departamento de esta misma aplicación.
-     * 
      * @function propioApiREST();
      * @author Luis Mateo Rivera Uriarte
      * @version 1.0 Funciona y hace lo que debe hacer.
-     * @param $codDepartamento código del departamento que se busca.
-     * @return int
+     * @param string $codDepartamento Código del departamento que se busca.
+     * @return float Devuelve el volumen de negocio de ese departamento.
      **/
     public static function propioApiREST($codDepartamento){
         $curl = curl_init(); //Iniciamos el curl
@@ -120,7 +99,7 @@ class REST {
 
 
 
-/*
+/*      Función base para leer apiREST
  function apiREST($method, $url, $data = false){
     $curl = curl_init();
 
