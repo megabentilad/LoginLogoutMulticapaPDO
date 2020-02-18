@@ -1,4 +1,4 @@
-<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" autocomplete="off">
     <fieldset>
         <div class="obligatorio">
             <label for="cod">Codigo del departamento: </label>
@@ -19,6 +19,18 @@
             <input type="text" id="vol" name="vol" placeholder="Volumen" width="10" height="20" value="<?php if (isset($_POST['vol'])) {
     echo $_POST['vol'];
 } ?>"><br>   
+        </div>
+        <br/>
+        <div class="obligatorio">
+            <label for="cp">Código postal: </label>
+            <input type="text" id="cp" name="cp" placeholder="05021" width="10" height="20" maxlength="5" minlength="5" value="<?php if (isset($_POST['cp'])) {
+    echo $_POST['cp'];
+} ?>"><br>   
+        </div>
+        <br/>
+        <div class="obligatorio">
+            <label for="provincia">Provincia: </label>
+            <input type="text" id="provincia" placeholder="Asturias" name="provincia" width="10" height="20" value="" readonly><br>   
         </div>
         <br/>
         <div>
@@ -42,6 +54,12 @@ if ($aErrores['desc'] != NULL) {
         ?>
     <div class="error" id="evol">
     <?php echo $aErrores['vol']; //Mensaje de error que tiene el array aErrores    ?>
+    </div> 
+<?php } 
+if ($aErrores['cp'] != NULL) {
+        ?>
+    <div class="error" id="ecp">
+    <?php echo $aErrores['cp']; //Mensaje de error que tiene el array aErrores    ?>
     </div> 
 <?php } 
 

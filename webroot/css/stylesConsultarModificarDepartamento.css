@@ -9,7 +9,7 @@ label{
 input{
     font-size: 20px;
 }
-#cod, #vol, #desc, #creacion, #baja{
+#cod, #vol, #desc, #creacion, #baja, #provincia{
     width: 250px;
     height: 40px;
     border-radius: 10px;

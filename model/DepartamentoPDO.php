@@ -30,7 +30,7 @@ class DepartamentoPDO{
         $resultadoConsulta = BDPDO::ejecutarConsulta($consulta, [$codDepartamento]);
         if($resultadoConsulta->rowCount() != 0){
             $resultadoFormateado = $resultadoConsulta->fetchObject();
-            $objetoDepartamento = new Departamento($resultadoFormateado->T02_CodDepartamento, $resultadoFormateado->T02_DescDepartamento, $resultadoFormateado->T02_VolumenNegocio, $resultadoFormateado->T02_FechaCreacionDepartamento, $resultadoFormateado->T02_FechaBajaDepartamento);
+            $objetoDepartamento = new Departamento($resultadoFormateado->T02_CodDepartamento, $resultadoFormateado->T02_DescDepartamento, $resultadoFormateado->T02_VolumenNegocio, $resultadoFormateado->T02_FechaCreacionDepartamento, $resultadoFormateado->T02_FechaBajaDepartamento, $resultadoFormateado->T02_Provincia);
             return $objetoDepartamento;
         } 
         return null;
@@ -81,7 +81,7 @@ class DepartamentoPDO{
         if($resultadoConsulta->rowCount() != 0){
             for($i = 0; $i < $resultadoConsulta->rowCount(); $i++){
                 $resultadoFormateado = $resultadoConsulta->fetchObject();
-                $objetoDepartamento = new Departamento($resultadoFormateado->T02_CodDepartamento, $resultadoFormateado->T02_DescDepartamento, $resultadoFormateado->T02_VolumenNegocio, $resultadoFormateado->T02_FechaCreacionDepartamento, $resultadoFormateado->T02_FechaBajaDepartamento);
+                $objetoDepartamento = new Departamento($resultadoFormateado->T02_CodDepartamento, $resultadoFormateado->T02_DescDepartamento, $resultadoFormateado->T02_VolumenNegocio, $resultadoFormateado->T02_FechaCreacionDepartamento, $resultadoFormateado->T02_FechaBajaDepartamento, $resultadoFormateado->T02_Provincia);
                 array_push($arrayDepartamentos, $objetoDepartamento);
             }
         }
@@ -98,10 +98,11 @@ class DepartamentoPDO{
      * @param string $codDepartamento Código del departamento a utilizar.
      * @param string $descDepartamento Descripción del departamento a utilizar.
      * @param float $vol Volumen del departamento a aplicar.
+     * @param int $cp Código postal de la provincia a la que pertenece.
      **/
-    public static function altaDepartamento($codDepartamento, $descDepartamento, $vol){
-        $consulta = "INSERT INTO T02_Departamento(T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES(?,?,". time() .",?);";
-        BDPDO::ejecutarConsulta($consulta, [$codDepartamento, $descDepartamento, $vol]);
+    public static function altaDepartamento($codDepartamento, $descDepartamento, $vol, $cp){
+        $consulta = "INSERT INTO T02_Departamento(T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio, T02_Provincia) VALUES(?,?,". time() .",?,?);";
+        BDPDO::ejecutarConsulta($consulta, [$codDepartamento, $descDepartamento, $vol, $cp]);
     }
     /**
      * Función que elimina un Departamento.
@@ -181,6 +182,8 @@ class DepartamentoPDO{
     }
     
     /*AJAX*/
+    
+    
     /**
      * Función que devuelve descripciones.
      * 
@@ -202,6 +205,30 @@ class DepartamentoPDO{
                 );
             }
             echo json_encode($aDescripciones); //Mostramos el resultado en formato json para que ayax pueda leerlo
+        }
+    }
+    
+    /**
+     * Función que devuelve la provincia.
+     * 
+     * Función que devuelve la provincia para que ayax pueda leerlo y utilizarlo en AltaDepartamento y en ModificarDepartamento.
+     * @function sacarDescripciones();
+     * @author Luis Mateo Rivera Uriarte
+     * @version 1.0 Funciona y hace lo que debe hacer.
+     * @param string $cp Código postal a busca.
+     **/
+    public static function sacarProvincia($cp){
+        $consulta="select T03_provincia from T03_Provincias where T03_id = ?;";
+        $resultado = BDPDO::ejecutarConsulta($consulta, [$cp]);
+        if ($resultado->rowCount() != 0) {
+            $aProvincia = array();
+            while ($resultadoFormateado = $resultado->fetchObject()) { //metemos en un array todas las descripciones de departamentos
+                $provincia = $resultadoFormateado->T03_provincia;
+                $aProvincia[] = array(
+                    "provincia" => $provincia
+                );
+            }
+            echo json_encode($aProvincia); //Mostramos el resultado en formato json para que ayax pueda leerlo
         }
     }
 }

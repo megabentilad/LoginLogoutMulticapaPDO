@@ -8,12 +8,15 @@ label{
 input{
     font-size: 20px;
 }
-#cod, #vol, #desc{
+#cod, #vol, #desc, #cp, #provincia{
     width: 250px;
     height: 40px;
     border-radius: 10px;
     font-size: 20px;
     float: right;
+}
+#provincia{
+    background-color: lightgray;
 }
 .obligatorio{
     height: 50px;
@@ -34,6 +37,9 @@ input{
 }
 #evol{
     top: 295px;
+}
+#ecp{
+    top: 355px;
 }
 .volver{
     position: absolute;

@@ -16,6 +16,11 @@
                     </div>
                     <br/>
                     <div class="obligatorio">
+                        <label for="vol">Provincia: </label> 
+                        <input type="text" id="provincia" name="provincia" value="<?php echo $_SESSION['DAW215LoginLogoutPOODepartamento']->getCp(); ?>" disabled><br>      
+                    </div>
+                    <br/>
+                    <div class="obligatorio">
                         <label for="creacion">Fecha de creación del departamento: </label> 
                         <input type="text" id="creacion" name="creacion" value="<?php echo date('d/m/Y - H:i:s',$_SESSION['DAW215LoginLogoutPOODepartamento']->getFechaCreacionDepartamento()); ?>" disabled><br>        
                     </div>

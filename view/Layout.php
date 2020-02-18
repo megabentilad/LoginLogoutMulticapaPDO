@@ -42,6 +42,10 @@
         <script src="webroot/js/script.js"></script>
         <?php
         if($vista == "view/vMtoDepartamentos.php"){echo '<script src="webroot/js/scriptMtoDepartamentos.js"></script>';}?>
+        <?php
+        if($vista == "view/vAltaDepartamento.php"){echo '<script src="webroot/js/scriptAltaDepartamento.js"></script>';}?>
+        <?php
+        if($vista == "view/vConsultarModificarDepartamento.php"){echo '<script src="webroot/js/scriptConsultarModificarDepartamento.js"></script>';}?>
     </head>
     <body>
         <header>

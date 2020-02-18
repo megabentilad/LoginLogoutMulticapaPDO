@@ -9,13 +9,12 @@
 -- Base de datos a usar
 USE DAW215LoginLogoutMulticapaPDO;
 
-
-INSERT INTO T02_Departamento(T02_CodDepartamento,T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES
-    ('INF', 'Departamento de informatica', 1580036552, 50),
-    ('VEN', 'Departamento de ventas', 1580036552, 92),
-    ('CON', 'Departamento de contabilidad', 1580036552, 125.3),
-    ('MAT', 'Departamento de matematicas', 1580036552, 78),
-    ('CAT', 'Departamento de gatos', 1580036552, 235.93);
+INSERT INTO T02_Departamento(T02_CodDepartamento,T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio, T02_Provincia) VALUES
+    ('INF', 'Departamento de informatica', 1580036552, 50, 15),
+    ('VEN', 'Departamento de ventas', 1580036552, 92, 45),
+    ('CON', 'Departamento de contabilidad', 1580036552, 125.3, 3),
+    ('MAT', 'Departamento de matematicas', 1580036552, 78, 9),
+    ('CAT', 'Departamento de gatos', 1580036552, 235.93, 24);
 -- 1580036552 -> 26-enero-2020 ~12:00 --
 
 -- El tipo de usuario es "usuario" como predeterminado --
