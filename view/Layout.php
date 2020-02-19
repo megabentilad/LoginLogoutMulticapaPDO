@@ -81,6 +81,9 @@
                 <a href="doc/phpDoc/index.html" target="_blank">
                     <img src="webroot/img/phpDoc.png" class="iconoFooter3"  title="phpDoc">
                 </a>
+                <a href="doc/CV-LuisMateoRiveraUriarte.pdf" target="_blank">
+                    <img src="webroot/img/CV.png" class="iconoFooter4"  title="CV">
+                </a>
             </p>
         </footer>
     </body>

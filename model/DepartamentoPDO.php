@@ -218,7 +218,7 @@ class DepartamentoPDO{
      * @param string $cp Código postal a busca.
      **/
     public static function sacarProvincia($cp){
-        $consulta="select T03_provincia from T03_Provincias where T03_id = ?;";
+        $consulta="select T03_provincia from T03_Provincias where T03_id_provincia = ?;";
         $resultado = BDPDO::ejecutarConsulta($consulta, [$cp]);
         if ($resultado->rowCount() != 0) {
             $aProvincia = array();

@@ -1,4 +1,8 @@
 $(function (){
+    console.log("Hola María, no acabo de entender lo de la clave foranea así que, si bien, funciona correctamente, está mal diseñado.");
+    console.log("La tabla T02_Provincia (DEPARTAMENTOS) tiene cómo clave foranea la tabla T03_id (PROVINCIAS)");
+    console.log("El problema de esto es que, por ejemplo, 49 no corresponde con Zamora. ESTÁ SOLUCIONADO");
+    console.log("Es una chapuza, pero funciona");
     $('#cp').on('keyup',mostrarProvincia);
     function mostrarProvincia(){
         var valorEscrito = $('#cp').val();

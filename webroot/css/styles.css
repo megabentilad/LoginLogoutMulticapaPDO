@@ -61,7 +61,7 @@ form{
 .images{
     text-align: center;
 }
-.iconoFooter, .iconoFooter2, .iconoFooter3{
+.iconoFooter, .iconoFooter2, .iconoFooter3, .iconoFooter4{
     width: 2vw;
     opacity: 0.8;    
     position: fixed;
@@ -79,7 +79,12 @@ form{
     left: 15vw;
     top: 94.5vh;
 }
-.iconoFooter:hover, .iconoFooter2:hover, iconoFooter3:hover{
+.iconoFooter4{
+    width: 2.5vw;
+    left: 20vw;
+    top: 94.5vh;
+}
+.iconoFooter:hover, .iconoFooter2:hover, .iconoFooter3:hover, .iconoFooter4:hover{
     opacity: 1;
 }
 .bandera{
