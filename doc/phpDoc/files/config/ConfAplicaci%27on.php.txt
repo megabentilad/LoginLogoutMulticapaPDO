@@ -2,12 +2,16 @@
 /**
  * Documento de la aconfiguración (Modelo).
  *
- * Documento de la configuración que inclulle todo el código en cada recarga de la página.
+ * Documento de la configuración que incluye todo el código en cada recarga de la página.
  * @author Luis Mateo Rivera Uriarte
  * @version 1.0
  * @package POO-LMR
  */
 /*Totalmente basado (por no decir copiado) en David*/
+
+define("APIPROPIA", "http://daw215.sauces.local/proyectoDWES/loginLogoutPOO/api/apiREST.php?codigo="); //desarrollo
+//define("APIPROPIA", "http://daw215.sauces.es/api/apiREST.php?codigo=");  //explotación
+
 include_once 'core/ValidaForms.php';
 
 include_once 'model/BDPDO.php';

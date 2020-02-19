@@ -38,6 +38,11 @@ class Departamento{
      * @var int $fechaBajaDepartamento Descripción que me da pereza escribir.
      */
     private $fechaBajaDepartamento;
+    /**
+     *
+     * @var int $cp Descripción que me da pereza escribir.
+     */
+    private $cp;
     
     /**
      * Constructor.
@@ -52,13 +57,15 @@ class Departamento{
      * @param $volumenNegocio
      * @param $fechaCreacionDepartamento
      * @param $fechaBajaDepartamento
+     * @param $cp
      **/
-    function __construct($codDepartamento, $descDepartamento, $volumenNegocio, $fechaCreacionDepartamento, $fechaBajaDepartamento) {
+    function __construct($codDepartamento, $descDepartamento, $volumenNegocio, $fechaCreacionDepartamento, $fechaBajaDepartamento, $cp) {
         $this->codDepartamento = $codDepartamento;
         $this->descDepartamento = $descDepartamento;
         $this->volumenNegocio = $volumenNegocio;
         $this->fechaCreacionDepartamento = $fechaCreacionDepartamento;
         $this->fechaBajaDepartamento = $fechaBajaDepartamento;
+        $this->cp = $cp;
     }
     /**
      * Get de un valor.
@@ -119,6 +126,18 @@ class Departamento{
      **/
     function getFechaBajaDepartamento() {
         return $this->fechaBajaDepartamento;
+    }
+    /**
+     * Get de un valor.
+     * 
+     * Pues eso, no hay más, es el get de un valor.
+     * @function getVolumenNegocio();
+     * @author Luis Mateo Rivera Uriarte
+     * @since 2020-01-26
+     * @return int Devuelve el código postal de la provincia a la que pertenece.
+     **/
+    function getCp() {
+        return $this->cp;
     }
     /**
      * Set para un valor.

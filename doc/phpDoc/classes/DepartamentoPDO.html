@@ -126,9 +126,9 @@
 <div id="___" class="container-fluid">    <section class="row-fluid">
         <div class="span2 sidebar">    <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
-            <div class="accordion-heading">                    <a class="accordion-toggle" data-toggle="collapse" data-target="#namespace-1563032577"></a>                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            <div class="accordion-heading">                    <a class="accordion-toggle" data-toggle="collapse" data-target="#namespace-1912123817"></a>                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1563032577" class="accordion-body collapsein">
+            <div id="namespace-1912123817" class="accordion-body collapsein">
                 <div class="accordion-inner">
                     <ul>                            <li class="class"><a href="../classes/BDPDO.html">BDPDO</a></li>                            <li class="class"><a href="../classes/Departamento.html">Departamento</a></li>                            <li class="class"><a href="../classes/DepartamentoPDO.html">DepartamentoPDO</a></li>                            <li class="class"><a href="../classes/Pokemon.html">Pokemon</a></li>                            <li class="class"><a href="../classes/REST.html">REST</a></li>                            <li class="class"><a href="../classes/Usuario.html">Usuario</a></li>                            <li class="class"><a href="../classes/UsuarioPDO.html">UsuarioPDO</a></li>                            <li class="class"><a href="../classes/validacionFormularios.html">validacionFormularios</a></li>                    </ul>
                 </div>
@@ -160,7 +160,7 @@
                             </section>
                         </section>
                         <section class="row-fluid public">
-                            <section class="span4">                                    <a href="../classes/DepartamentoPDO.html#method_buscarDepartamentoPorCodigo" class="">buscarDepartamentoPorCodigo()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_buscarDepartamentosPorDescripcion" class="">buscarDepartamentosPorDescripcion()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_altaDepartamento" class="">altaDepartamento()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_bajaFisicaDepartamento" class="">bajaFisicaDepartamento()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_bajaLogicaDepartamento" class="">bajaLogicaDepartamento()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_modificaDepartamento" class="">modificaDepartamento()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_rehabilitaDepartamento" class="">rehabilitaDepartamento()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_validaCodNoExiste" class="">validaCodNoExiste()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_sacarDescripciones" class="">sacarDescripciones()</a><br />                            </section>
+                            <section class="span4">                                    <a href="../classes/DepartamentoPDO.html#method_buscarDepartamentoPorCodigo" class="">buscarDepartamentoPorCodigo()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_buscarDepartamentosPorDescripcion" class="">buscarDepartamentosPorDescripcion()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_altaDepartamento" class="">altaDepartamento()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_bajaFisicaDepartamento" class="">bajaFisicaDepartamento()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_bajaLogicaDepartamento" class="">bajaLogicaDepartamento()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_modificaDepartamento" class="">modificaDepartamento()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_rehabilitaDepartamento" class="">rehabilitaDepartamento()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_validaCodNoExiste" class="">validaCodNoExiste()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_sacarDescripciones" class="">sacarDescripciones()</a><br />                                    <a href="../classes/DepartamentoPDO.html#method_sacarProvincia" class="">sacarProvincia()</a><br />                            </section>
                             <section class="span4">                                    <em>No public properties found</em>                            </section>
                             <section class="span4">                                    <em>No constants found</em>                            </section>
                         </section>
@@ -282,7 +282,7 @@ Warning: count(): Parameter must be an array or an object that implements Counta
             <article class="method">
                 <h3 class="public">altaDepartamento()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">altaDepartamento(string  <span class="argument">$codDepartamento</span>,string  <span class="argument">$descDepartamento</span>,float  <span class="argument">$vol</span>)</pre>
+                <pre class="signature" style="margin-right: 54px;">altaDepartamento(string  <span class="argument">$codDepartamento</span>,string  <span class="argument">$descDepartamento</span>,float  <span class="argument">$vol</span>,integer  <span class="argument">$cp</span>)</pre>
                 <p><em>Función que da de alta un Departamento.</em></p><p>Función que da de alta un Departamento en la base de datos a partir de un código, una descripción y un volumen de negocio.</p>                    <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">                            <tr>
                                 <td>string</td>
@@ -296,6 +296,10 @@ Warning: count(): Parameter must be an array or an object that implements Counta
                                 <td>float</td>
                                 <td>$vol</td>
                                 <td><p>Volumen del departamento a aplicar.</p></td>
+                            </tr>                            <tr>
+                                <td>integer</td>
+                                <td>$cp</td>
+                                <td><p>Código postal de la provincia a la que pertenece.</p></td>
                             </tr>                    </table>
 Warning: count(): Parameter must be an array or an object that implements Countable in phar://I:/phpDocumentor/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1376
 
@@ -537,6 +541,41 @@ Warning: count(): Parameter must be an array or an object that implements Counta
                         <td>1.0<p>Funciona y hace lo que debe hacer.</p>                        </td>
                     </tr>            </table>
         </aside>
+    </div>    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_sacarProvincia" name="method_sacarProvincia" class="anchor"></a>
+            <article class="method">
+                <h3 class="public">sacarProvincia()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">sacarProvincia(string  <span class="argument">$cp</span>)</pre>
+                <p><em>Función que devuelve la provincia.</em></p><p>Función que devuelve la provincia para que ayax pueda leerlo y utilizarlo en AltaDepartamento y en ModificarDepartamento.</p>                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">                            <tr>
+                                <td>string</td>
+                                <td>$cp</td>
+                                <td><p>Código postal a busca.</p></td>
+                            </tr>                    </table>
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://I:/phpDocumentor/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1376
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://I:/phpDocumentor/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1376
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>                <span class="label label-info">static</span>            <dl>            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">                    <tr>
+                        <th>function
+                        </th>
+                        <td><p>sacarDescripciones();</p>                        </td>
+                    </tr>                    <tr>
+                        <th>author
+                        </th>
+                        <td><p>Luis Mateo Rivera Uriarte</p>                        </td>
+                    </tr>                    <tr>
+                        <th>version
+                        </th>
+                        <td>1.0<p>Funciona y hace lo que debe hacer.</p>                        </td>
+                    </tr>            </table>
+        </aside>
     </div>        </div>
     </section>
 
@@ -581,7 +620,7 @@ Warning: count(): Parameter must be an array or an object that implements Counta
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    onFebruary 18th, 2020 at 12:17.
+                    onFebruary 19th, 2020 at 08:32.
                 </section>
             </section>
         </section>

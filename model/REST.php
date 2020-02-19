@@ -83,7 +83,7 @@ class REST {
      **/
     public static function propioApiREST($codDepartamento){
         $curl = curl_init(); //Iniciamos el curl
-        $url = "http://daw215.sauces.local/proyectoDWES/loginLogoutPOO/api/apiREST.php?codigo=" . $codDepartamento;  //Preparamos la url de la api con el departamento que buscamos
+        $url = APIPROPIA . $codDepartamento;  //Preparamos la url de la api con el departamento que buscamos
 
         curl_setopt($curl, CURLOPT_URL, $url); //Le decimos que queremos los datos de esa url
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); //le decimos que lo guarde en "curl_exec" en vez de mostrarlo

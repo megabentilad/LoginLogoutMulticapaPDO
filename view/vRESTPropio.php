@@ -1,7 +1,7 @@
 <h3>Cómo usar mi api</h3>
 <p>La utilización de mi api es MUY sencilla. Solo debes seguir un par de pasos :D</p>
 <ol>
-    <li>A la api se la llama de la siguiente manera: <b>http://daw215.sauces.local/proyectoDWES/loginLogoutPOO/api/apiREST.php?codigo=<mark>{código de departamento}</mark></b></li>
+    <li>A la api se la llama de la siguiente manera: <b><?php echo APIPROPIA; ?><mark>{código de departamento}</mark></b></li>
     <br/>
     <li>La llamada a la api <u><b>devuelve el valor bruto del volumen o null</b></u> si no ha encontrado el departamento</li>
     <br/>
@@ -14,7 +14,7 @@
     <pre>
     public static function propioApiREST($codDepartamento){
         $curl = curl_init(); //Iniciamos el curl
-        $url = "http://daw215.sauces.local/proyectoDWES/loginLogoutPOO/api/apiREST.php?codigo=" . $codDepartamento;  //Preparamos la url de la api con el departamento que buscamos
+        $url = <?php echo APIPROPIA; ?> . $codDepartamento;  //Preparamos la url de la api con el departamento que buscamos
 
         curl_setopt($curl, CURLOPT_URL, $url); //Le decimos que queremos los datos de esa url
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); //le decimos que lo guarde en "curl_exec" en vez de mostrarlo
